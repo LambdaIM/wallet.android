@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical"
+    tools:context="com.lambda.wallet.modules.me.setting.SettingActivity">
+
+    <include layout="@layout/title_project"/>
+
+    <TextView
+        android:id="@+id/change_chain"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_65"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:background="@color/white"
+        android:drawablePadding="@dimen/dimens_10"
+        android:drawableRight="@mipmap/more"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dimens_15"
+        android:paddingRight="@dimen/dimens_15"
+        android:text="@string/change_chain"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/dimens_16"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"
+        android:background="@color/line"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_65"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_50"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dimens_15"
+            android:layout_marginRight="@dimen/dimens_15"
+            android:drawablePadding="@dimen/dimens_10"
+            android:gravity="center_vertical"
+            android:text="@string/version"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/dimens_16"/>
+
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="@dimen/dimens_30"
+            android:text="@string/app_name"
+            android:textColor="@color/txt_color"
+            android:textSize="@dimen/dimens_15"/>
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/change_wallet"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_48"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dimens_10"
+            android:layout_marginLeft="@dimen/dimens_30"
+            android:layout_marginRight="@dimen/dimens_30"
+            android:background="@drawable/bg_sure_btn"
+            android:text="@string/change_wallet"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_15"/>
+    </RelativeLayout>
+</LinearLayout>

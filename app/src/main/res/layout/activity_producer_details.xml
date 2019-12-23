@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context="com.lambda.wallet.modules.producer.ProducerDetailsActivity">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/title_project"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_margin="@dimen/dimens_15"
+        android:background="@drawable/bg_dialog_confirm"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dimens_20"
+        android:paddingLeft="@dimen/dimens_15"
+        android:paddingRight="@dimen/dimens_15"
+        android:paddingTop="@dimen/dimens_20">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimens_15"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="节点昵称："
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_14"/>
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_14"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimens_15"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的质押："
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_14"/>
+
+            <TextView
+                android:id="@+id/my_zhiya"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_14"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimens_15"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的奖励："
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_14"/>
+
+            <TextView
+                android:id="@+id/my_award"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_14"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimens_15"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="质押地址："
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_14"/>
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_14"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimens_15"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="简        介："
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_14"/>
+
+            <TextView
+                android:id="@+id/details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_14"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimens_15"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="节点收益："
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_14"/>
+
+            <TextView
+                android:id="@+id/rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_14"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimens_15"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="最大收益："
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_14"/>
+
+            <TextView
+                android:id="@+id/max_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_14"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimens_15"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="最大收益变化："
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_14"/>
+
+            <TextView
+                android:id="@+id/max_change_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_14"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimens_15"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="投票权重："
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_14"/>
+
+            <TextView
+                android:id="@+id/toupiao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_14"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:padding="@dimen/dimens_15">
+
+        <TextView
+            android:id="@+id/zhiya"
+            android:layout_width="@dimen/dimens_110"
+            android:layout_height="@dimen/dimens_32"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/bg_sure_btn"
+            android:gravity="center"
+            android:text="TBB质押挖矿"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_12"/>
+
+        <TextView
+            android:id="@+id/zhuanzhiya"
+            android:layout_width="@dimen/dimens_85"
+            android:layout_height="@dimen/dimens_32"
+            android:layout_marginRight="@dimen/dimens_10"
+            android:layout_toLeftOf="@+id/zhiya"
+            android:background="@drawable/gray_line_coner"
+            android:gravity="center"
+            android:text="转质押"
+            android:textColor="@color/txt_color"
+            android:textSize="@dimen/dimens_12"/>
+
+        <TextView
+            android:id="@+id/cancel_zhiya"
+            android:layout_width="@dimen/dimens_85"
+            android:layout_height="@dimen/dimens_32"
+            android:layout_marginRight="@dimen/dimens_10"
+            android:layout_toLeftOf="@+id/zhuanzhiya"
+            android:background="@drawable/gray_line_coner"
+            android:gravity="center"
+            android:text="取消质押"
+            android:textColor="@color/txt_color"
+            android:textSize="@dimen/dimens_12"/>
+    </RelativeLayout>
+
+</RelativeLayout>

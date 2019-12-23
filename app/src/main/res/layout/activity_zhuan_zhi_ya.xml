@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.lambda.wallet.modules.zhiyamanger.zhuanzhiya.ZhuanZhiYaActivity">
+
+
+    <include layout="@layout/title_project"/>
+
+    <com.lambda.wallet.view.MyScrollview
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:paddingLeft="@dimen/dimens_15"
+        android:paddingRight="@dimen/dimens_15"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_20"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dimens_20">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_15"
+                android:text="@string/sender"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_16"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/from_address"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48"
+                android:background="@drawable/bg_gray_confirm"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
+                android:text="@string/app_name"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_15"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_15"
+                android:layout_marginTop="@dimen/dimens_15"
+                android:text="@string/old_producer"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_16"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/old_address"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48"
+                android:background="@drawable/bg_gray_confirm"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
+                android:text="@string/app_name"
+                android:textColor="@color/title_color"
+                android:textCursorDrawable="@drawable/edittext_cursor"
+                android:textSize="@dimen/dimens_15"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_15"
+                android:layout_marginTop="@dimen/dimens_15"
+                android:text="@string/new_producer"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_16"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/new_address"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48"
+                android:background="@drawable/bg_gray_confirm"
+                android:drawableRight="@mipmap/drop_down"
+                android:gravity="center_vertical"
+                android:hint="@string/hint_new_producer"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_15"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/dimens_10"
+                    android:paddingBottom="@dimen/dimens_15"
+                    android:paddingTop="@dimen/dimens_15"
+                    android:text="@string/input_amount_tbb"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_16"
+                    android:textStyle="bold"/>
+
+            </RelativeLayout>
+
+
+            <com.lambda.wallet.view.ClearEditText
+                android:id="@+id/amount"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48"
+                android:background="@drawable/bg_gray_confirm"
+                android:hint="@string/hint_input_amount"
+                android:inputType="numberDecimal"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
+                android:textColor="@color/title_color"
+                android:textCursorDrawable="@drawable/edittext_cursor"
+                android:textSize="@dimen/dimens_15"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimens_10"
+                android:lineSpacingExtra="@dimen/dimens_8"
+                android:lineSpacingMultiplier="1.2"
+                android:paddingBottom="@dimen/dimens_15"
+                android:paddingTop="@dimen/dimens_20"
+                android:text="@string/zhuan_zhiya_attention"
+                android:textColor="@color/red_color"
+                android:textSize="@dimen/dimens_12"/>
+
+            <Button
+                android:id="@+id/go"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48"
+                android:layout_marginBottom="@dimen/dimens_10"
+                android:layout_marginLeft="@dimen/dimens_30"
+                android:layout_marginRight="@dimen/dimens_30"
+                android:layout_marginTop="@dimen/dimens_50"
+                android:background="@drawable/bg_sure_btn"
+                android:text="@string/sure"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimens_15"/>
+        </LinearLayout>
+    </com.lambda.wallet.view.MyScrollview>
+
+</LinearLayout>

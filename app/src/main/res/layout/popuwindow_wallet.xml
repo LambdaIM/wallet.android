@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/wallet_list"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_200"
+        android:layout_marginLeft="@dimen/dimens_32"
+        android:layout_marginRight="@dimen/dimens_32"
+        android:overScrollMode="never"
+        android:scrollbars="vertical"/>
+
+</LinearLayout>

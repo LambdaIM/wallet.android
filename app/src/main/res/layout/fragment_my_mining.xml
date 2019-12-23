@@ -1,0 +1,18 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.lambda.wallet.modules.mining.storemining.fragment.mymining.MyMiningFragment">
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimens_15"
+        android:overScrollMode="never"
+        android:scrollbars="none"/>
+
+</LinearLayout>

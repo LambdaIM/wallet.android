@@ -1,0 +1,211 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical"
+    tools:context="com.lambda.wallet.modules.mining.MiningFragment">
+
+    <View
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_0"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/white"
+        android:gravity="center"
+        android:paddingBottom="@dimen/dimens_15"
+        android:paddingTop="@dimen/dimens_30"
+        android:text="@string/tab_mining"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/dimens_17"
+        android:textStyle="bold"/>
+
+    <com.liaoinstan.springview.widget.SpringView
+        android:id="@+id/spring"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.lambda.wallet.view.MyScrollview
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:focusable="true"
+                android:focusableInTouchMode="true" >
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimens_15"
+                    android:background="@drawable/bg_dialog_confirm"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimens_15">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/txt1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/can_get_award_lamb"
+                            android:textColor="@color/title_color"
+                            android:textSize="@dimen/dimens_15"/>
+
+                        <TextView
+                            android:id="@+id/award"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txt1"
+                            android:layout_marginTop="@dimen/dimens_10"
+                            android:text="0"
+                            android:textColor="@color/title_color"
+                            android:textSize="@dimen/dimens_19"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/go_award"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/dimens_10"
+                            android:padding="@dimen/dimens_15"
+                            android:text="@string/take_out_zhiya_award"
+                            android:textColor="@color/theme_color"
+                            android:textSize="@dimen/dimens_14"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimens_15">
+
+                        <TextView
+                            android:id="@+id/txt2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/zhiya_all_amount"
+                            android:textColor="@color/title_color"
+                            android:textSize="@dimen/dimens_15"/>
+
+                        <TextView
+                            android:id="@+id/zhiya"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txt2"
+                            android:text="0"
+                            android:layout_marginTop="@dimen/dimens_10"
+                            android:textColor="@color/title_color"
+                            android:textSize="@dimen/dimens_19"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/go_zhiya"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/dimens_10"
+                            android:padding="@dimen/dimens_15"
+                            android:text="@string/zhiya_details"
+                            android:textColor="@color/theme_color"
+                            android:textSize="@dimen/dimens_14"/>
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimens_15"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/txt3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/transaction_storage_capacity"
+                            android:textColor="@color/title_color"
+                            android:textSize="@dimen/dimens_15"/>
+
+                        <TextView
+                            android:id="@+id/store"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txt3"
+                            android:layout_marginTop="@dimen/dimens_10"
+                            android:text="@string/app_name"
+                            android:textColor="@color/title_color"
+                            android:textSize="@dimen/dimens_19"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/go_store"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/dimens_10"
+                            android:padding="@dimen/dimens_15"
+                            android:text="@string/order_details"
+                            android:textColor="@color/theme_color"
+                            android:textSize="@dimen/dimens_14"/>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimens_15"
+                    android:layout_marginLeft="@dimen/dimens_15"
+                    android:layout_marginRight="@dimen/dimens_15"
+                    android:background="@drawable/bg_dialog_confirm"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimens_15">
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/producer_list"
+                        android:textColor="@color/title_color"
+                        android:textSize="@dimen/dimens_15"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimens_1"
+                        android:layout_marginBottom="@dimen/dimens_15"
+                        android:layout_marginTop="@dimen/dimens_15"
+                        android:background="@color/line"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/producer_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:overScrollMode="never"
+                            android:scrollbars="none"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.lambda.wallet.view.MyScrollview>
+    </com.liaoinstan.springview.widget.SpringView>
+
+</LinearLayout>

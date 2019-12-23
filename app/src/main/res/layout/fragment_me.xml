@@ -1,0 +1,125 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical"
+    tools:context="com.lambda.wallet.modules.me.MeFragment">
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_180"
+        android:background="@mipmap/me_top"
+        android:gravity="bottom"
+        android:paddingBottom="@dimen/dimens_40">
+
+        <ImageView
+            android:id="@+id/wallet_img"
+            android:layout_width="@dimen/dimens_65"
+            android:layout_height="@dimen/dimens_65"
+            android:layout_marginLeft="@dimen/dimens_20"
+            android:layout_marginRight="@dimen/dimens_20"
+            android:src="@mipmap/defeat_img"/>
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_20"
+            android:layout_toRightOf="@+id/wallet_img"
+            android:text="@string/app_name"
+            android:layout_marginRight="@dimen/dimens_15"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_22"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/go_my_wallet"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_65"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimens_15"
+            android:layout_marginRight="@dimen/dimens_15"
+            android:drawableLeft="@mipmap/icon_wode_qianbao"
+            android:drawablePadding="@dimen/dimens_10"
+            android:drawableRight="@mipmap/more"
+            android:gravity="center_vertical"
+            android:text="@string/wallet_manger"
+            android:textSize="@dimen/dimens_14"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_1"
+            android:background="@color/line"/>
+
+        <TextView
+            android:id="@+id/go_transfer_history"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_65"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimens_15"
+            android:layout_marginRight="@dimen/dimens_15"
+            android:drawableLeft="@mipmap/icon_wode_jiaoyijilu"
+            android:drawablePadding="@dimen/dimens_10"
+            android:drawableRight="@mipmap/more"
+            android:gravity="center_vertical"
+            android:text="@string/transfer_history"
+            android:textSize="@dimen/dimens_14"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_1"
+            android:background="@color/line"/>
+
+        <TextView
+            android:id="@+id/go_proposal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_65"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimens_15"
+            android:layout_marginRight="@dimen/dimens_15"
+            android:drawableLeft="@mipmap/icon_wode_tian"
+            android:drawablePadding="@dimen/dimens_10"
+            android:drawableRight="@mipmap/more"
+            android:gravity="center_vertical"
+            android:text="@string/proposal"
+            android:textSize="@dimen/dimens_14"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_1"
+            android:background="@color/line"/>
+
+        <TextView
+            android:id="@+id/go_settings"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_65"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimens_15"
+            android:layout_marginRight="@dimen/dimens_15"
+            android:drawableLeft="@mipmap/icon_wode_xitong"
+            android:drawablePadding="@dimen/dimens_10"
+            android:drawableRight="@mipmap/more"
+            android:gravity="center_vertical"
+            android:text="@string/settings"
+            android:textSize="@dimen/dimens_14"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_1"
+            android:background="@color/line"/>
+    </LinearLayout>
+</LinearLayout>

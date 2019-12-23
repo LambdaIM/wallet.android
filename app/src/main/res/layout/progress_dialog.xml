@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_dialog_confirm"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/dimens_20"
+    android:paddingLeft="@dimen/dimens_30"
+    android:paddingRight="@dimen/dimens_30"
+    android:paddingTop="@dimen/dimens_20">
+
+    <ProgressBar
+        android:id="@+id/spinnerImageView"
+        android:layout_width="@dimen/dimens_40"
+        android:layout_height="@dimen/dimens_40"
+        android:layout_centerVertical="true"
+        android:indeterminateDrawable="@drawable/app_home_hearder_progress"/>
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimens_20"
+        android:text=""
+        android:textSize="@dimen/dimens_12"
+        android:textColor="@color/title_color"/>
+
+</LinearLayout>

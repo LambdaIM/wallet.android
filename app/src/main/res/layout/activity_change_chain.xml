@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical"
+    tools:context="com.lambda.wallet.modules.me.setting.ChangeChainActivity">
+
+    <include layout="@layout/title_project"/>
+
+    <RelativeLayout
+        android:id="@+id/rel_main_chain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimens_1"
+        android:background="@color/white"
+      android:padding="@dimen/dimens_15">
+
+        <CheckBox
+            android:id="@+id/choose_one"
+            style="@style/CheckBoxTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:checked="true"
+            android:clickable="false"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/main_url"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/dimens_15"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_test_chain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimens_1"
+        android:background="@color/white"
+        android:padding="@dimen/dimens_15">
+
+        <CheckBox
+            android:id="@+id/choose_two"
+            style="@style/CheckBoxTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:checked="false"
+            android:clickable="false"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/test_url"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/dimens_15"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rel_add_chain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimens_1"
+        android:background="@color/white"
+        android:padding="@dimen/dimens_15">
+
+        <CheckBox
+            android:id="@+id/choose_three"
+            style="@style/CheckBoxTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:checked="false"
+            android:clickable="false"/>
+
+        <TextView
+            android:id="@+id/add_chain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/dimens_15"/>
+    </RelativeLayout>
+
+</LinearLayout>

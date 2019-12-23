@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.lambda.wallet.modules.proposal.toupiao.TouPiaoActivity">
+
+    <include layout="@layout/title_project"/>
+
+    <com.lambda.wallet.view.MyScrollview
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:paddingLeft="@dimen/dimens_15"
+        android:paddingRight="@dimen/dimens_15"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_20"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dimens_20">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_15"
+                android:text="@string/sender"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_16"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/from_address"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48"
+                android:background="@drawable/bg_gray_confirm"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
+                android:text="@string/app_name"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_15"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_15"
+                android:layout_marginTop="@dimen/dimens_15"
+                android:text="@string/proposal"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_16"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/ti_an_title"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bg_gray_confirm"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
+                android:text="@string/app_name"
+                android:textColor="@color/title_color"
+                android:textCursorDrawable="@drawable/edittext_cursor"
+                android:textSize="@dimen/dimens_15"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimens_10"
+                android:paddingBottom="@dimen/dimens_15"
+                android:paddingTop="@dimen/dimens_15"
+                android:text="@string/choose_idea"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_16"
+                android:textStyle="bold"/>
+
+            <RelativeLayout
+                android:id="@+id/rel_yes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_15"
+                android:background="@drawable/bg_gray_confirm"
+                android:paddingBottom="@dimen/dimens_10"
+                android:paddingLeft="@dimen/dimens_15"
+                android:paddingRight="@dimen/dimens_15"
+                android:paddingTop="@dimen/dimens_10">
+
+                <CheckBox
+                    android:id="@+id/choose_one"
+                    style="@style/CheckBoxTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:checked="true"
+                    android:clickable="false"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/yes"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_15"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_15"
+                android:background="@drawable/bg_gray_confirm"
+                android:paddingBottom="@dimen/dimens_10"
+                android:paddingLeft="@dimen/dimens_15"
+                android:paddingRight="@dimen/dimens_15"
+                android:paddingTop="@dimen/dimens_10">
+
+                <CheckBox
+                    android:id="@+id/choose_two"
+                    style="@style/CheckBoxTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:checked="false"
+                    android:clickable="false"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/no"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_15"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_no_with_veto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_15"
+                android:background="@drawable/bg_gray_confirm"
+                android:paddingBottom="@dimen/dimens_10"
+                android:paddingLeft="@dimen/dimens_15"
+                android:paddingRight="@dimen/dimens_15"
+                android:paddingTop="@dimen/dimens_10">
+
+                <CheckBox
+                    android:id="@+id/choose_three"
+                    style="@style/CheckBoxTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:checked="false"
+                    android:clickable="false"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/no_with_veto"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_15"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_abstain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_15"
+                android:background="@drawable/bg_gray_confirm"
+                android:paddingBottom="@dimen/dimens_10"
+                android:paddingLeft="@dimen/dimens_15"
+                android:paddingRight="@dimen/dimens_15"
+                android:paddingTop="@dimen/dimens_10">
+
+                <CheckBox
+                    android:id="@+id/choose_four"
+                    style="@style/CheckBoxTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:checked="false"
+                    android:clickable="false"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/abstain"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_15"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimens_10"
+                android:paddingBottom="@dimen/dimens_15"
+                android:paddingTop="@dimen/dimens_20"
+                android:text="@string/toast_choose_idea"
+                android:textColor="@color/red_color"
+                android:textSize="@dimen/dimens_12"/>
+
+            <Button
+                android:id="@+id/go"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48"
+                android:layout_marginBottom="@dimen/dimens_10"
+                android:layout_marginLeft="@dimen/dimens_30"
+                android:layout_marginRight="@dimen/dimens_30"
+                android:layout_marginTop="@dimen/dimens_50"
+                android:background="@drawable/bg_sure_btn"
+                android:text="@string/sure"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimens_15"/>
+        </LinearLayout>
+    </com.lambda.wallet.view.MyScrollview>
+
+</LinearLayout>
