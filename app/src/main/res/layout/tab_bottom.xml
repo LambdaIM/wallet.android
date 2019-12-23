@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/ll_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/dimens_20"
+            android:layout_height="@dimen/dimens_20"
+            android:src="@drawable/home_selected"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@string/tab_home"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/dimens_9"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_mining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/dimens_20"
+            android:layout_height="@dimen/dimens_20"
+            android:src="@drawable/mining_selected"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@string/tab_mining"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/dimens_9"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_me"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/dimens_20"
+            android:layout_height="@dimen/dimens_20"
+            android:src="@drawable/me_selected"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@string/tab_me"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/dimens_9"/>
+    </LinearLayout>
+</LinearLayout>

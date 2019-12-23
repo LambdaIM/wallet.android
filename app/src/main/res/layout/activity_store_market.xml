@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical"
+    tools:context="com.lambda.wallet.modules.mining.storemarket.StoreMarketActivity">
+
+    <include layout="@layout/title_project"/>
+
+    <com.liaoinstan.springview.widget.SpringView
+        android:id="@+id/spring"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.lambda.wallet.view.MyScrollview
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimens_15"
+                    android:background="@drawable/bg_dialog_confirm"
+                    android:fillViewport="true"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimens_15">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/one_step_buy"
+                        android:textColor="@color/title_color"
+                        android:textSize="@dimen/dimens_16"
+                        android:textStyle="bold"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimens_1"
+                        android:layout_marginBottom="@dimen/dimens_15"
+                        android:layout_marginTop="@dimen/dimens_15"
+                        android:background="@color/line"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.lambda.wallet.view.ClearEditText
+                            android:id="@+id/space"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/dimens_5"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_gray_confirm"
+                            android:hint="@string/space"
+                            android:inputType="numberDecimal"
+                            android:padding="@dimen/dimens_15"
+                            android:textColor="@color/title_color"
+                            android:textSize="@dimen/dimens_15"/>
+
+                        <com.lambda.wallet.view.ClearEditText
+                            android:id="@+id/time"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimens_5"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_gray_confirm"
+                            android:hint="@string/time"
+                            android:inputType="numberDecimal"
+                            android:padding="@dimen/dimens_15"
+                            android:textColor="@color/title_color"
+                            android:textSize="@dimen/dimens_15"/>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/go"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="@dimen/dimens_70"
+                        android:layout_height="@dimen/dimens_30"
+                        android:layout_gravity="right"
+                        android:layout_marginBottom="@dimen/dimens_10"
+                        android:layout_marginTop="@dimen/dimens_20"
+                        android:background="@drawable/bg_sure_btn"
+                        android:text="@string/buy"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimens_15"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimens_10"
+                    android:layout_marginLeft="@dimen/dimens_15"
+                    android:layout_marginRight="@dimen/dimens_15"
+                    android:background="@drawable/bg_dialog_confirm"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimens_15">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/other_buy"
+                        android:textColor="@color/title_color"
+                        android:textSize="@dimen/dimens_16"
+                        android:textStyle="bold"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimens_1"
+                        android:layout_marginBottom="@dimen/dimens_15"
+                        android:layout_marginTop="@dimen/dimens_15"
+                        android:background="@color/line"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/sell_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:overScrollMode="never"
+                            android:scrollbars="none"/>
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.lambda.wallet.view.MyScrollview>
+    </com.liaoinstan.springview.widget.SpringView>
+</LinearLayout>

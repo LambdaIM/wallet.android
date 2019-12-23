@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".modules.wallet.mnemonic.CheckMnmonicActivity">
+
+    <include
+        android:id="@+id/top"
+        layout="@layout/title_project"/>
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimens_40"
+        android:layout_marginLeft="@dimen/dimens_15"
+        android:layout_marginRight="@dimen/dimens_15"
+        android:layout_marginTop="@dimen/dimens_30"
+        android:gravity="center"
+        android:layout_below="@+id/top"
+        android:text="@string/check_mnemonic_hint"
+        android:textColor="#4B4D86"
+        android:textSize="@dimen/dimens_16"/>
+    <com.lambda.wallet.view.MyScrollview
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layout_below="@+id/txt"
+        android:layout_above="@+id/go">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/sure_mnemonic_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimens_15"
+            android:layout_marginRight="@dimen/dimens_15"
+            android:background="@drawable/bg_gray_confirm"
+            android:padding="@dimen/dimens_10"
+            android:scrollbars="none"
+           />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mnemonic_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimens_15"
+            android:layout_marginRight="@dimen/dimens_15"
+            android:background="@drawable/bg_gray_confirm"
+            android:padding="@dimen/dimens_10"
+            android:layout_marginTop="@dimen/dimens_15"
+            android:layout_below="@+id/sure_mnemonic_list"
+            android:scrollbars="none"/>
+      </LinearLayout>
+    </com.lambda.wallet.view.MyScrollview>
+
+    <Button
+        android:id="@+id/go"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_48"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dimens_10"
+        android:layout_marginLeft="@dimen/dimens_30"
+        android:layout_marginRight="@dimen/dimens_30"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:background="@drawable/bg_sure_btn"
+        android:text="@string/sure"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimens_15"/>
+</RelativeLayout>

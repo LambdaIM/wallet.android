@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".modules.wallet.creatwallet.CreatWalletActivity">
+
+    <include layout="@layout/title_project"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/dimens_32"
+            android:paddingRight="@dimen/dimens_32">
+            <com.lambda.wallet.view.ClearEditText
+                android:id="@+id/wallet_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48"
+                android:layout_marginTop="@dimen/dimens_50"
+                android:background="@drawable/bg_gray_etd"
+                android:hint="@string/hint_input_wallet_name"
+                android:inputType="text"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_15"/>
+
+            <com.lambda.wallet.view.ClearEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48"
+                android:layout_marginTop="@dimen/dimens_13"
+                android:background="@drawable/bg_gray_etd"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_15"/>
+            <com.lambda.wallet.view.ClearEditText
+                android:id="@+id/password_two"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48"
+                android:layout_marginTop="@dimen/dimens_13"
+                android:background="@drawable/bg_gray_etd"
+                android:hint="@string/hint_input_two_password"
+                android:inputType="textPassword"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_15"/>
+
+            <Button
+                android:id="@+id/go"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48"
+                android:layout_marginTop="@dimen/dimens_80"
+                android:background="@drawable/bg_sure_btn"
+                android:text="@string/sure"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimens_15"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

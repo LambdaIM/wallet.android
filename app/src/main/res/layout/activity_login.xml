@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".modules.wallet.login.LoginActivity">
+
+    <RelativeLayout
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_190"
+        android:layout_gravity="center_horizontal"
+        android:background="@mipmap/image_toubu"/>
+
+    <com.lambda.wallet.view.MyScrollview
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/dimens_32"
+                android:paddingRight="@dimen/dimens_32">
+
+
+                <TextView
+                    android:id="@+id/wallet"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_48"
+                    android:layout_marginTop="@dimen/dimens_40"
+                    android:background="@drawable/bg_gray_etd"
+                    android:drawableLeft="@mipmap/icon_zhanghu"
+                    android:drawablePadding="@dimen/dimens_10"
+                    android:drawableRight="@mipmap/icon_xiala"
+                    android:gravity="center_vertical"
+                    android:hint="@string/hint_choose_wallet"
+                    android:paddingLeft="@dimen/dimens_10"
+                    android:paddingRight="@dimen/dimens_10"
+                    android:textColor="#C0C4D3"
+                    android:textSize="@dimen/dimens_15"/>
+
+                <com.lambda.wallet.view.ClearEditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_48"
+                    android:layout_marginTop="@dimen/dimens_10"
+                    android:background="@drawable/bg_gray_etd"
+                    android:drawableLeft="@mipmap/icon_mima"
+                    android:drawablePadding="@dimen/dimens_10"
+                    android:gravity="center_vertical"
+                    android:hint="@string/hint_input_password"
+                    android:inputType="textPassword"
+                    android:paddingLeft="@dimen/dimens_10"
+                    android:paddingRight="@dimen/dimens_10"
+                    android:textColor="@color/txt_color"
+                    android:textSize="@dimen/dimens_15"/>
+
+
+                <Button
+                    android:id="@+id/go"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_48"
+                    android:layout_marginTop="@dimen/dimens_40"
+                    android:background="@drawable/bg_sure_btn"
+                    android:text="@string/login"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimens_15"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_30">
+
+                    <TextView
+                        android:id="@+id/creat_wallet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:gravity="center"
+                        android:padding="@dimen/dimens_5"
+                        android:text="@string/creat_wallet"
+                        android:textColor="@color/theme_color"
+                        android:textSize="@dimen/dimens_13"/>
+
+                    <TextView
+                        android:id="@+id/import_wallet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center"
+                        android:padding="@dimen/dimens_5"
+                        android:text="@string/import_wallet"
+                        android:textColor="@color/theme_color"
+                        android:textSize="@dimen/dimens_13"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.lambda.wallet.view.MyScrollview>
+</LinearLayout>

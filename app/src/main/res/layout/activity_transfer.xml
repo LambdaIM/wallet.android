@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".modules.transaction.transfer.TransferActivity">
+
+    <include
+        layout="@layout/title_project"/>
+
+    <com.lambda.wallet.view.MyScrollview
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:paddingLeft="@dimen/dimens_15"
+        android:paddingRight="@dimen/dimens_15"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_20"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dimens_20">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_15"
+                android:text="@string/to_address"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_16"
+                android:textStyle="bold"/>
+
+            <com.lambda.wallet.view.ClearEditText
+                android:id="@+id/to_address"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48"
+                android:background="@drawable/bg_gray_confirm"
+                android:hint="@string/lambda_address"
+                android:inputType="text"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
+                android:textColor="@color/title_color"
+                android:textCursorDrawable="@drawable/edittext_cursor"
+                android:textSize="@dimen/dimens_15"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/token"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/dimens_15"
+                    android:drawableRight="@mipmap/drop_down"
+                    android:paddingBottom="@dimen/dimens_15"
+                    android:paddingTop="@dimen/dimens_15"
+                    android:text="LAMB"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_16"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/can_use_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:paddingBottom="@dimen/dimens_15"
+                    android:paddingTop="@dimen/dimens_15"
+                    android:text="@string/app_name"
+                    android:textColor="@color/money_color"
+                    android:textSize="@dimen/dimens_13"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/can_use_amount"
+                    android:paddingBottom="@dimen/dimens_15"
+                    android:paddingTop="@dimen/dimens_15"
+                    android:text="@string/can_use_amount"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_13"/>
+            </RelativeLayout>
+
+
+            <com.lambda.wallet.view.ClearEditText
+                android:id="@+id/amount"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48"
+                android:background="@drawable/bg_gray_confirm"
+                android:hint="@string/hint_input_amount"
+                android:inputType="numberDecimal"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
+                android:textColor="@color/title_color"
+                android:textCursorDrawable="@drawable/edittext_cursor"
+                android:textSize="@dimen/dimens_15"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_15"
+                android:layout_marginTop="@dimen/dimens_20"
+                android:text="@string/memo"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_16"
+                android:textStyle="bold"/>
+
+            <com.lambda.wallet.view.ClearEditText
+                android:id="@+id/memo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_80"
+                android:background="@drawable/bg_gray_confirm"
+                android:hint="@string/hint_input_memo"
+                android:inputType="textImeMultiLine"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
+                android:textColor="@color/title_color"
+                android:textCursorDrawable="@drawable/edittext_cursor"
+                android:textSize="@dimen/dimens_15"/>
+
+            <Button
+                android:id="@+id/go"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48"
+                android:layout_marginBottom="@dimen/dimens_10"
+                android:layout_marginLeft="@dimen/dimens_30"
+                android:layout_marginRight="@dimen/dimens_30"
+                android:layout_marginTop="@dimen/dimens_50"
+                android:background="@drawable/bg_sure_btn"
+                android:text="@string/go_transfer"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimens_15"/>
+        </LinearLayout>
+    </com.lambda.wallet.view.MyScrollview>
+
+
+</LinearLayout>
