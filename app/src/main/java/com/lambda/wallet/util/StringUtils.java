@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by pocketEos on 2017/12/5.
- */
 public class StringUtils {
     /**
      * 将每三个数字加上逗号处理（通常使用金额方面的编辑）

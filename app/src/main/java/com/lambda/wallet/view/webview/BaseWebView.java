@@ -9,10 +9,6 @@ import android.webkit.WebView;
 
 import java.lang.reflect.Method;
 
-/**
- * Created by pocketEos on 2018/4/11.
- *
- */
 
 public class BaseWebView extends WebView {
 
