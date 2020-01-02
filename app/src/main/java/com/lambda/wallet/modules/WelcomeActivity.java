@@ -13,7 +13,10 @@ import com.lambda.wallet.modules.main.MainActivity;
 import com.lambda.wallet.modules.wallet.login.LoginActivity;
 import com.lambda.wallet.normalvp.NormalPresenter;
 import com.lambda.wallet.normalvp.NormalView;
+import com.lambda.wallet.util.AExecuteAsRoot;
 import com.lambda.wallet.util.Utils;
+import com.lambda.wallet.view.dialog.confimdialog.Callback;
+import com.lambda.wallet.view.dialog.confimdialog.ConfirmDialog;
 
 public class WelcomeActivity extends BaseAcitvity<NormalView, NormalPresenter> implements NormalView {
     private static final int TIME = 500;
@@ -51,6 +54,37 @@ public class WelcomeActivity extends BaseAcitvity<NormalView, NormalPresenter> i
 
     @Override
     protected void initData() {
+        if (AExecuteAsRoot.isRootSystem()) {
+            ConfirmDialog confirmDialog = new ConfirmDialog(this, new Callback() {
+                @Override
+                public void sure() {
+                    check();
+                }
+            });
+            confirmDialog.setCancelable(false);
+            confirmDialog.setContent("检测到您的设备已root,用户信息存在丢失的风险，请慎重!");
+            confirmDialog.show();
+        }else{
+            check();
+        }
+
+    }
+
+    @Override
+    public void initEvent() {
+
+    }
+
+    private void goHome() {
+        ActivityUtils.next(WelcomeActivity.this, MainActivity.class, true);
+    }
+
+
+    private void goLogin() {
+        ActivityUtils.next(WelcomeActivity.this, LoginActivity.class, true);
+    }
+
+    private void check() {
         try {
             if (TextUtils.isEmpty(Utils.getSpUtils().getString("url"))) {
                 Utils.getSpUtils().put("url", "http://39.107.247.86:13659");//默认设置主网
@@ -67,21 +101,6 @@ public class WelcomeActivity extends BaseAcitvity<NormalView, NormalPresenter> i
             mHandler.sendEmptyMessageDelayed(GO_LOGIN, TIME);
         }
 
-
-    }
-
-    @Override
-    public void initEvent() {
-
-    }
-
-    private void goHome() {
-        ActivityUtils.next(WelcomeActivity.this, MainActivity.class, true);
-    }
-
-
-    private void goLogin() {
-        ActivityUtils.next(WelcomeActivity.this, LoginActivity.class, true);
     }
 
 }
