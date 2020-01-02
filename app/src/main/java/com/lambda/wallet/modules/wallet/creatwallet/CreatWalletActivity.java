@@ -2,6 +2,7 @@ package com.lambda.wallet.modules.wallet.creatwallet;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.lambda.wallet.R;
@@ -53,6 +54,7 @@ public class CreatWalletActivity extends BaseAcitvity<NormalView, NormalPresente
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);//当前页面防截屏录屏
         setCenterTitle(getString(R.string.creat_wallet));
     }
 

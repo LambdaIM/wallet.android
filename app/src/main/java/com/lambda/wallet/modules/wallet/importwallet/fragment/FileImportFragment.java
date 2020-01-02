@@ -2,6 +2,7 @@ package com.lambda.wallet.modules.wallet.importwallet.fragment;
 
 
 import android.text.TextUtils;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.lambda.wallet.R;
@@ -53,6 +54,7 @@ public class FileImportFragment extends LazyLoadFragment<NormalView, NormalPrese
 
     @Override
     protected void onFragmentFirstVisible() {
+        getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);//当前页面防截屏录屏
     }
 
     @OnClick(R.id.go)
