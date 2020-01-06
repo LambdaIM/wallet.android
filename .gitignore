@@ -17,6 +17,11 @@
 # Generated files
 bin/
 out/
+build/
+app/build/
+app/.DS_Store
+app/release/
+
 
 # Gradle files
 .gradle/
