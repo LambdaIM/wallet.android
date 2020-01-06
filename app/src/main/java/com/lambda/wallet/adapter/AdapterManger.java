@@ -108,7 +108,7 @@ public class AdapterManger<T> {
                 }
 
                 if (!TextUtils.isEmpty(bonded_tokens)) {
-                    holder.setText(R.id.toupiao, mContext.getString(R.string.voting_weight) + StringUtils.deletzero(BigDecimalUtil.multiply(BigDecimalUtil.divide(new BigDecimal(item.getTokens()), new BigDecimal(bonded_tokens)), new BigDecimal(100)).toString()) + "%");
+                    holder.setText(R.id.toupiao, mContext.getString(R.string.voting_weight) + StringUtils.deletzero(BigDecimalUtil.multiply(BigDecimalUtil.divide(new BigDecimal(item.getTokens()), new BigDecimal(bonded_tokens)), new BigDecimal(100),2).toString()) + "%");
                 } else {
                     holder.setText(R.id.toupiao, mContext.getString(R.string.voting_weight) +"----");
                 }
@@ -235,7 +235,11 @@ public class AdapterManger<T> {
         mCommonAdapter = new CommonAdapter<MyMiningListBean>(context, R.layout.item_my_zhiya, zhiyaProducerBeanList) {
             @Override
             protected void convert(ViewHolder holder, MyMiningListBean item, int position) {
-                holder.setText(R.id.address, StringUtils.lambdaAddress(item.getDelegator_address()));
+                try {
+                    holder.setText(R.id.address, item.getProducersDetailsBean().getDescription().getMoniker());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 String tbb = null;
                 /*shares 和tbb转换【个人质押量计算】
                 个人质押后获取到质押分份额后，显示如果是显示质押的tbb数量需要进行转换计算

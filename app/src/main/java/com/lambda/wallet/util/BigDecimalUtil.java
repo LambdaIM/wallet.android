@@ -113,7 +113,7 @@ public class BigDecimalUtil {
      * @return （valA - valB）的结果
      */
     public static BigDecimal minus(BigDecimal valA, BigDecimal valB, int scale) {
-        return valA.add(valB.negate()).setScale(scale, BigDecimal.ROUND_HALF_DOWN);
+        return valA.add(valB.negate()).setScale(scale,  RoundingMode.HALF_UP);
     }
 
     /**
@@ -124,7 +124,7 @@ public class BigDecimalUtil {
      * @return （valA * valB）的结果
      */
     public static BigDecimal multiply(BigDecimal valA, BigDecimal valB) {
-        return valA.multiply(valB).setScale(6, BigDecimal.ROUND_HALF_DOWN);
+        return valA.multiply(valB).setScale(6,  RoundingMode.HALF_UP);
     }
 
     /**
@@ -136,7 +136,7 @@ public class BigDecimalUtil {
      * @return （valA * valB）的结果
      */
     public static BigDecimal multiply(BigDecimal valA, BigDecimal valB, int scale) {
-        return valA.multiply(valB).setScale(scale, BigDecimal.ROUND_HALF_DOWN);
+        return valA.multiply(valB).setScale(scale, RoundingMode.HALF_UP);
     }
 
     /**
@@ -150,7 +150,7 @@ public class BigDecimalUtil {
         if (BigDecimal.ZERO.compareTo(valB) == 0) {
             return new BigDecimal(0);
         }
-        return valA.divide(valB, 6, BigDecimal.ROUND_HALF_DOWN);
+        return valA.divide(valB, 6,  RoundingMode.HALF_UP);
     }
 
     /**
@@ -165,7 +165,7 @@ public class BigDecimalUtil {
         if (BigDecimal.ZERO.compareTo(valB) == 0) {
             throw new ArithmeticException("除数不能为0");
         }
-        return valA.divide(valB, scale, BigDecimal.ROUND_HALF_DOWN);
+        return valA.divide(valB, scale, RoundingMode.HALF_UP);
     }
 
     /**

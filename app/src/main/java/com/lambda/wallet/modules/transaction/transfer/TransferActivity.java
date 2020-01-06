@@ -92,7 +92,7 @@ public class TransferActivity extends BaseAcitvity<TransferView, TransferPresent
             for (int i = 0; i < mCoinsBeans.size(); i++) {
                 mTokenList.add(StringUtils.lambdaToken(mCoinsBeans.get(i).getDenom()));
                 if (mCoinsBeans.get(i).getDenom().equals(qrCodeMakeCollectionBean.getToken())) {
-                    mCanUseAmount.setText(StringUtils.addComma(mCoinsBeans.get(i).getAmount()) + mToken.getText().toString());
+                    mCanUseAmount.setText(StringUtils.addComma(mCoinsBeans.get(i).getAmount()) );
                     select = i;
                 }
             }
@@ -103,7 +103,7 @@ public class TransferActivity extends BaseAcitvity<TransferView, TransferPresent
             for (int i = 0; i < mCoinsBeans.size(); i++) {
                 mTokenList.add(StringUtils.lambdaToken(mCoinsBeans.get(i).getDenom()));
             }
-            mCanUseAmount.setText(StringUtils.addComma(mCoinsBeans.get(0).getAmount()) + mToken.getText().toString());
+            mCanUseAmount.setText(StringUtils.addComma(mCoinsBeans.get(0).getAmount()) );
             mToken.setText(StringUtils.lambdaToken(mCoinsBeans.get(0).getDenom()));
             select = 0;
         }

@@ -172,7 +172,7 @@ public abstract class BaseAcitvity<V, P extends BasePresent<V>> extends AutoLayo
 
     @Override
     public void toast(CharSequence s) {
-        ToastUtils.showShortToast(s);
+        ToastUtils.showToast(s,5000);
     }
 
     @Override

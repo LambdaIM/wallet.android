@@ -255,7 +255,7 @@ public final class ToastUtils {
      * @param text     文本
      * @param duration 显示时长
      */
-    private static void showToast(CharSequence text, int duration) {
+    public static void showToast(CharSequence text, int duration) {
         try {
             if (isJumpWhenMore) {
                 cancelToast();
