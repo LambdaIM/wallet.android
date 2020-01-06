@@ -28,7 +28,7 @@ public class BaseWebSetting {
         //设置字体缩放倍数，默认100
         webSettings.setTextZoom(100);
         // 支持 Js 使用
-        webSettings.setJavaScriptEnabled(true);
+        webSettings.setJavaScriptEnabled(false);
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
         webSettings.setBuiltInZoomControls(true);
 

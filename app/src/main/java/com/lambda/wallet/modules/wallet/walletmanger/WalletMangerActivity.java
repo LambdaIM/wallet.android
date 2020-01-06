@@ -2,6 +2,7 @@ package com.lambda.wallet.modules.wallet.walletmanger;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.google.gson.GsonBuilder;
@@ -44,6 +45,7 @@ public class WalletMangerActivity extends BaseAcitvity<NormalView, NormalPresent
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);//当前页面防截屏录屏
         setCenterTitle(getString(R.string.wallet_manger));
     }
 
