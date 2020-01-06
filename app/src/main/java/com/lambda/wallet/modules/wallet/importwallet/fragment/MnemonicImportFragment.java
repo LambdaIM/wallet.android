@@ -2,6 +2,7 @@ package com.lambda.wallet.modules.wallet.importwallet.fragment;
 
 
 import android.text.TextUtils;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.lambda.wallet.R;
@@ -59,7 +60,7 @@ public class MnemonicImportFragment extends LazyLoadFragment<NormalView, NormalP
 
     @Override
     protected void onFragmentFirstVisible() {
-
+        getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);//当前页面防截屏录屏
     }
 
 
@@ -113,6 +114,7 @@ public class MnemonicImportFragment extends LazyLoadFragment<NormalView, NormalP
     private void onGenWords() {
         try {
             showProgress();
+            mWords.clear();
             String[] newStr = mMnemonicInfo.getText().toString().split(" ");
             Collections.addAll(mWords, newStr);
 
