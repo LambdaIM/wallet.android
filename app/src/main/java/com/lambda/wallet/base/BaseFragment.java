@@ -174,7 +174,7 @@ public abstract class BaseFragment<V, P extends BasePresent<V>> extends Fragment
 
     @Override
     public void toast(CharSequence s) {
-        ToastUtils.showShortToast(s);
+        ToastUtils.showToast(s,5000);
     }
 
     @Override

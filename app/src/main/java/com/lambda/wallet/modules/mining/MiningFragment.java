@@ -223,10 +223,10 @@ public class MiningFragment extends BaseFragment<MiningView, MiningPresenter> im
 
     @Override
     public void getProducerAwardDataHttp(ProducerAwardBean producerAwardBean) {
-        for (int i = 0; i < producerAwardBean.getSelf_bond_rewards().size(); i++) {
+     /*   for (int i = 0; i < producerAwardBean.getSelf_bond_rewards().size(); i++) {
             producerAwardBean.getSelf_bond_rewards().get(i).setAmount(BigDecimalUtil.toLambdaBigDecimal(producerAwardBean.getSelf_bond_rewards().get(i).getAmount()).toString());
             award2 = BigDecimalUtil.add(award2, new BigDecimal(producerAwardBean.getSelf_bond_rewards().get(i).getAmount()));
-        }
+        }*/
         for (int i = 0; i < producerAwardBean.getVal_commission().size(); i++) {
             producerAwardBean.getVal_commission().get(i).setAmount(BigDecimalUtil.toLambdaBigDecimal(producerAwardBean.getVal_commission().get(i).getAmount()).toString());
             award2 = BigDecimalUtil.add(award2, new BigDecimal(producerAwardBean.getVal_commission().get(i).getAmount()));

@@ -69,7 +69,7 @@
     <string name="go_transfer">确认转账</string>
 
     <!--交易模块2：提取收益-->
-    <string name="mining_award">挖矿收益</string>
+    <string name="mining_award">奖励</string>
     <string name="producer_award">节点收益</string>
     <string name="take_out_amount">提取数额</string>
     <string name="toast_mining_award">*一次只能从5个验证节点中提取奖励</string>

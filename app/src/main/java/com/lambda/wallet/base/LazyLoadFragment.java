@@ -252,7 +252,7 @@ public abstract class LazyLoadFragment<V, P extends BasePresent<V>> extends Frag
 
     @Override
     public void toast(CharSequence s) {
-        ToastUtils.showShortToast(s);
+        ToastUtils.showToast(s,5000);
     }
 
     @Override

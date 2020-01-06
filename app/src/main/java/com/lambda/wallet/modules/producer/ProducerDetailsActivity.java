@@ -132,7 +132,7 @@ public class ProducerDetailsActivity extends BaseAcitvity<ProducerDetailsView, P
         if (TextUtils.isEmpty(bonded_tokens)) {
             mToupiao.setText("0");
         } else {
-            mToupiao.setText(StringUtils.deletzero(BigDecimalUtil.multiply(BigDecimalUtil.divide(new BigDecimal(mProducersDetailsBean.getTokens()), new BigDecimal(bonded_tokens)), new BigDecimal(100)).toString()) + "%");
+            mToupiao.setText(StringUtils.deletzero(BigDecimalUtil.multiply(BigDecimalUtil.divide(new BigDecimal(mProducersDetailsBean.getTokens()), new BigDecimal(bonded_tokens)), new BigDecimal(100),2).toString()) + "%");
         }
         presenter.getForProducerAwardData(getIntent().getStringExtra("address"));
     }
