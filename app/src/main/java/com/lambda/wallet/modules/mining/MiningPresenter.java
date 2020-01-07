@@ -15,6 +15,7 @@ import com.lambda.wallet.util.JsonUtil;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -99,6 +100,8 @@ public class MiningPresenter extends BasePresent<MiningView> {
                 try {
                     if (response.body() != null) {
                         view.getAwardDataHttp(response.body());
+                    }else {
+                        view.getFailDataHttp();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -124,7 +127,11 @@ public class MiningPresenter extends BasePresent<MiningView> {
                 }
             }
 
-
+            @Override
+            public void onError(Response<String> response) {
+                super.onError(response);
+                view.getFailDataHttp();
+            }
         });
 
     }
@@ -137,6 +144,8 @@ public class MiningPresenter extends BasePresent<MiningView> {
                 try {
                     if (response.body() != null) {
                         view.getZhiyaDataHttp(response.body());
+                    }else {
+                        view.getZhiyaDataHttp(new ArrayList<>());
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

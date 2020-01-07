@@ -93,10 +93,15 @@ public class MiningFragment extends BaseFragment<MiningView, MiningPresenter> im
         super.onHiddenChanged(hidden);
         if (!hidden && mImmersionBar != null) {
             mImmersionBar.hideBar(BarHide.FLAG_SHOW_BAR).statusBarDarkFont(true, 0.2f).titleBarMarginTop(mTitle).init();
-            presenter.getAwardData(MyApplication.getInstance().getUserBean().getAddress());
-            presenter.getProducerData(MyApplication.getInstance().getUserBean().getAddress());
+            mProducersListBeanDetails.clear();
             mMyMiningListBeans.clear();
-
+            mCommonAdapter.notifyDataSetChanged();
+            allAward = new BigDecimal(0);
+            award1 = new BigDecimal(0);
+            award2 = new BigDecimal(0);
+            allZhiya = new BigDecimal(0);
+            presenter.getAllZhiYaTokenData();
+            presenter.getAwardData(MyApplication.getInstance().getUserBean().getAddress());
         }
     }
 
@@ -109,12 +114,15 @@ public class MiningFragment extends BaseFragment<MiningView, MiningPresenter> im
         mSpring.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {
+                allAward = new BigDecimal(0);
+                award1 = new BigDecimal(0);
+                award2 = new BigDecimal(0);
+                allZhiya = new BigDecimal(0);
                 mProducersListBeanDetails.clear();
                 mMyMiningListBeans.clear();
                 mCommonAdapter.notifyDataSetChanged();
                 presenter.getAllZhiYaTokenData();
                 presenter.getAwardData(MyApplication.getInstance().getUserBean().getAddress());
-                presenter.getProducerData(MyApplication.getInstance().getUserBean().getAddress());
             }
 
             @Override
@@ -141,8 +149,11 @@ public class MiningFragment extends BaseFragment<MiningView, MiningPresenter> im
     public void onResume() {
         super.onResume();
         mMyMiningListBeans.clear();
+        allAward = new BigDecimal(0);
+        award1 = new BigDecimal(0);
+        award2 = new BigDecimal(0);
+        allZhiya = new BigDecimal(0);
         presenter.getAwardData(MyApplication.getInstance().getUserBean().getAddress());
-        presenter.getProducerData(MyApplication.getInstance().getUserBean().getAddress());
     }
 
     @Override
@@ -198,7 +209,6 @@ public class MiningFragment extends BaseFragment<MiningView, MiningPresenter> im
 
     @Override
     public void getAllZhiyaTokenDataHttp(AllZhiyaTokenBean allZhiyaTokenBean) {
-
         bonded_tokens = allZhiyaTokenBean.getBonded_tokens();
         mCommonAdapter = AdapterManger.getProducerListAdapter(getActivity(), mProducersListBeanDetails, bonded_tokens);
         mProducerList.setAdapter(mCommonAdapter);
@@ -208,9 +218,6 @@ public class MiningFragment extends BaseFragment<MiningView, MiningPresenter> im
 
     @Override
     public void getAwardDataHttp(List<AwardBean> awardBeanList) {
-        allAward = new BigDecimal(0);
-        award1 = new BigDecimal(0);
-        award2 = new BigDecimal(0);
         for (int i = 0; i < awardBeanList.size(); i++) {
             awardBeanList.get(i).setAmount(BigDecimalUtil.toLambdaBigDecimal(awardBeanList.get(i).getAmount()).toString());
             award1 = BigDecimalUtil.add(award1, new BigDecimal(awardBeanList.get(i).getAmount()));
@@ -233,17 +240,19 @@ public class MiningFragment extends BaseFragment<MiningView, MiningPresenter> im
         }
         Utils.getSpUtils().put(Constants.SpInfo.AWARD2, award2.toString());
         mAward.setText(TextUtils.isEmpty(BigDecimalUtil.add(award1, award2).toString())?"0":StringUtils.addComma(BigDecimalUtil.add(award1, award2).toString()));
+        presenter.getProducerData(MyApplication.getInstance().getUserBean().getAddress());
     }
 
     @Override
     public void getFailDataHttp() {
         Utils.getSpUtils().put(Constants.SpInfo.AWARD2, award2.toString());
         mAward.setText(TextUtils.isEmpty(BigDecimalUtil.add(award1, award2).toString())?"0":StringUtils.addComma(BigDecimalUtil.add(award1, award2).toString()));
+        presenter.getProducerData(MyApplication.getInstance().getUserBean().getAddress());
     }
 
     @Override
     public void getZhiyaDataHttp(List<ZhiyaProducerBean> zhiyaProducerBeans) {
-        if (zhiyaProducerBeans != null && zhiyaProducerBeans.size() != 0)
+        if (zhiyaProducerBeans != null && zhiyaProducerBeans.size() != 0) {
             for (int i = 0; i < zhiyaProducerBeans.size(); i++) {
                 MyMiningListBean miningListBean = new MyMiningListBean();
                 miningListBean.setDelegator_address(zhiyaProducerBeans.get(i).getDelegator_address());
@@ -252,6 +261,10 @@ public class MiningFragment extends BaseFragment<MiningView, MiningPresenter> im
                 mMyMiningListBeans.add(miningListBean);
                 presenter.getProducerDetailsData(zhiyaProducerBeans.get(i).getValidator_address());
             }
+        }else{
+            allZhiya = new BigDecimal(0);
+            mZhiya.setText(TextUtils.isEmpty(StringUtils.deletzero(allZhiya.toString()))?"0":StringUtils.addComma(allZhiya.toString()) );
+        }
     }
 
     @Override

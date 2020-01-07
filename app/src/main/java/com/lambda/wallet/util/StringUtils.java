@@ -23,7 +23,7 @@ public class StringUtils {
                 decimalFormat = new DecimalFormat("0");
             } else if (str.split("\\.")[0].equals("0") && str.split("\\.")[1].length() != 0) {
                 decimalFormat = new DecimalFormat("0.000000");
-            } else if (!str.split("\\.")[0].equals("0") && str.split("\\.")[1].length() <= 6) {
+            } else if (!str.split("\\.")[0].equals("0") && str.split("\\.")[1].length() < 6) {
                 for (int i = 0; i < str.split("\\.")[1].length(); i++) {
                     pattern += "0";
                 }
