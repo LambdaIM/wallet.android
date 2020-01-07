@@ -77,10 +77,11 @@
 
                     <TextView
                         android:id="@+id/user_all_property"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/all_money"
                         android:layout_marginLeft="@dimen/dimens_50"
+                        android:layout_marginRight="@dimen/dimens_15"
                         android:layout_marginTop="@dimen/dimens_15"
                         android:ellipsize="end"
                         android:gravity="bottom"

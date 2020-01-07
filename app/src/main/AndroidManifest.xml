@@ -50,6 +50,10 @@
 
         <activity
             android:name=".modules.WelcomeActivity"
+            android:alwaysRetainTaskState="true"
+            android:exported="true"
+            android:launchMode="standard"
+            android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeSplash">
             <intent-filter>

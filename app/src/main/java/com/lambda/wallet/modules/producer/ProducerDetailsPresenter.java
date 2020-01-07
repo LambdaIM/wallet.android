@@ -13,6 +13,7 @@ import com.lambda.wallet.net.HttpUtils;
 import com.lambda.wallet.net.callbck.JsonCallback;
 import com.lzy.okgo.model.Response;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -47,6 +48,8 @@ public class ProducerDetailsPresenter extends BasePresent<ProducerDetailsView> {
                 try {
                     if (response.body() != null) {
                         view.getZhiyaDataHttp(response.body());
+                    }else{
+                        view.getZhiyaDataHttp(new ArrayList<>());
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

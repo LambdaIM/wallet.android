@@ -1,5 +1,6 @@
 package com.lambda.wallet.modules;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -54,20 +55,28 @@ public class WelcomeActivity extends BaseAcitvity<NormalView, NormalPresenter> i
 
     @Override
     protected void initData() {
-        if (CheckRoot.isDeviceRooted()) {
-            ConfirmDialog confirmDialog = new ConfirmDialog(this, new Callback() {
-                @Override
-                public void sure() {
-                    check();
-                }
-            });
-            confirmDialog.setCancelable(false);
-            confirmDialog.setContent("检测到您的设备已root,用户信息存在丢失的风险，请慎重!");
-            confirmDialog.show();
-        }else{
-            check();
+        if (!this.isTaskRoot()) {
+            Intent mainIntent = getIntent();
+            String action = mainIntent.getAction();
+            if (mainIntent.hasCategory(Intent.CATEGORY_LAUNCHER) && Intent.ACTION_MAIN.equals(action)) {
+                finish();
+                return;
+            }
+        } else {
+            if (CheckRoot.isDeviceRooted()) {
+                ConfirmDialog confirmDialog = new ConfirmDialog(this, new Callback() {
+                    @Override
+                    public void sure() {
+                        check();
+                    }
+                });
+                confirmDialog.setCancelable(false);
+                confirmDialog.setContent("检测到您的设备已root,用户信息存在丢失的风险，请慎重!");
+                confirmDialog.show();
+            } else {
+                check();
+            }
         }
-
     }
 
     @Override
