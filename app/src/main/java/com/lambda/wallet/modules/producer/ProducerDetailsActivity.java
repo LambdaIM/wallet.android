@@ -94,32 +94,37 @@ public class ProducerDetailsActivity extends BaseAcitvity<ProducerDetailsView, P
         mRate.setText(StringUtils.deletzero(BigDecimalUtil.multiply(new BigDecimal(producersDetailsBean.getCommission().getRate()), new BigDecimal(100)).toString()) + "%");
         mMaxRate.setText(StringUtils.deletzero(BigDecimalUtil.multiply(new BigDecimal(producersDetailsBean.getCommission().getMax_rate()), new BigDecimal(100)).toString()) + "%");
         mMaxChangeRate.setText(StringUtils.deletzero(BigDecimalUtil.multiply(new BigDecimal(producersDetailsBean.getCommission().getMax_change_rate()), new BigDecimal(100)).toString()) + "%");
-        mMyZhiya.setText("0");
-        mMyAward.setText("0");
+        mMyZhiya.setText("0TBB");
+        mMyAward.setText("0LAMB");
         presenter.getProducerData(MyApplication.getInstance().getUserBean().getAddress());
     }
 
     @Override
     public void getZhiyaDataHttp(List<ZhiyaProducerBean> zhiyaProducerBeans) {
-        String tbb = null;
+        if (zhiyaProducerBeans.size()==0){
+            mMyZhiya.setText(StringUtils.addComma("0") + "TBB");
+            zhiya = null;
+        }else {
+            String tbb = null;
                 /*shares 和tbb转换【个人质押量计算】
                 个人质押后获取到质押分份额后，显示如果是显示质押的tbb数量需要进行转换计算
 
                 shares/delegator_shares*tokens
 
                 用个人的shares 除以节点总的shares 再乘以节点总的tokens*/
-        try {
-            for (int i = 0; i < zhiyaProducerBeans.size(); i++) {
-                if (zhiyaProducerBeans.get(i).getValidator_address().equals(getIntent().getStringExtra("address"))) {
-                    tbb = StringUtils.deletzero(BigDecimalUtil.toLambdaBigDecimal(BigDecimalUtil.multiply(BigDecimalUtil.divide(new BigDecimal(mProducersDetailsBean.getTokens()), new BigDecimal(mProducersDetailsBean.getDelegator_shares())), new BigDecimal(zhiyaProducerBeans.get(i).getShares())).toString()).toString());
-                    mMyZhiya.setText(StringUtils.addComma(tbb )+ "TBB");
-                    zhiya = tbb;
+            try {
+                for (int i = 0; i < zhiyaProducerBeans.size(); i++) {
+                    if (zhiyaProducerBeans.get(i).getValidator_address().equals(getIntent().getStringExtra("address"))) {
+                        tbb = StringUtils.deletzero(BigDecimalUtil.toLambdaBigDecimal(BigDecimalUtil.multiply(BigDecimalUtil.divide(new BigDecimal(mProducersDetailsBean.getTokens()), new BigDecimal(mProducersDetailsBean.getDelegator_shares())), new BigDecimal(zhiyaProducerBeans.get(i).getShares())).toString()).toString());
+                        mMyZhiya.setText(StringUtils.addComma(tbb) + "TBB");
+                        zhiya = tbb;
+                    }
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
+                mMyZhiya.setText(StringUtils.addComma(tbb) + "TBB");
+                zhiya = null;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            mMyZhiya.setText(StringUtils.addComma(tbb )+ "TBB");
-            zhiya = null;
         }
         presenter.getAllZhiYaTokenData();
 
@@ -144,7 +149,7 @@ public class ProducerDetailsActivity extends BaseAcitvity<ProducerDetailsView, P
             mMyAward.setText(StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(awardBeanList.get(0).getAmount()).toString() )+ StringUtils.lambdaToken(awardBeanList.get(0).getDenom()));
         } catch (Exception e) {
             e.printStackTrace();
-            mMyAward.setText("0");
+            mMyAward.setText("0"+"LAMB");
         }
 
         if (TextUtils.isEmpty(zhiya)) {

@@ -217,10 +217,17 @@ public class PushDataManger<T> {
             @Override
             public void onSuccess(Response<String> response) {
                 if (response.body() != null) {
-                    TransactionSuccessBean transactionSuccessBean = (TransactionSuccessBean) JsonUtil.parseStringToBean(response.body().toString(), TransactionSuccessBean.class);
-                    mCallback.onSuccess(transactionSuccessBean);
-                    if (ShowDialog.dialog != null) {
-                        ShowDialog.setMessage(mContext.getString(R.string.push_success));
+                    if (response.body().contains("error")) {
+                        if (ShowDialog.dialog != null) {
+                            ShowDialog.dissmiss();
+                            mCallback.onFail(response.body());
+                        }
+                    } else {
+                        TransactionSuccessBean transactionSuccessBean = (TransactionSuccessBean) JsonUtil.parseStringToBean(response.body().toString(), TransactionSuccessBean.class);
+                        mCallback.onSuccess(transactionSuccessBean);
+                        if (ShowDialog.dialog != null) {
+                            ShowDialog.setMessage(mContext.getString(R.string.push_success));
+                        }
                     }
                 }
             }

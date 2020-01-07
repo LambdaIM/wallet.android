@@ -119,6 +119,7 @@
     <string name="toast_no_amount">请输入金额</string>
     <string name="balance_no_enough">余额不足</string>
     <string name="toast_error_to_yourself">不支持转账给本人</string>
+    <string name="toast_error_lambda">地址错误</string>
     <string name="wallet_password">钱包密码</string>
     <string name="hint_wallet_password">请输入钱包密码</string>
     <string name="gas_fee">GAS费用(LAMB)：</string>
@@ -245,8 +246,8 @@
     <string name="all_voter">投票总量：</string>
     <string name="yes1">同意：</string>
     <string name="no1">反对：</string>
-    <string name="no_with_veto1">强烈反对</string>
-    <string name="abstain1">弃权</string>
+    <string name="no_with_veto1">强烈反对：</string>
+    <string name="abstain1">弃权：</string>
     <string name="type1">类型：</string>
     <string name="amount1">金额：</string>
     <string name="burn_amount">销毁金额：</string>

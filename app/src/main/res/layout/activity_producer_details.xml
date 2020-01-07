@@ -239,10 +239,10 @@
             android:layout_height="@dimen/dimens_32"
             android:layout_marginRight="@dimen/dimens_10"
             android:layout_toLeftOf="@+id/zhiya"
-            android:background="@drawable/gray_line_coner"
+            android:background="@drawable/bg_sure_btn"
             android:gravity="center"
             android:text="转质押"
-            android:textColor="@color/txt_color"
+            android:textColor="@color/white"
             android:textSize="@dimen/dimens_12"/>
 
         <TextView
@@ -251,10 +251,10 @@
             android:layout_height="@dimen/dimens_32"
             android:layout_marginRight="@dimen/dimens_10"
             android:layout_toLeftOf="@+id/zhuanzhiya"
-            android:background="@drawable/gray_line_coner"
+            android:background="@drawable/bg_sure_btn"
             android:gravity="center"
             android:text="取消质押"
-            android:textColor="@color/txt_color"
+            android:textColor="@color/white"
             android:textSize="@dimen/dimens_12"/>
     </RelativeLayout>
 

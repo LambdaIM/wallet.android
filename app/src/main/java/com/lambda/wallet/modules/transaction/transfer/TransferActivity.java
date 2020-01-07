@@ -176,7 +176,10 @@ public class TransferActivity extends BaseAcitvity<TransferView, TransferPresent
                     toast(getString(R.string.toast_error_to_yourself));
                     return;
                 }
-
+                if (mToAddress.getText().toString().trim().length()!=45){
+                    toast(getString(R.string.toast_error_lambda));
+                    return;
+                }
                 PostTransferGasBean postTransferGasBean = new PostTransferGasBean();
                 PostTransferGasBean.BaseReqBean baseReqBean = new PostTransferGasBean.BaseReqBean();
                new ChainInfoUtils(new ChainInfoUtils.Callback() {

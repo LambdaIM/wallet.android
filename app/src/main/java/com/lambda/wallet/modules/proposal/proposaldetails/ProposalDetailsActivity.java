@@ -264,16 +264,17 @@ public class ProposalDetailsActivity extends BaseAcitvity<ProposalDetailsView, P
 
     @Override
     public void getTouPiaoDataHttp(TouPiaoBean finalTallyResultBean) {
-
-        int total = Integer.parseInt(finalTallyResultBean.getYes()) +
-                Integer.parseInt(finalTallyResultBean.getNo()) +
-                Integer.parseInt(finalTallyResultBean.getAbstain()) +
-                Integer.parseInt(finalTallyResultBean.getNo_with_veto());
-        mTotal.setText(total + "");
-        mYes.setText(finalTallyResultBean.getYes() + "(" + BigDecimalUtil.multiply(BigDecimalUtil.divide(new BigDecimal(finalTallyResultBean.getYes()), new BigDecimal(total)), new BigDecimal(100), 2) + "%)");
-        mNo.setText(finalTallyResultBean.getNo() + "(" + BigDecimalUtil.multiply(BigDecimalUtil.divide(new BigDecimal(finalTallyResultBean.getNo()), new BigDecimal(total)), new BigDecimal(100), 2) + "%)");
-        mAbstain.setText(finalTallyResultBean.getAbstain() + "(" + BigDecimalUtil.multiply(BigDecimalUtil.divide(new BigDecimal(finalTallyResultBean.getAbstain()), new BigDecimal(total)), new BigDecimal(100), 2) + "%)");
-        mNoWithVeto.setText(finalTallyResultBean.getNo_with_veto() + "(" + BigDecimalUtil.multiply(BigDecimalUtil.divide(new BigDecimal(finalTallyResultBean.getNo_with_veto()), new BigDecimal(total)), new BigDecimal(100), 2) + "%)");
+        BigDecimal yes = new BigDecimal(finalTallyResultBean.getYes());
+        BigDecimal no = new BigDecimal(finalTallyResultBean.getNo());
+        BigDecimal abstain = new BigDecimal(finalTallyResultBean.getAbstain());
+        BigDecimal no_with_vote = new BigDecimal(finalTallyResultBean.getNo_with_veto());
+        BigDecimal total = new BigDecimal(0);
+        total =BigDecimalUtil.add(BigDecimalUtil.add(yes,no),BigDecimalUtil.add(abstain,no_with_vote));
+        mTotal.setText(total.toString());
+        mYes.setText(finalTallyResultBean.getYes() + "(" + BigDecimalUtil.multiply(BigDecimalUtil.divide(yes, total), new BigDecimal(100), 2) + "%)");
+        mNo.setText(finalTallyResultBean.getNo() + "(" + BigDecimalUtil.multiply(BigDecimalUtil.divide(no,total), new BigDecimal(100), 2) + "%)");
+        mAbstain.setText(finalTallyResultBean.getAbstain() + "(" + BigDecimalUtil.multiply(BigDecimalUtil.divide(abstain,total), new BigDecimal(100), 2) + "%)");
+        mNoWithVeto.setText(finalTallyResultBean.getNo_with_veto() + "(" + BigDecimalUtil.multiply(BigDecimalUtil.divide(no_with_vote,total), new BigDecimal(100), 2) + "%)");
 
     }
 
