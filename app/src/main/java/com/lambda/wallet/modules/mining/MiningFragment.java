@@ -100,6 +100,8 @@ public class MiningFragment extends BaseFragment<MiningView, MiningPresenter> im
             award1 = new BigDecimal(0);
             award2 = new BigDecimal(0);
             allZhiya = new BigDecimal(0);
+            Utils.getSpUtils().put(Constants.SpInfo.AWARD1, award1.toString());
+            Utils.getSpUtils().put(Constants.SpInfo.AWARD2, award2.toString());
             presenter.getAllZhiYaTokenData();
             presenter.getAwardData(MyApplication.getInstance().getUserBean().getAddress());
         }
@@ -118,6 +120,8 @@ public class MiningFragment extends BaseFragment<MiningView, MiningPresenter> im
                 award1 = new BigDecimal(0);
                 award2 = new BigDecimal(0);
                 allZhiya = new BigDecimal(0);
+                Utils.getSpUtils().put(Constants.SpInfo.AWARD1, award1.toString());
+                Utils.getSpUtils().put(Constants.SpInfo.AWARD2, award2.toString());
                 mProducersListBeanDetails.clear();
                 mMyMiningListBeans.clear();
                 mCommonAdapter.notifyDataSetChanged();
@@ -153,6 +157,8 @@ public class MiningFragment extends BaseFragment<MiningView, MiningPresenter> im
         award1 = new BigDecimal(0);
         award2 = new BigDecimal(0);
         allZhiya = new BigDecimal(0);
+        Utils.getSpUtils().put(Constants.SpInfo.AWARD1, award1.toString());
+        Utils.getSpUtils().put(Constants.SpInfo.AWARD2, award2.toString());
         presenter.getAwardData(MyApplication.getInstance().getUserBean().getAddress());
     }
 
