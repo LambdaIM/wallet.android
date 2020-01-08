@@ -19,8 +19,8 @@ This app offers you one of the safest ways to protect your private data.
     - check balance (LAMB, tokens)
     - send LAMB and tokens
     - receive using QR code
-    - Pledge mining
-    - Proposal vote
+    - pledge mining
+    - proposal vote
     - manually set your node connection
 
 # Wallet Setups
