@@ -29,10 +29,13 @@ import com.lambda.wallet.modules.wallet.importwallet.activity.ImportWalletActivi
 import com.lambda.wallet.normalvp.NormalPresenter;
 import com.lambda.wallet.normalvp.NormalView;
 import com.lambda.wallet.util.AndroidBug5497Workaround;
+import com.lambda.wallet.util.CheckRoot;
 import com.lambda.wallet.util.KeyBoardUtil;
 import com.lambda.wallet.util.StringUtils;
 import com.lambda.wallet.util.Utils;
 import com.lambda.wallet.view.ClearEditText;
+import com.lambda.wallet.view.dialog.confimdialog.Callback;
+import com.lambda.wallet.view.dialog.confimdialog.ConfirmDialog;
 import com.lambda.wallet.view.nodoubleclick.NoDoubleClickListener;
 import com.lambda.wallet.view.popupwindow.BasePopupWindow;
 
@@ -88,6 +91,16 @@ public class LoginActivity extends BaseAcitvity<NormalView, NormalPresenter> imp
     @Override
     protected void initViews(Bundle savedInstanceState) {
         AndroidBug5497Workaround.assistActivity(activity);
+        if (CheckRoot.isDeviceRooted()) {
+            ConfirmDialog confirmDialog = new ConfirmDialog(this, new Callback() {
+                @Override
+                public void sure() {
+                }
+            });
+            confirmDialog.setCancelable(false);
+            confirmDialog.setContent("检测到您的设备已root,用户信息存在丢失的风险，请慎重!");
+            confirmDialog.show();
+        }
     }
 
     @Override

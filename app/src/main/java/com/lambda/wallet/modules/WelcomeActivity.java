@@ -14,10 +14,7 @@ import com.lambda.wallet.modules.main.MainActivity;
 import com.lambda.wallet.modules.wallet.login.LoginActivity;
 import com.lambda.wallet.normalvp.NormalPresenter;
 import com.lambda.wallet.normalvp.NormalView;
-import com.lambda.wallet.util.CheckRoot;
 import com.lambda.wallet.util.Utils;
-import com.lambda.wallet.view.dialog.confimdialog.Callback;
-import com.lambda.wallet.view.dialog.confimdialog.ConfirmDialog;
 
 public class WelcomeActivity extends BaseAcitvity<NormalView, NormalPresenter> implements NormalView {
     private static final int TIME = 500;
@@ -63,19 +60,7 @@ public class WelcomeActivity extends BaseAcitvity<NormalView, NormalPresenter> i
                 return;
             }
         } else {
-            if (CheckRoot.isDeviceRooted()) {
-                ConfirmDialog confirmDialog = new ConfirmDialog(this, new Callback() {
-                    @Override
-                    public void sure() {
-                        check();
-                    }
-                });
-                confirmDialog.setCancelable(false);
-                confirmDialog.setContent("检测到您的设备已root,用户信息存在丢失的风险，请慎重!");
-                confirmDialog.show();
-            } else {
-                check();
-            }
+            check();
         }
     }
 
