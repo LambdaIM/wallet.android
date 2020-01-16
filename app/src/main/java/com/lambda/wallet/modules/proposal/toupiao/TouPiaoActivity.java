@@ -72,7 +72,7 @@ public class TouPiaoActivity extends BaseAcitvity<TouPiaoView, TouPiaoPresenter>
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        setCenterTitle("投票");
+        setCenterTitle(getString(R.string.vote));
         mFromAddress.setText(MyApplication.getInstance().getUserBean().getAddress());
         mTiAnTitle.setText(getIntent().getStringExtra("title"));
     }

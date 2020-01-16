@@ -99,7 +99,7 @@ public class AddChainDialog extends Dialog implements View.OnClickListener {
                     callback.sure(mClearEditText.getText().toString().trim() + ":" + mPort.getText().toString().trim());
                     this.cancel();
                 } else {
-                    ToastUtils.showShortToast("请输入ip和端口号");
+                    ToastUtils.showShortToast(R.string.toast_ip);
                 }
                 break;
         }

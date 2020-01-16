@@ -53,8 +53,8 @@ public class ChangeChainActivity extends BaseAcitvity<NormalView, NormalPresente
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        setCenterTitle("切换验证节点");
-        setRightTitle("新增", true);
+        setCenterTitle(getString(R.string.change_node));
+        setRightTitle(getString(R.string.add), true);
 
         if (Utils.getSpUtils().getString("url").equals("http://39.107.247.86:13659")) {
             mChooseOne.setChecked(true);
@@ -99,7 +99,7 @@ public class ChangeChainActivity extends BaseAcitvity<NormalView, NormalPresente
                         }
                         if (addUrl.equals("http://39.107.247.86:13659")|| addUrl.equals("http://47.93.196.236:13659")||
                                 addUrl.equals(Utils.getSpUtils().getString("addUrl"))) {
-                            toast("该节点已存在");
+                            toast(getString(R.string.node_exited));
                         }else {
                             mAddChain.setText(addUrl);
                             mChooseOne.setChecked(false);

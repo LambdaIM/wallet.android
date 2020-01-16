@@ -59,7 +59,7 @@ public class ProducerAwardFragment extends LazyLoadFragment<ProducerAwardView, P
     @OnClick(R.id.go)
     public void onClick() {
         if (mAmount.getText().toString().equals("0")) {
-            toast("暂无收益可提取");
+            toast(getString(R.string.toast_no_award));
             return;
         }
         PostProducerAwardGasBean postProducerAwardGasBean = new PostProducerAwardGasBean();

@@ -22,14 +22,14 @@
     <application
         android:name=".app.MyApplication"
         android:allowBackup="false"
-        tools:replace="android:allowBackup"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:resizeableActivity="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup">
         <meta-data
             android:name="design_width"
             android:value="375"/>
@@ -177,6 +177,8 @@
         <activity
             android:name=".modules.transaction.makecollection.MakeCollectionActivity"
             android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".modules.me.setting.LanguageActivity">
         </activity>
     </application>
 

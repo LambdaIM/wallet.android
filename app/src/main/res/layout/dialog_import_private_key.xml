@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimens_30"
         android:gravity="center"
-        android:text="备份钱包"
+        android:text="@string/bacck_up_wallet"
         android:textColor="@color/title_color"
         android:textSize="@dimen/dimens_16"/>
 
@@ -23,7 +23,7 @@
         android:layout_marginRight="@dimen/dimens_20"
         android:layout_marginTop="@dimen/dimens_10"
         android:gravity="center"
-        android:text="提示：请点击复制，在PC端生成txt文件保存内容，然后修改后缀为keyinfo即可"
+        android:text="@string/back_up_toast"
         android:textColor="@color/red_color"
         android:textSize="@dimen/dimens_13"/>
 
@@ -77,7 +77,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="复制"
+            android:text="@string/go_copy"
             android:textColor="@color/theme_color"
             android:textSize="@dimen/dimens_16"/>
     </LinearLayout>

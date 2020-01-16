@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">LAMB Wallet</string>
-    <!--常用提醒-->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="url_error">请求链接不存在~</string>
     <string name="socket_time_out">请求超时,请稍后重试~</string>
@@ -8,9 +7,6 @@
     <string name="error_parse">数据解析异常,请稍后重试~</string>
     <string name="dear_user">亲爱的用户</string>
     <string name="close_permisson_toast">您关闭权限申请,如需使用请重新点击.</string>
-
-
-    <!--钱包模块-->
     <string name="hint_choose_wallet">请选择钱包</string>
     <string name="hint_input_wallet_name">给你的钱包命名</string>
     <string name="hint_input_password">请输入密码</string>
@@ -31,14 +27,10 @@
     <string name="no_mnmonic_error">请选择助记词</string>
     <string name="hint_file_info">请输入备份文件内容(*.keyinfo)</string>
     <string name="hint_mnmonic_info">助记词，用空格间隔</string>
-
-    <!--tab架构-->
     <string name="tab_me">我的</string>
     <string name="tab_mining">挖矿</string>
     <string name="tab_home">资产</string>
     <string name="drop_two_to_home">再按一次返回键回到桌面</string>
-
-    <!--我的资产-->
     <string name="amount">余额(LAMB)</string>
     <string name="award">总奖励:</string>
     <string name="transfer">转账</string>
@@ -46,8 +38,6 @@
     <string name="exchange">兑换</string>
     <string name="no_more">- 没有更多 -</string>
     <string name="copy">复制成功</string>
-
-    <!--我的模块-->
     <string name="wallet_manger">管理钱包</string>
     <string name="transfer_history">交易记录</string>
     <string name="proposal">提案</string>
@@ -56,10 +46,9 @@
     <string name="address">账户地址</string>
     <string name="back_up">备份钱包</string>
     <string name="change_chain">切换验证节点</string>
+    <string name="language">语言</string>
     <string name="version">当前版本</string>
     <string name="change_wallet">切换钱包</string>
-
-    <!--交易模块1：转账-->
     <string name="to_address">接收方</string>
     <string name="lambda_address">lambda地址</string>
     <string name="can_use_amount">可用余额：</string>
@@ -67,41 +56,28 @@
     <string name="memo">填写备注(可选)</string>
     <string name="hint_input_memo">在此输入备注</string>
     <string name="go_transfer">确认转账</string>
-
-    <!--交易模块2：提取收益-->
     <string name="mining_award">奖励</string>
     <string name="producer_award">节点收益</string>
     <string name="take_out_amount">提取数额</string>
     <string name="toast_mining_award">*一次只能从5个验证节点中提取奖励</string>
     <string name="go_award">确认提取</string>
-
-    <!--交易模块3：兑换-->
     <string name="lamb_exchange">LAMB兑换TBB</string>
     <string name="tbb_exchange">TBB兑换LAMB</string>
     <string name="amount_lamb">金额（LAMB）</string>
     <string name="amount_tbb">金额（TBB）</string>
     <string name="go_exchange">确认兑换</string>
-
-    <!--挖矿模块-->
     <string name="store_mining">存储质押</string>
     <string name="store_market">存储市场</string>
     <string name="producer_list">请选择以下节点质押TBB挖矿</string>
-
-    <!--挖矿模块2：我的质押-->
     <string name="my_zhiya">我的质押</string>
     <string name="cancel_zhiya">解绑中</string>
     <string name="producer_details">验证节点详情</string>
-
-
-    <!--挖矿模块2：存储市场-->
     <string name="one_step_buy">一键购买</string>
     <string name="space">空间(GB)</string>
     <string name="time">时长(月)</string>
     <string name="buy">购买</string>
     <string name="other_buy">自选交易</string>
     <string name="my_order">我的订单</string>
-
-    <!--挖矿模块:购买空间-->
     <string name="hint_space">请输入空间数量</string>
     <string name="hint_time">请输入购买时长</string>
     <string name="sure_pay">立即支付</string>
@@ -194,7 +170,7 @@
     <string name="choose_token">选择币种</string>
     <string name="save_qr_code">保存二维码到相册</string>
     <string name="go_copy">复制</string>
-    <string name="make_collection_attation">注意事项:\n1:请使用LAMB Wallet 扫码进行转账\n2:该二维码暂不支持非LAMB Wallet 扫描</string>
+    <string name="make_collection_attation">特别注意:\n1:请使用LAMB Wallet 扫码进行转账\n2:该二维码暂不支持非LAMB Wallet 扫描</string>
     <string name="toast_file_info">请输入备份文件内容</string>
     <string name="toast_no_wallet_name">请输入钱包名</string>
     <string name="toast_error_file_info">备份文件内容有误，请核对后再次输入。</string>
@@ -265,6 +241,49 @@
     <string name="chain_error">链上信息读取异常，请稍后再试</string>
     <string name="push_success">操作成功,正在刷新账户信息,请稍候</string>
     <string name="password_error">密码错误</string>
+    <string name="root_toast">检测到您的设备已root,用户信息存在丢失的风险，请慎重!</string>
+    <string name="save_img_success">保存成功</string>
+    <string name="no_have">您暂未拥有</string>
+    <string name="dont_scan_transfer">,无法进行扫码转账</string>
+    <string name="chain_not1">您当前链接的节点地址和</string>
+    <string name="chain_not2">不同，是否切换以完成转账操作?</string>
+    <string name="lamb_wallet_not_code">只能扫描LAMB Wallet合作二维码</string>
+    <string name="identify">识别中...</string>
+    <string name="identify_photo_error">暂无法识别，建议您扫描读取</string>
+    <string name="save_fail">暂不支持该图片类型保存</string>
+    <string name="toast_ip">请输入ip和端口号</string>
+    <string name="vote">投票</string>
+    <string name="node_name">节点昵称：</string>
+    <string name="my_pledge">我的质押：</string>
+    <string name="my_award">我的奖励：</string>
+    <string name="pledge_addrsss">质押地址：</string>
+    <string name="desc">简   介：</string>
+    <string name="node_award">节点收益：</string>
+    <string name="max_award">最大收益：</string>
+    <string name="max_award_change">最大收益变化：</string>
+    <string name="vote_weight">投票权重：</string>
+    <string name="pledge_tbb">TBB质押挖矿</string>
+    <string name="change_pledge">转质押</string>
+    <string name="cancel_pledge">取消质押</string>
+    <string name="add">新增</string>
+    <string name="change_node">切换验证节点</string>
+    <string name="node_exited">该节点已存在</string>
+    <string name="save_deposit">存入押金</string>
+    <string name="soft_update">软件升级</string>
+    <string name="para_change">参数变更</string>
+    <string name="community_pool">社区基金</string>
+    <string name="burn_coins">销毁币</string>
+    <string name="text_proposal">文本</string>
+    <string name="vote_start_time">投票开始时间：</string>
+    <string name="vote_end_time">投票结束时间：</string>
+    <string name="proposal_details">提案详情</string>
+    <string name="bacck_up_wallet">备份钱包</string>
+    <string name="back_up_toast">提示：请点击复制，在PC端生成txt文件保存内容，然后修改后缀为keyinfo即可</string>
 
-
+    <string name="language_cn">中文</string>
+    <string name="language_en">ENGLISH</string>
+    <string name="language_auto">自动</string>
+    <string name="choosed_cn">当前语言已经是中文！</string>
+    <string name="choosed_en">当前语言已经是英文！</string>
+    <string name="swich_language_success">切换语言成功</string>
 </resources>

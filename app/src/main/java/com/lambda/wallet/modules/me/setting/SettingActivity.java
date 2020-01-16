@@ -13,6 +13,7 @@ import com.lambda.wallet.modules.wallet.login.LoginActivity;
 import com.lambda.wallet.normalvp.NormalPresenter;
 import com.lambda.wallet.normalvp.NormalView;
 import com.lambda.wallet.util.Utils;
+import com.lambda.wallet.view.nodoubleclick.NoDoubleClickListener;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -26,7 +27,8 @@ public class SettingActivity extends BaseAcitvity<NormalView, NormalPresenter> i
     Button mChangeWallet;
     @BindView(R.id.version)
     TextView mVersion;
-
+    @BindView(R.id.lange)
+    TextView mLange;
     @Override
     protected int getLayoutId() {
         return R.layout.activity_setting;
@@ -50,7 +52,12 @@ public class SettingActivity extends BaseAcitvity<NormalView, NormalPresenter> i
 
     @Override
     public void initEvent() {
-
+        mLange.setOnClickListener(new NoDoubleClickListener() {
+            @Override
+            protected void onNoDoubleClick(View v) {
+                ActivityUtils.next(SettingActivity.this, LanguageActivity.class);
+            }
+        });
     }
 
 

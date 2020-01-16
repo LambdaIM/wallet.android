@@ -31,7 +31,25 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimens_1"
         android:background="@color/line"/>
-
+    <TextView
+        android:id="@+id/lange"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_65"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:background="@color/white"
+        android:drawablePadding="@dimen/dimens_10"
+        android:drawableRight="@mipmap/more"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dimens_15"
+        android:paddingRight="@dimen/dimens_15"
+        android:text="@string/language"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/dimens_16"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"
+        android:background="@color/line"/>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimens_65"
@@ -60,6 +78,8 @@
             android:textColor="@color/txt_color"
             android:textSize="@dimen/dimens_15"/>
     </FrameLayout>
+
+
 
     <RelativeLayout
         android:layout_width="match_parent"

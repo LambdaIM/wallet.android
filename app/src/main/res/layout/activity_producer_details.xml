@@ -33,7 +33,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="节点昵称："
+                android:text="@string/node_name"
                 android:textColor="@color/title_color"
                 android:textSize="@dimen/dimens_14"/>
 
@@ -54,7 +54,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="我的质押："
+                android:text="@string/my_pledge"
                 android:textColor="@color/title_color"
                 android:textSize="@dimen/dimens_14"/>
 
@@ -75,7 +75,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="我的奖励："
+                android:text="@string/my_award"
                 android:textColor="@color/title_color"
                 android:textSize="@dimen/dimens_14"/>
 
@@ -96,7 +96,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="质押地址："
+                android:text="@string/pledge_addrsss"
                 android:textColor="@color/title_color"
                 android:textSize="@dimen/dimens_14"/>
 
@@ -117,7 +117,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="简        介："
+                android:text="@string/desc"
                 android:textColor="@color/title_color"
                 android:textSize="@dimen/dimens_14"/>
 
@@ -138,7 +138,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="节点收益："
+                android:text="@string/node_award"
                 android:textColor="@color/title_color"
                 android:textSize="@dimen/dimens_14"/>
 
@@ -159,7 +159,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="最大收益："
+                android:text="@string/max_award"
                 android:textColor="@color/title_color"
                 android:textSize="@dimen/dimens_14"/>
 
@@ -180,7 +180,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="最大收益变化："
+                android:text="@string/max_award_change"
                 android:textColor="@color/title_color"
                 android:textSize="@dimen/dimens_14"/>
 
@@ -201,7 +201,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="投票权重："
+                android:text="@string/vote_weight"
                 android:textColor="@color/title_color"
                 android:textSize="@dimen/dimens_14"/>
 
@@ -229,31 +229,31 @@
             android:layout_alignParentRight="true"
             android:background="@drawable/bg_sure_btn"
             android:gravity="center"
-            android:text="TBB质押挖矿"
+            android:text="@string/pledge_tbb"
             android:textColor="@color/white"
             android:textSize="@dimen/dimens_12"/>
 
         <TextView
             android:id="@+id/zhuanzhiya"
-            android:layout_width="@dimen/dimens_85"
+            android:layout_width="@dimen/dimens_100"
             android:layout_height="@dimen/dimens_32"
             android:layout_marginRight="@dimen/dimens_10"
             android:layout_toLeftOf="@+id/zhiya"
             android:background="@drawable/bg_sure_btn"
             android:gravity="center"
-            android:text="转质押"
+            android:text="@string/change_pledge"
             android:textColor="@color/white"
             android:textSize="@dimen/dimens_12"/>
 
         <TextView
             android:id="@+id/cancel_zhiya"
-            android:layout_width="@dimen/dimens_85"
+            android:layout_width="@dimen/dimens_100"
             android:layout_height="@dimen/dimens_32"
             android:layout_marginRight="@dimen/dimens_10"
             android:layout_toLeftOf="@+id/zhuanzhiya"
             android:background="@drawable/bg_sure_btn"
             android:gravity="center"
-            android:text="取消质押"
+            android:text="@string/cancel_pledge"
             android:textColor="@color/white"
             android:textSize="@dimen/dimens_12"/>
     </RelativeLayout>

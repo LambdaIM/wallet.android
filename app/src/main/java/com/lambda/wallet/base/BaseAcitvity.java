@@ -1,6 +1,7 @@
 package com.lambda.wallet.base;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -17,6 +18,7 @@ import com.lambda.wallet.app.AppManager;
 import com.lambda.wallet.eventbus.Event;
 import com.lambda.wallet.eventbus.EventBusUtil;
 import com.lambda.wallet.util.KeyBoardUtil;
+import com.lambda.wallet.util.LocalManageUtil;
 import com.lambda.wallet.util.ShowDialog;
 import com.lambda.wallet.util.ToastUtils;
 import com.lzy.okgo.OkGo;
@@ -33,6 +35,10 @@ public abstract class BaseAcitvity<V, P extends BasePresent<V>> extends AutoLayo
     protected P presenter;
     protected Activity activity;
     protected ImmersionBar mImmersionBar;
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocalManageUtil.setLocal(newBase));
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

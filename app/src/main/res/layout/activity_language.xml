@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_color"
+    tools:context="com.lambda.wallet.modules.me.setting.LanguageActivity">
+    <include layout="@layout/title_project"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"
+        android:background="@color/line"/>
+
+    <TextView
+        android:id="@+id/language_cn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:drawableRight="@mipmap/more"
+        android:padding="@dimen/dimens_15"
+        android:text="@string/language_cn"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/dimens_15"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"
+        android:background="@color/line"/>
+
+    <TextView
+        android:id="@+id/language_en"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:drawableRight="@mipmap/more"
+        android:padding="@dimen/dimens_15"
+        android:text="@string/language_en"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/dimens_15"
+        android:visibility="visible"/>
+
+</LinearLayout>

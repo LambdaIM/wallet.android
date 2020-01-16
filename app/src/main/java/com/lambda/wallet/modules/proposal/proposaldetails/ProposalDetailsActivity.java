@@ -121,7 +121,7 @@ public class ProposalDetailsActivity extends BaseAcitvity<ProposalDetailsView, P
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        setCenterTitle("提案详情");
+        setCenterTitle(getString(R.string.proposal_details));
     }
 
     @Override
@@ -147,10 +147,10 @@ public class ProposalDetailsActivity extends BaseAcitvity<ProposalDetailsView, P
         mProposalListBean = proposalListBean;
 
         if (mProposalListBean.getProposal_status().equals("Rejected")) {
-            mStatus.setText("未通过");
+            mStatus.setText(getString(R.string.rejected));
             mRel.setVisibility(View.GONE);
-            mOne.setText("投票开始时间：");
-            mTwo.setText("投票结束时间：");
+            mOne.setText(R.string.vote_start_time);
+            mTwo.setText(R.string.vote_end_time);
             mTime.setText(DateUtils.GTMToLocal(mProposalListBean.getVoting_start_time()));
             mYajinMaxTime.setText(DateUtils.GTMToLocal(mProposalListBean.getVoting_end_time()));
 
@@ -159,10 +159,10 @@ public class ProposalDetailsActivity extends BaseAcitvity<ProposalDetailsView, P
             mLlToupiao.setVisibility(View.VISIBLE);
 
         } else if (mProposalListBean.getProposal_status().equals("Passed")) {
-            mStatus.setText("通过");
+            mStatus.setText(getString(R.string.passed));
             mRel.setVisibility(View.GONE);
-            mOne.setText("投票开始时间：");
-            mTwo.setText("投票结束时间：");
+            mOne.setText(R.string.vote_start_time);
+            mTwo.setText(R.string.vote_end_time);
             mTime.setText(DateUtils.GTMToLocal(mProposalListBean.getVoting_start_time()));
             mYajinMaxTime.setText(DateUtils.GTMToLocal(mProposalListBean.getVoting_end_time()));
 
@@ -171,22 +171,22 @@ public class ProposalDetailsActivity extends BaseAcitvity<ProposalDetailsView, P
             mLlToupiao.setVisibility(View.VISIBLE);
 
         } else if (mProposalListBean.getProposal_status().equals("DepositPeriod")) {
-            mStatus.setText("押金阶段");
+            mStatus.setText(getString(R.string.depositPeriod));
             mRel.setVisibility(View.VISIBLE);
-            mGo.setText("存入押金");
+            mGo.setText(R.string.save_deposit);
             mMyYajin.setText("----");
             mTime.setText(DateUtils.GTMToLocal(mProposalListBean.getSubmit_time()));
             mYajinMaxTime.setText(DateUtils.GTMToLocal(mProposalListBean.getDeposit_end_time()));
         } else if (mProposalListBean.getProposal_status().equals("VotingPeriod")) {
-            mStatus.setText("投票阶段");
+            mStatus.setText(getString(R.string.voting_period));
             mRel.setVisibility(View.VISIBLE);
-            mGo.setText("投票");
+            mGo.setText(R.string.vote);
             mMyYajin.setText("----");
             mLlMyToupiao.setVisibility(View.VISIBLE);
             mMyToupiao.setText("----");
             mLlToupiao.setVisibility(View.VISIBLE);
-            mOne.setText("投票开始时间：");
-            mTwo.setText("投票结束时间：");
+            mOne.setText(R.string.vote_start_time);
+            mTwo.setText(R.string.vote_end_time);
             mTime.setText(DateUtils.GTMToLocal(mProposalListBean.getVoting_start_time()));
             mYajinMaxTime.setText(DateUtils.GTMToLocal(mProposalListBean.getVoting_end_time()));
         }
@@ -196,19 +196,19 @@ public class ProposalDetailsActivity extends BaseAcitvity<ProposalDetailsView, P
             TextProposalBean value = (TextProposalBean) JsonUtil.parseStringToBean(temp, TextProposalBean.class);
             mProposalTitle.setText(value.getTitle());
             mDesc.setText(value.getDescription());
-            mType.setText("文本");
+            mType.setText(R.string.text_proposal);
         } else if (mProposalListBean.getContent().getType().contains("BurnCoinsProposal")) {//销毁币
             BurnCoinsProposalBean value = (BurnCoinsProposalBean) JsonUtil.parseStringToBean(temp, BurnCoinsProposalBean.class);
             mProposalTitle.setText(value.getTitle());
             mDesc.setText(value.getDescription());
-            mType.setText("销毁币");
+            mType.setText(R.string.burn_coins);
             mLLBurn.setVisibility(View.VISIBLE);
             mBurn_amount.setText(StringUtils.deletzero(BigDecimalUtil.toLambdaBigDecimal(value.getBurn_amount().get(0).getAmount()).toString()) + "LAMB");
         } else if (mProposalListBean.getContent().getType().contains("CommunityPoolSpendProposal")) {//社区基金
             CommunityPoolSpendProposalBean value = (CommunityPoolSpendProposalBean) JsonUtil.parseStringToBean(temp, CommunityPoolSpendProposalBean.class);
             mProposalTitle.setText(value.getTitle());
             mDesc.setText(value.getDescription());
-            mType.setText("社区基金");
+            mType.setText(R.string.community_pool);
             mLl_pool_spend.setVisibility(View.VISIBLE);
             mPool_spend_amount.setText(StringUtils.deletzero(BigDecimalUtil.toLambdaBigDecimal(value.getAmount().get(0).getAmount()).toString()) + "LAMB");
 
@@ -216,7 +216,7 @@ public class ProposalDetailsActivity extends BaseAcitvity<ProposalDetailsView, P
             ParameterChangeProposalBean value = (ParameterChangeProposalBean) JsonUtil.parseStringToBean(temp, ParameterChangeProposalBean.class);
             mProposalTitle.setText(value.getTitle());
             mDesc.setText(value.getDescription());
-            mType.setText("参数变更");
+            mType.setText(R.string.para_change);
             mLl_param_change.setVisibility(View.VISIBLE);
 
             LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -229,7 +229,7 @@ public class ProposalDetailsActivity extends BaseAcitvity<ProposalDetailsView, P
             SoftwareUpgradeProposalBean value = (SoftwareUpgradeProposalBean) JsonUtil.parseStringToBean(temp, SoftwareUpgradeProposalBean.class);
             mProposalTitle.setText(value.getTitle());
             mDesc.setText(value.getDescription());
-            mType.setText("软件升级");
+            mType.setText(R.string.soft_update);
             mLl_soft_update.setVisibility(View.VISIBLE);
             mVersion.setText(value.getVersion());
             mSwitch_height.setText(value.getSwitch_height());
@@ -281,13 +281,13 @@ public class ProposalDetailsActivity extends BaseAcitvity<ProposalDetailsView, P
     @Override
     public void getMyTouPiaoDataHttp(MyTouPiaoBean myTouPiaoBean) {
         if (myTouPiaoBean.getOption().equals("Yes")) {
-            mMyToupiao.setText("同意");
+            mMyToupiao.setText(getString(R.string.yes));
         } else if (myTouPiaoBean.getOption().equals("No")) {
-            mMyToupiao.setText("反对");
+            mMyToupiao.setText(getString(R.string.no));
         } else if (myTouPiaoBean.getOption().equals("Abstain")) {
-            mMyToupiao.setText("弃权");
+            mMyToupiao.setText(getString(R.string.abstain));
         } else if (myTouPiaoBean.getOption().equals("NoWithVeto")) {
-            mMyToupiao.setText("强烈反对");
+            mMyToupiao.setText(getString(R.string.no_with_veto));
         }
 
     }

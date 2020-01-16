@@ -109,7 +109,7 @@ public class PasswordDialog extends Dialog implements View.OnClickListener {
                     callback.sure(mClearEditText.getText().toString().trim());
                     this.cancel();
                 } else {
-                    ToastUtils.showShortToast("请输入您的钱包密码");
+                    ToastUtils.showShortToast(R.string.hint_wallet_password);
                 }
                 break;
         }

@@ -61,7 +61,7 @@ public class MainActivity extends BaseAcitvity<NormalView, NormalPresenter> impl
                 }
             });
             confirmDialog.setCancelable(false);
-            confirmDialog.setContent("检测到您的设备已root,用户信息存在丢失的风险，请慎重!");
+            confirmDialog.setContent(getString(R.string.root_toast));
             confirmDialog.show();
         }
     }

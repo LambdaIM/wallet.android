@@ -46,7 +46,7 @@ public class AwardActivity extends BaseAcitvity<NormalView, NormalPresenter> imp
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        setCenterTitle("提取奖励");
+        setCenterTitle(getString(R.string.take_out_zhiya_award));
         mFragments = new ArrayList<>();
         mTitles.add(getString(R.string.mining_award));
         mTitles.add(getString(R.string.producer_award));

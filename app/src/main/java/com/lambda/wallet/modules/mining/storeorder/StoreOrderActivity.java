@@ -43,7 +43,7 @@ public class StoreOrderActivity extends BaseAcitvity<StoreOrderView, StoreOrderP
     @Override
     protected void initViews(Bundle savedInstanceState) {
         setCenterTitle(getString(R.string.transfer_history));
-        setRightTitle("购买空间",true);
+        setRightTitle(getString(R.string.buy_space),true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         layoutManager.setSmoothScrollbarEnabled(true);

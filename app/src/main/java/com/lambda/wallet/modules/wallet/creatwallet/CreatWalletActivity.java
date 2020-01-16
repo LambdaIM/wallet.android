@@ -2,6 +2,7 @@ package com.lambda.wallet.modules.wallet.creatwallet;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
@@ -18,6 +19,7 @@ import com.lambda.wallet.normalvp.NormalView;
 import com.lambda.wallet.util.RegexUtil;
 import com.lambda.wallet.util.Utils;
 import com.lambda.wallet.view.ClearEditText;
+import com.lambda.wallet.view.nodoubleclick.NoDoubleClickListener;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -25,7 +27,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 public class CreatWalletActivity extends BaseAcitvity<NormalView, NormalPresenter> implements NormalView {
 
@@ -65,52 +66,52 @@ public class CreatWalletActivity extends BaseAcitvity<NormalView, NormalPresente
 
     @Override
     public void initEvent() {
+        mGo.setOnClickListener(new NoDoubleClickListener() {
+            @Override
+            protected void onNoDoubleClick(View v) {
+                if (TextUtils.isEmpty(mWalletName.getText().toString().trim())) {
+                    toast(getString(R.string.toast_no_wallet_name));
+                    return;
+                }
+                if (TextUtils.isEmpty(mPassword.getText().toString().trim())) {
+                    toast(getString(R.string.toast_no_password));
+                    return;
+                }
+                if (TextUtils.isEmpty(mPasswordTwo.getText().toString().trim())) {
+                    toast(getString(R.string.toast_no_two_password));
+                    return;
+                }
+                if (!RegexUtil.isPwd(mPasswordTwo.getText().toString().trim())) {
+                    toast(getString(R.string.toast_rex_password));
+                    return;
+                }
+                if (!mPasswordTwo.getText().toString().trim().equals(mPassword.getText().toString().trim())) {
+                    toast(getString(R.string.toast_error_two_password));
+                    return;
+                }
+                showProgress();
+                List<UserBean> userBeans = null;
+                try {
+                    userBeans = MyApplication.getDbController().searchAll();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    userBeans = new ArrayList<>();
+                }
+                for (int i = 0; i < userBeans.size(); i++) {
+                    if (userBeans.get(i).getName().equals(mWalletName.getText().toString())) {
+                        toast(getString(R.string.toast_wallet_exit));
+                        return;
+                    }
+                }
 
-    }
+                onGenWords();
 
-
-    @OnClick(R.id.go)
-    public void onClick() {
-        if (TextUtils.isEmpty(mWalletName.getText().toString().trim())) {
-            toast(getString(R.string.toast_no_wallet_name));
-            return;
-        }
-        if (TextUtils.isEmpty(mPassword.getText().toString().trim())) {
-            toast(getString(R.string.toast_no_password));
-            return;
-        }
-        if (TextUtils.isEmpty(mPasswordTwo.getText().toString().trim())) {
-            toast(getString(R.string.toast_no_two_password));
-            return;
-        }
-        if (!RegexUtil.isPwd(mPasswordTwo.getText().toString().trim())) {
-            toast(getString(R.string.toast_rex_password));
-            return;
-        }
-        if (!mPasswordTwo.getText().toString().trim().equals(mPassword.getText().toString().trim())) {
-            toast(getString(R.string.toast_error_two_password));
-            return;
-        }
-        List<UserBean> userBeans = null;
-        try {
-            userBeans = MyApplication.getDbController().searchAll();
-        } catch (Exception e) {
-            e.printStackTrace();
-            userBeans = new ArrayList<>();
-        }
-        for (int i = 0; i < userBeans.size(); i++) {
-            if (userBeans.get(i).getName().equals(mWalletName.getText().toString())) {
-                toast(getString(R.string.toast_wallet_exit));
-                return;
             }
-        }
-
-        onGenWords();
-
+        });
     }
 
     private void onGenWords() {
-        showProgress();
+
         mEntropy = WalletManger.getEntropy();
         mWords = new ArrayList<String>(WalletManger.getRandomMnemonic(mEntropy));
 

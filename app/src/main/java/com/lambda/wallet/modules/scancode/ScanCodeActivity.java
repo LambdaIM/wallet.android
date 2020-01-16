@@ -81,7 +81,11 @@ public class ScanCodeActivity extends BaseAcitvity<NormalView, NormalPresenter> 
         ;
 
         mScannerView.setScannerOptions(builder.build());
-        mScannerView.setTouchscreenBlocksFocus(true);
+        try {
+            mScannerView.setTouchscreenBlocksFocus(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -157,7 +161,7 @@ public class ScanCodeActivity extends BaseAcitvity<NormalView, NormalPresenter> 
                         }
                     });
                     confirmDialog.setCancelable(false);
-                    confirmDialog.setContent("您暂未拥有" + StringUtils.lambdaToken(qrCodeMakeCollectionBean.getToken()) + ",无法进行扫码转账");
+                    confirmDialog.setContent(getString(R.string.no_have) + StringUtils.lambdaToken(qrCodeMakeCollectionBean.getToken()) + getString(R.string.dont_scan_transfer));
                     confirmDialog.show();
                 }
             } else {//需要切换主网环境 重新扫描
@@ -172,13 +176,13 @@ public class ScanCodeActivity extends BaseAcitvity<NormalView, NormalPresenter> 
                     }
                 });
                 confirmDialog.setCancelable(false);
-                confirmDialog.setContent("您当前链接的节点地址和" + qrCodeMakeCollectionBean.getChainUrl() + "不同，是否切换以完成转账操作?");
+                confirmDialog.setContent(getString(R.string.chain_not1) + qrCodeMakeCollectionBean.getChainUrl() + getString(R.string.chain_not2));
                 confirmDialog.show();
 
 
             }
         } else {
-            toast("只能扫描LAMB Wallet合作二维码");
+            toast(getString(R.string.lamb_wallet_not_code));
         }
     }
 
@@ -187,7 +191,7 @@ public class ScanCodeActivity extends BaseAcitvity<NormalView, NormalPresenter> 
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == ScanCodeActivity.RESULT_OK && requestCode == CHOOSE_PICTURE) {
             //获取uri拿bitmap要做压缩处理，防止oom
-            ShowDialog.showDialog(this, "识别中...", true, null);
+            ShowDialog.showDialog(this, getString(R.string.identify), true, null);
             Uri originalUri = null;
             File file = null;
             if (null != data) {
@@ -210,7 +214,7 @@ public class ScanCodeActivity extends BaseAcitvity<NormalView, NormalPresenter> 
                     if (parsedResult != null) {
                         pareCode(parsedResult.toString());
                     } else {
-                        toast("暂无法识别，建议您扫描读取");
+                        toast(getString(R.string.identify_photo_error));
                     }
                 }
             });

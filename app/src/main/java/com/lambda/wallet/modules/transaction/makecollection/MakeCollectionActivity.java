@@ -177,11 +177,11 @@ public class MakeCollectionActivity extends BaseAcitvity<NormalView, NormalPrese
             case R.id.save_qr_code:
                 if (bitmap != null) {
                     List<PermissionItem> permissonItems = new ArrayList<PermissionItem>();
-                    permissonItems.add(new PermissionItem(Manifest.permission.WRITE_EXTERNAL_STORAGE, "写入存储卡", R.drawable.permission_card1));
-                    permissonItems.add(new PermissionItem(Manifest.permission.READ_EXTERNAL_STORAGE, "读取存储卡", R.drawable.permission_card1));
-                    if (Utils.getPermissions(permissonItems, "请开启存储读写权限  浏览图库")) {
+                    permissonItems.add(new PermissionItem(Manifest.permission.WRITE_EXTERNAL_STORAGE, getString(R.string.WRITE_EXTERNAL_STORAGE), R.drawable.permission_card1));
+                    permissonItems.add(new PermissionItem(Manifest.permission.READ_EXTERNAL_STORAGE, getString(R.string.READ_EXTERNAL_STORAGE), R.drawable.permission_card1));
+                    if (Utils.getPermissions(permissonItems, getString(R.string.toast_storage))) {
                         FilesUtils.saveImageToGallery(this, new BitmapDrawable(bitmap));
-                        toast("保存相册成功");
+                        toast(getString(R.string.save_img_success));
                     }
                 }
 

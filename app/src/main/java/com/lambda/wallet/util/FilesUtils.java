@@ -28,7 +28,6 @@ import com.bumptech.glide.load.resource.gif.GifDrawable;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.lambda.wallet.R;
-import com.lzy.okgo.utils.OkLogger;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -39,22 +38,20 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class FilesUtils {
 
-    public static void url2Bitmap(Context context , String imgUrl){
-      Glide.with(context).load(imgUrl).into(new SimpleTarget<Drawable>() {
-        @Override
-        public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable > transition) {
+    public static void url2Bitmap(Context context, String imgUrl) {
+        Glide.with(context).load(imgUrl).into(new SimpleTarget<Drawable>() {
+            @Override
+            public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
           /*  BitmapDrawable bitmapDrawable = (BitmapDrawable) resource;
             Bitmap bitmap = bitmapDrawable.getBitmap();*/
-            saveImageToGallery(context,resource);
-            return;
-        }
-    });
+                saveImageToGallery(context, resource);
+                return;
+            }
+        });
     }
 
     public static void saveImageToGallery(Context context, Drawable resource) {
@@ -65,12 +62,12 @@ public class FilesUtils {
         }
         String fileName = null;
 
-        if (resource instanceof GifDrawable){
-            fileName= System.currentTimeMillis() + ".gif";
+        if (resource instanceof GifDrawable) {
+            fileName = System.currentTimeMillis() + ".gif";
 
 
-        }else if (resource instanceof BitmapDrawable){
-            fileName= System.currentTimeMillis() + ".png";
+        } else if (resource instanceof BitmapDrawable) {
+            fileName = System.currentTimeMillis() + ".png";
             File file = new File(appDir, fileName);
             BitmapDrawable bitmapDrawable = (BitmapDrawable) resource;
             Bitmap bitmap = bitmapDrawable.getBitmap();
@@ -89,11 +86,10 @@ public class FilesUtils {
             Uri uri = Uri.fromFile(file);
             intent.setData(uri);
             context.sendBroadcast(intent);
-            ToastUtils.showShortToast("保存成功");
-        }else {
-            ToastUtils.showShortToast("暂不支持该图片类型保存");
+            ToastUtils.showShortToast(context.getResources().getString(R.string.save_img_success));
+        } else {
+            ToastUtils.showShortToast(context.getResources().getString(R.string.save_fail));
         }
-
 
 
     }
@@ -443,26 +439,6 @@ public class FilesUtils {
             e.printStackTrace();
         }
         return result;
-    }
-
-    //读取指定目录下的所有TXT文件的文件
-    public static List<File> getFileForTxt(File[] files) {
-        List<File> fileArrayList = new ArrayList<>();
-        if (files != null) {// 先判断目录是否为空，否则会报空指针
-            for (File file : files) {
-                if (file.isDirectory()) {
-                    OkLogger.i("===============>", "若是文件目录。继续读1" + file.getName().toString() + file.getPath().toString());
-                    getFileForTxt(file.listFiles());
-                    OkLogger.i("===============>", "若是文件目录。继续读2" + file.getName().toString() + file.getPath().toString());
-                } else {
-                    String fileName = file.getName();
-                    if (fileName.endsWith(".txt")) {
-                        fileArrayList.add(file);
-                    }
-                }
-            }
-        }
-        return fileArrayList;
     }
 
 }

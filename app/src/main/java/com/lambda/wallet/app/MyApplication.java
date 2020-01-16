@@ -1,10 +1,12 @@
 package com.lambda.wallet.app;
 
+import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
 import com.lambda.wallet.bean.UserBean;
 import com.lambda.wallet.gen.DbController;
+import com.lambda.wallet.util.LocalManageUtil;
 import com.lambda.wallet.util.Utils;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
@@ -62,6 +64,17 @@ public class MyApplication extends MultiDexApplication {
         //配置数据库
         mDbController = DbController.getInstance(this);
 
+
+        LocalManageUtil.setApplicationLanguage(getApplicationContext());
+
+
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        //保存系统选择语言
+        LocalManageUtil.saveSystemCurrentLanguage(base);
+        super.attachBaseContext(LocalManageUtil.setLocal(base));
     }
 
 

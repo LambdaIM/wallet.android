@@ -59,7 +59,7 @@ public class CashPledgeActivity extends BaseAcitvity<CashPledgeView, CashPledgeP
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        setCenterTitle("存入押金");
+        setCenterTitle(getString(R.string.save_deposit));
         mFromAddress.setText(MyApplication.getInstance().getUserBean().getAddress());
         mTitle.setText(getIntent().getStringExtra("title"));
         mCanUseAmount.setText(StringUtils.deletzero(Utils.getSpUtils().getString(Constants.SpInfo.LAMB)) + "LAMB");
@@ -79,11 +79,11 @@ public class CashPledgeActivity extends BaseAcitvity<CashPledgeView, CashPledgeP
     @OnClick(R.id.go)
     public void onClick() {
         if (TextUtils.isEmpty(mAmount.getText().toString().trim())) {
-            toast("请输入金额");
+            toast(getString(R.string.toast_no_amount));
             return;
         }
         if (!BigDecimalUtil.greaterThan(new BigDecimal(Utils.getSpUtils().getString(Constants.SpInfo.LAMB)), new BigDecimal(mAmount.getText().toString().trim()))) {
-            toast("余额不足");
+            toast(getString(R.string.balance_no_enough));
             return;
         }
 
