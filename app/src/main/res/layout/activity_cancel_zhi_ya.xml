@@ -145,6 +145,7 @@
                 android:layout_marginTop="@dimen/dimens_50"
                 android:background="@drawable/bg_sure_btn"
                 android:text="@string/sure"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/dimens_15"/>
         </LinearLayout>

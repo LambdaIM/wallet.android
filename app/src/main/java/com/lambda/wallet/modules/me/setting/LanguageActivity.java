@@ -36,7 +36,7 @@ public class LanguageActivity extends BaseAcitvity<NormalView, NormalPresenter> 
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-
+        setCenterTitle(getString(R.string.language));
     }
 
     @Override

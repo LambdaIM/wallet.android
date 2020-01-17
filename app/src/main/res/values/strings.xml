@@ -265,7 +265,7 @@
     <string name="pledge_tbb">TBB质押挖矿</string>
     <string name="change_pledge">转质押</string>
     <string name="cancel_pledge">取消质押</string>
-    <string name="add">新增</string>
+    <string name="add">自定义</string>
     <string name="change_node">切换验证节点</string>
     <string name="node_exited">该节点已存在</string>
     <string name="save_deposit">存入押金</string>

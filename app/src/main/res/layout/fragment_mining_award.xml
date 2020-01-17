@@ -71,6 +71,7 @@
         android:layout_marginLeft="@dimen/dimens_30"
         android:layout_marginRight="@dimen/dimens_30"
         android:layout_marginTop="@dimen/dimens_80"
+        android:textAllCaps="false"
         android:background="@drawable/bg_sure_btn"
         android:text="@string/go_award"
         android:textColor="@color/white"

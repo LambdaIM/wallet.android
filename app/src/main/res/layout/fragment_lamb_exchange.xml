@@ -113,6 +113,7 @@
         android:background="@drawable/bg_sure_btn"
         android:text="@string/go_exchange"
         android:textColor="@color/white"
+        android:textAllCaps="false"
         android:textSize="@dimen/dimens_15"/>
 
 
