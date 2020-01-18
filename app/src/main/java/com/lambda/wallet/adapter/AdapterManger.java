@@ -177,7 +177,7 @@ public class AdapterManger<T> {
                         amount.setTextColor(mContext.getResources().getColor(R.color.red_color));
                         try {
                             if (item.getTx().getValue().getMsg().get(i).getValue().getAmount().size()>1) {
-                                amount.setText("-" + StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getAmount()).toString()) + StringUtils.lambdaToken(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getDenom())+"等");
+                                amount.setText("-" + StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getAmount()).toString()) + StringUtils.lambdaToken(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getDenom())+mContext.getString(R.string.etc));
                             }else {
                                 amount.setText("-" + StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getAmount()).toString()) + StringUtils.lambdaToken(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getDenom()));
                             }
@@ -191,7 +191,7 @@ public class AdapterManger<T> {
                         amount.setTextColor(mContext.getResources().getColor(R.color.order_green_color));
                         try {
                             if (item.getTx().getValue().getMsg().get(i).getValue().getAmount().size()>1) {
-                                amount.setText("+" + StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getAmount()).toString()) + StringUtils.lambdaToken(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getDenom())+"等");
+                                amount.setText("+" + StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getAmount()).toString()) + StringUtils.lambdaToken(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getDenom())+mContext.getString(R.string.etc));
                             }else {
                                 amount.setText("+" + StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getAmount()).toString()) + StringUtils.lambdaToken(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getDenom()));
                             }

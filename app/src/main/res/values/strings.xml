@@ -286,4 +286,5 @@
     <string name="choosed_cn">当前语言已经是中文！</string>
     <string name="choosed_en">当前语言已经是英文！</string>
     <string name="swich_language_success">切换语言成功</string>
+    <string name="etc">等</string>
 </resources>

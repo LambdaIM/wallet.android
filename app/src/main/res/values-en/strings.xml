@@ -171,7 +171,7 @@ If you have the requirement, please click again. </string>
     <string name="error_application">must be initialize first</string>
     <string name="choose_token">choose tokens</string>
     <string name="save_qr_code">please save QR code into the photo album</string>
-    <string name="go_copy">copy</string>
+    <string name="go_copy">Copy</string>
     <string name="make_collection_attation">Special reminder:\n1:please use LAMB Wallet scan to make transfer\n2:the QR code is not support non LAMB Wallet to scan</string>
     <string name="toast_file_info">please enter content of backup file</string>
     <string name="toast_no_wallet_name">please enter wallet name</string>
@@ -197,7 +197,7 @@ If you have the requirement, please click again. </string>
     <string name="order_selled">the order sold out~</string>
     <string name="sendd_to">Send to</string>
     <string name="get_from">Receive from</string>
-    <string name="success">Sucess</string>
+    <string name="success">Success</string>
     <string name="fail">Fail</string>
     <string name="complete">predicted complete</string>
     <string name="seller">Sell</string>
@@ -254,7 +254,7 @@ If you have the requirement, please click again. </string>
     <string name="identify_photo_error">Unrecognized right now. It is recommended that you scan and read</string>
     <string name="save_fail">Can not support the type of photograph currently</string>
     <string name="toast_ip">please enter ip and port number</string>
-    <string name="vote">voting </string>
+    <string name="vote">Voting </string>
     <string name="node_name">validator name：</string>
     <string name="my_pledge">my pledge：</string>
     <string name="my_award">my reward：</string>
@@ -270,7 +270,7 @@ If you have the requirement, please click again. </string>
     <string name="add">customize</string>
     <string name="change_node">swap validator</string>
     <string name="node_exited">the validator exists</string>
-    <string name="save_deposit">deposit</string>
+    <string name="save_deposit">Deposit</string>
     <string name="soft_update">software upgrade</string>
     <string name="para_change">adjust parameter</string>
     <string name="community_pool">community foundation</string>
@@ -284,9 +284,10 @@ If you have the requirement, please click again. </string>
 
 
     <string name="language_cn">Chinese</string>
-    <string name="language_en">ENGLISH</string>
+    <string name="language_en">English</string>
     <string name="language_auto">Auto</string>
     <string name="choosed_cn">The current language is already Chinese！</string>
     <string name="choosed_en">The current language is already English！</string>
     <string name="swich_language_success">Successful conversion of language</string>
+    <string name="etc">etc.</string>
 </resources>
