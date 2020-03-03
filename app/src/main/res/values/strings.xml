@@ -106,7 +106,7 @@
     <string name="close">关闭</string>
     <string name="zhiya">质押</string>
     <string name="transaction_storage_capacity">成交存储容量</string>
-    <string name="order_details">订单详情</string>
+    <string name="order_details">交易详情</string>
     <string name="producer_url">节点地址</string>
     <string name="producer_ip">请输入节点IP</string>
     <string name="producer_port">端口号</string>
@@ -281,10 +281,16 @@
     <string name="back_up_toast">提示：请点击复制，在PC端生成txt文件保存内容，然后修改后缀为keyinfo即可</string>
 
     <string name="language_cn">中文</string>
-    <string name="language_en">ENGLISH</string>
+    <string name="language_en">English</string>
     <string name="language_auto">自动</string>
     <string name="choosed_cn">当前语言已经是中文！</string>
     <string name="choosed_en">当前语言已经是英文！</string>
     <string name="swich_language_success">切换语言成功</string>
     <string name="etc">等</string>
+    <string name="transfer_success">交易完成</string>
+    <string name="block_number">块高:</string>
+    <string name="transaction_fee">费用:</string>
+    <string name="gas">瓦斯(已用/要求):</string>
+    <string name="transaction_time">时间:</string>
+    <string name="hash">交易哈希:</string>
 </resources>

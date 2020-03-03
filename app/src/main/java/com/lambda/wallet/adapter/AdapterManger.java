@@ -21,6 +21,7 @@ import com.lambda.wallet.bean.MyCancelZhiYaBean;
 import com.lambda.wallet.bean.MyMiningListBean;
 import com.lambda.wallet.bean.MyStoreOrderBean;
 import com.lambda.wallet.bean.ProducersDetailsBean;
+import com.lambda.wallet.bean.TransactionDetailBean;
 import com.lambda.wallet.bean.TransferHistoryBean;
 import com.lambda.wallet.bean.UserBean;
 import com.lambda.wallet.bean.proposal.BurnCoinsProposalBean;
@@ -33,13 +34,12 @@ import com.lambda.wallet.modules.mining.orderdetails.OrderDetailsActivity;
 import com.lambda.wallet.modules.mining.storemarket.buystore.BuyStoreActivity;
 import com.lambda.wallet.modules.producer.ProducerDetailsActivity;
 import com.lambda.wallet.modules.proposal.proposaldetails.ProposalDetailsActivity;
-import com.lambda.wallet.modules.webview.WebviewActivity;
+import com.lambda.wallet.modules.transaction.transactiondetail.TransactionDetailActivity;
 import com.lambda.wallet.util.BigDecimalUtil;
 import com.lambda.wallet.util.DateUtils;
 import com.lambda.wallet.util.JsonUtil;
 import com.lambda.wallet.util.StringUtils;
 import com.lambda.wallet.util.ToastUtils;
-import com.lambda.wallet.util.Utils;
 import com.lambda.wallet.view.nodoubleclick.NoDoubleClickListener;
 
 import java.math.BigDecimal;
@@ -212,20 +212,31 @@ public class AdapterManger<T> {
                 holder.getConvertView().setOnClickListener(new NoDoubleClickListener() {
                     @Override
                     protected void onNoDoubleClick(View v) {
-
                         Bundle bundle = new Bundle();
-                        String url = null;
-                        if (Utils.getSpUtils().getString("url").equals("http://47.93.196.236:13659")) {
-                            url = "http://testbrowser.lambda.im/#/txDetail/" + item.getTxhash();
-                        } else if (Utils.getSpUtils().getString("url").equals("http://39.107.247.86:13659")) {
-                            url = "http://explorer.lambdastorage.com/#/txDetail/" + item.getTxhash();
-                        }
-                        bundle.putString("url", url);
-                        bundle.putString("title",  mContext.getString(R.string.order_details));
-                        ActivityUtils.next((Activity) mContext, WebviewActivity.class, bundle);
-
+                        bundle.putString("hash", item.getTxhash());
+                        ActivityUtils.next((Activity) mContext, TransactionDetailActivity.class, bundle);
                     }
                 });
+            }
+        };
+        return mCommonAdapter;
+    }
+    public static CommonAdapter getTransferHistoryDetailsAdapter(final Context context, List<TransactionDetailBean.TxBean.ValueBeanX.MsgBean> historyBeanList) {
+        mCommonAdapter = new CommonAdapter<TransactionDetailBean.TxBean.ValueBeanX.MsgBean>(context, R.layout.item_detail_historyl, historyBeanList) {
+            @Override
+            protected void convert(ViewHolder holder, TransactionDetailBean.TxBean.ValueBeanX.MsgBean item, int position) {
+                TextView amount = holder.getView(R.id.amount);
+                holder.setText(R.id.from, StringUtils.lambdaAddress(item.getValue().getFrom_address()));
+                holder.setText(R.id.to, StringUtils.lambdaAddress(item.getValue().getTo_address()));
+                try {
+                    if (item.getValue().getAmount().size()>1) {
+                        amount.setText( StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getValue().getAmount().get(0).getAmount()).toString()) + StringUtils.lambdaToken(item.getValue().getAmount().get(0).getDenom())+mContext.getString(R.string.etc));
+                    }else {
+                        amount.setText( StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getValue().getAmount().get(0).getAmount()).toString()) + StringUtils.lambdaToken(item.getValue().getAmount().get(0).getDenom()));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         };
         return mCommonAdapter;

@@ -1,5 +1,6 @@
 package com.lambda.wallet.modules.transaction.history;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 
@@ -11,9 +12,12 @@ import com.lambda.wallet.adapter.baseadapter.wrapper.EmptyWrapper;
 import com.lambda.wallet.app.MyApplication;
 import com.lambda.wallet.base.BaseAcitvity;
 import com.lambda.wallet.bean.TransferHistoryBean;
+import com.lambda.wallet.util.DateUtils;
 
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -85,7 +89,7 @@ public class HistoryTransferActivity extends BaseAcitvity<HistoryTransferView, H
     @Override
     public void getSendHistoryDataHttp(List<TransferHistoryBean> transferHistoryBeans) {
         for (int i = 0; i < transferHistoryBeans.size(); i++) {
-            if (transferHistoryBeans.get(i).getTags().get(0).getValue().equals("send")) {//只筛选发送的
+            if (transferHistoryBeans.get(i).getTags().get(0).getValue().equals("send")) {//只筛选发送
                 mTransferHistoryBeans.add(transferHistoryBeans.get(i));
             }
         }
@@ -100,7 +104,39 @@ public class HistoryTransferActivity extends BaseAcitvity<HistoryTransferView, H
                 mTransferHistoryBeans.add(transferHistoryBeans.get(i));
             }
         }
-        Collections.reverse(mTransferHistoryBeans);//倒叙排列一下
+        time_sorting_List(mTransferHistoryBeans);
         mCommonAdapter.notifyDataSetChanged();
     }
+
+
+    @SuppressLint("SimpleDateFormat")
+    private List<TransferHistoryBean> time_sorting_List(List<TransferHistoryBean> time) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date d1;
+        Date d2;
+        TransferHistoryBean temp_r = new TransferHistoryBean();
+        //做一个冒泡排序，大的在数组的前列
+        for (int i = 0; i < time.size() - 1; i++) {
+            for (int j = i + 1; j < time.size(); j++) {
+                ParsePosition pos1 = new ParsePosition(0);
+                ParsePosition pos2 = new ParsePosition(0);
+                String timei = "";
+
+                timei = DateUtils.GTMToLocal(time.get(i).getTimestamp());
+                String timej = "";
+                timej = DateUtils.GTMToLocal(time.get(j).getTimestamp());
+
+                d1 = sdf.parse(timei, pos1);
+                d2 = sdf.parse(timej, pos2);
+                if (d1.before(d2)) {//如果队前日期靠前，调换顺序
+                    temp_r = time.get(i);
+                    time.set(i, time.get(j));
+                    time.set(j, temp_r);
+                }
+            }
+        }
+        return time;
+    }
+
+
 }

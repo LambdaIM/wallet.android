@@ -180,6 +180,8 @@
         </activity>
         <activity android:name=".modules.me.setting.LanguageActivity">
         </activity>
+        <activity android:name=".modules.transaction.transactiondetail.TransactionDetailActivity">
+        </activity>
     </application>
 
 </manifest>

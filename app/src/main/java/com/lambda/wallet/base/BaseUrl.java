@@ -70,4 +70,7 @@ public class BaseUrl {
     public final static String getHTTP_Get_proposal_my_yajin = "/gov/proposals/";
     //获取提案投票信息
     public final static String getHTTP_Get_proposal_toupiao ="/gov/proposals/";
+
+    //获取交易详情
+    public final static String getHTTP_Get_transaction_detail ="/txs/";
 }

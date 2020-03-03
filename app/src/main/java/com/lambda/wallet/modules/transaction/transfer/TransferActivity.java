@@ -22,6 +22,7 @@ import com.lambda.wallet.lambda.bean.TransactionSuccessBean;
 import com.lambda.wallet.lambda.bean.gas.PostTransferGasBean;
 import com.lambda.wallet.lambda.bean.msg.TransferMsgBean;
 import com.lambda.wallet.modules.transaction.history.HistoryTransferActivity;
+import com.lambda.wallet.modules.transaction.transactiondetail.TransactionDetailActivity;
 import com.lambda.wallet.util.AndroidBug5497Workaround;
 import com.lambda.wallet.util.BigDecimalUtil;
 import com.lambda.wallet.util.KeyBoardUtil;
@@ -63,7 +64,8 @@ public class TransferActivity extends BaseAcitvity<TransferView, TransferPresent
     QrCodeTokenMakeCollectionBean qrCodeMakeCollectionBean = new QrCodeTokenMakeCollectionBean();
 
     private int select = 0;//默认选中的资产
-    HashMap<String ,String> hashMap = new HashMap<>();
+    HashMap<String, String> hashMap = new HashMap<>();
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_transfer;
@@ -92,7 +94,7 @@ public class TransferActivity extends BaseAcitvity<TransferView, TransferPresent
             for (int i = 0; i < mCoinsBeans.size(); i++) {
                 mTokenList.add(StringUtils.lambdaToken(mCoinsBeans.get(i).getDenom()));
                 if (mCoinsBeans.get(i).getDenom().equals(qrCodeMakeCollectionBean.getToken())) {
-                    mCanUseAmount.setText(StringUtils.addComma(mCoinsBeans.get(i).getAmount()) );
+                    mCanUseAmount.setText(StringUtils.addComma(mCoinsBeans.get(i).getAmount()));
                     select = i;
                 }
             }
@@ -103,7 +105,7 @@ public class TransferActivity extends BaseAcitvity<TransferView, TransferPresent
             for (int i = 0; i < mCoinsBeans.size(); i++) {
                 mTokenList.add(StringUtils.lambdaToken(mCoinsBeans.get(i).getDenom()));
             }
-            mCanUseAmount.setText(StringUtils.addComma(mCoinsBeans.get(0).getAmount()) );
+            mCanUseAmount.setText(StringUtils.addComma(mCoinsBeans.get(0).getAmount()));
             mToken.setText(StringUtils.lambdaToken(mCoinsBeans.get(0).getDenom()));
             select = 0;
         }
@@ -176,16 +178,16 @@ public class TransferActivity extends BaseAcitvity<TransferView, TransferPresent
                     toast(getString(R.string.toast_error_to_yourself));
                     return;
                 }
-                if (mToAddress.getText().toString().trim().length()!=45){
+                if (mToAddress.getText().toString().trim().length() != 45) {
                     toast(getString(R.string.toast_error_lambda));
                     return;
                 }
                 PostTransferGasBean postTransferGasBean = new PostTransferGasBean();
                 PostTransferGasBean.BaseReqBean baseReqBean = new PostTransferGasBean.BaseReqBean();
-               new ChainInfoUtils(new ChainInfoUtils.Callback() {
+                new ChainInfoUtils(new ChainInfoUtils.Callback() {
                     @Override
                     public void onSuccess(HashMap<String, String> hashMap1) {
-                        hashMap =hashMap1;
+                        hashMap = hashMap1;
 
                         baseReqBean.setSequence(hashMap.get("sequence"));
                         baseReqBean.setAccount_number(hashMap.get("account_number"));
@@ -244,9 +246,10 @@ public class TransferActivity extends BaseAcitvity<TransferView, TransferPresent
                         timer.schedule(new TimerTask() {
                             @Override
                             public void run() {
-
                                 hideProgress();
-                                finish();
+                                Bundle bundle = new Bundle();
+                                bundle.putString("hash", transactionSuccessBean.getTxhash());
+                                ActivityUtils.next(TransferActivity.this, TransactionDetailActivity.class, bundle,true);
                             }
                         }, 7000);//延时10S刷新数据
                     }
@@ -256,7 +259,7 @@ public class TransferActivity extends BaseAcitvity<TransferView, TransferPresent
                         hideProgress();
                         toast(msg);
                     }
-                },hashMap).push(gasBean.getGas_estimate(), Utils.getSpUtils().getString(Constants.SpInfo.TOKEN), mMemo.getText().toString(), transferMsgBeans);
+                }, hashMap).push(gasBean.getGas_estimate(), Utils.getSpUtils().getString(Constants.SpInfo.TOKEN), mMemo.getText().toString(), transferMsgBeans);
             }
         });
         mPasswordDialog.setCancelable(false);
