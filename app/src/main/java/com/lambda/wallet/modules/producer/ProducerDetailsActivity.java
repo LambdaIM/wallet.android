@@ -69,8 +69,8 @@ public class ProducerDetailsActivity extends BaseAcitvity<ProducerDetailsView, P
     @Override
     protected void initViews(Bundle savedInstanceState) {
         setCenterTitle(getString(R.string.producer_details));
-        mCancelZhiya.setVisibility(View.GONE);
-        mZhuanzhiya.setVisibility(View.GONE);
+        mCancelZhiya.setVisibility(View.VISIBLE);
+        mZhuanzhiya.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -153,8 +153,8 @@ public class ProducerDetailsActivity extends BaseAcitvity<ProducerDetailsView, P
         }
 
         if (TextUtils.isEmpty(zhiya)) {
-            mCancelZhiya.setVisibility(View.GONE);
-            mZhuanzhiya.setVisibility(View.GONE);
+            mCancelZhiya.setVisibility(View.VISIBLE);
+            mZhuanzhiya.setVisibility(View.VISIBLE);
         } else {
             mCancelZhiya.setVisibility(View.VISIBLE);
             mZhuanzhiya.setVisibility(View.VISIBLE);

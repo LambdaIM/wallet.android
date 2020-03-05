@@ -55,6 +55,7 @@
                 android:layout_marginRight="@dimen/dimens_20"
                 android:gravity="center_vertical"
                 android:hint="@string/producer_port"
+                android:text="13659"
                 android:paddingLeft="@dimen/dimens_10"
                 android:paddingRight="@dimen/dimens_10"
                 android:inputType="text"
