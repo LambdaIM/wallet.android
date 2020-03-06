@@ -7,12 +7,10 @@ import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.gson.GsonBuilder;
 import com.lambda.wallet.R;
 import com.lambda.wallet.app.AppManager;
 import com.lambda.wallet.base.BaseAcitvity;
 import com.lambda.wallet.bean.ChainInfoBean;
-import com.lambda.wallet.util.JsonUtil;
 import com.lambda.wallet.util.RegexUtil;
 import com.lambda.wallet.util.Utils;
 import com.lambda.wallet.view.dialog.addchaindialog.AddChainCallback;
@@ -164,7 +162,7 @@ public class ChangeChainActivity extends BaseAcitvity<ChangeChainView, ChangeCha
                 }
             });
             chainInfoDialog.setCanceledOnTouchOutside(false);
-            chainInfoDialog.setContent(JsonUtil.stringToJSON(new GsonBuilder().enableComplexMapKeySerialization().disableHtmlEscaping().create().toJson(chainInfoBean)));
+            chainInfoDialog.setContent(chainInfoBean);
             chainInfoDialog.show();
         }
     }
@@ -177,7 +175,7 @@ public class ChangeChainActivity extends BaseAcitvity<ChangeChainView, ChangeCha
             }
         });
         chainInfoDialog.setCanceledOnTouchOutside(false);
-        chainInfoDialog.setContent(url);
+        chainInfoDialog.setError(url);
         chainInfoDialog.show();
     }
 
