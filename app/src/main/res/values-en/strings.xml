@@ -296,4 +296,6 @@ If you have the requirement, please click again. </string>
     <string name="gas">Gas (used/wanted):</string>
     <string name="transaction_time">Time:</string>
     <string name="hash">TxHash:</string>
+    <string name="chain_info">Node Info</string>
+    <string name="chain_info_erro">Node link error</string>
 </resources>

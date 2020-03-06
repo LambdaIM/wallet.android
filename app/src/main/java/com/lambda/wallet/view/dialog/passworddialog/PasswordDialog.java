@@ -16,7 +16,6 @@ import com.lambda.wallet.util.StringUtils;
 import com.lambda.wallet.util.ToastUtils;
 import com.lambda.wallet.util.Utils;
 import com.lambda.wallet.view.ClearEditText;
-import com.lzy.okgo.utils.OkLogger;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -60,7 +59,6 @@ public class PasswordDialog extends Dialog implements View.OnClickListener {
 
 
     public PasswordDialog setGas(String gas) {
-        OkLogger.i("==========>"+Utils.getSpUtils().getString(Constants.SpInfo.LAMB));
         if (Utils.getSpUtils().getString(Constants.SpInfo.LAMB).equals("0")){
             mGas.setText("0");
         }else {

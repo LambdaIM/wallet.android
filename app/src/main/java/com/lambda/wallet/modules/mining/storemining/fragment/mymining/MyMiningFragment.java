@@ -70,13 +70,13 @@ public class MyMiningFragment extends LazyLoadFragment<MyMiningView, MyMiningPre
         mCommonAdapter.setEmptyView(R.layout.empty);
         mList.setAdapter(mCommonAdapter);
 
-        presenter.getProducerData(MyApplication.getInstance().getUserBean().getAddress());
     }
 
 
     @Override
     public void getZhiyaDataHttp(List<ZhiyaProducerBean> zhiyaProducerBeans) {
-        if (zhiyaProducerBeans != null && zhiyaProducerBeans.size() != 0)
+        if (zhiyaProducerBeans != null && zhiyaProducerBeans.size() != 0) {
+            mMyMiningListBeans.clear();
             for (int i = 0; i < zhiyaProducerBeans.size(); i++) {
                 MyMiningListBean miningListBean = new MyMiningListBean();
                 miningListBean.setDelegator_address(zhiyaProducerBeans.get(i).getDelegator_address());
@@ -85,6 +85,7 @@ public class MyMiningFragment extends LazyLoadFragment<MyMiningView, MyMiningPre
                 mMyMiningListBeans.add(miningListBean);
                 presenter.getProducerDetailsData(zhiyaProducerBeans.get(i).getValidator_address());
             }
+        }
     }
 
     @Override
@@ -110,6 +111,10 @@ public class MyMiningFragment extends LazyLoadFragment<MyMiningView, MyMiningPre
         mCommonAdapter.notifyDataSetChanged();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
 
-
+        presenter.getProducerData(MyApplication.getInstance().getUserBean().getAddress());
+    }
 }

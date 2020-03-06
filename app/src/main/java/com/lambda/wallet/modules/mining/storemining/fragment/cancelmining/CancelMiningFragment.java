@@ -70,12 +70,13 @@ public class CancelMiningFragment extends LazyLoadFragment<CancelMiningView, Can
         mCommonAdapter.setEmptyView(R.layout.empty);
         mList.setAdapter(mCommonAdapter);
 
-        presenter.getCancelData(MyApplication.getInstance().getUserBean().getAddress());
+
     }
 
     @Override
     public void getCancelZhiyaDataHttp(List<CancelZhiyaBean> cancelZhiyaBeanList) {
         mList.refreshComplete();
+        mMyCancelZhiYaBeans.clear();
         for (int i = 0; i < cancelZhiyaBeanList.size(); i++) {
             for (int j = 0; j < cancelZhiyaBeanList.get(i).getEntries().size(); j++) {
                 MyCancelZhiYaBean myCancelZhiYaBean = new MyCancelZhiYaBean();
@@ -86,5 +87,11 @@ public class CancelMiningFragment extends LazyLoadFragment<CancelMiningView, Can
         }
         Collections.reverse(mMyCancelZhiYaBeans);//倒叙排列一下,按照时间顺序排列
         mCommonAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.getCancelData(MyApplication.getInstance().getUserBean().getAddress());
     }
 }

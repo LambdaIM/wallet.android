@@ -24,6 +24,8 @@ import com.lambda.wallet.util.KeyBoardUtil;
 import com.lambda.wallet.util.StringUtils;
 import com.lambda.wallet.util.Utils;
 import com.lambda.wallet.view.ClearEditText;
+import com.lambda.wallet.view.dialog.confimdialog.Callback;
+import com.lambda.wallet.view.dialog.confimdialog.ConfirmDialog;
 import com.lambda.wallet.view.dialog.passworddialog.PasswordDialog;
 
 import java.math.BigDecimal;
@@ -215,13 +217,22 @@ public class ZhuanZhiYaActivity extends BaseAcitvity<ZhuanZhiYaView, ZhuanZhiYaP
                     @Override
                     public void onFail(String msg) {
                         hideProgress();
-                        toast(msg);
+                        ConfirmDialog confirmDialog = new ConfirmDialog(ZhuanZhiYaActivity.this, new Callback() {
+                            @Override
+                            public void sure() {
+
+                            }
+                        });
+                        confirmDialog.setContent(msg);
+                        confirmDialog.show();
                     }
                 },hashMap).push(gasBean.getGas_estimate(),Utils.getSpUtils().getString(Constants.SpInfo.TOKEN) , "", zhuanZhiYaMsgBeans);
             }
         });
         mPasswordDialog.setCancelable(false);
-        mPasswordDialog.setGas(gasBean.getGas_estimate());
+        String gas = BigDecimalUtil.multiply(new BigDecimal(gasBean.getGas_estimate()), new BigDecimal(1.5)).toString();
+        String amount = BigDecimalUtil.multiply(new BigDecimal(Math.round(Double.parseDouble(gas))+""), new BigDecimal(Constants.GAS_PRICE)).toString();
+        mPasswordDialog.setGas(Math.round(Double.parseDouble(amount)) + "");
         mPasswordDialog.show();
 
 

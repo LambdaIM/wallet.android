@@ -7,6 +7,7 @@ import com.lzy.okgo.callback.Callback;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.HttpHeaders;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -41,7 +42,14 @@ public class HttpUtils {
                 .headers(headers)
                 .execute((Callback<T>) callback);
     }
-
+    public static <T> void getRequets(String url, Object tag, JsonCallback<T> callback) {
+        HttpHeaders headers = new HttpHeaders();
+        OkGo.<T>get(url)
+                .tag(tag)
+                .params(new HashMap<>())
+                .headers(headers)
+                .execute((Callback<T>) callback);
+    }
     /**
      * Post request.
      *

@@ -9,27 +9,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <TextView
-            android:id="@+id/dialog_confirm_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-           android:layout_marginTop="@dimen/dimens_30"
-            android:layout_marginBottom="@dimen/dimens_10"
-            android:layout_marginLeft="@dimen/dimens_30"
-            android:layout_marginRight="@dimen/dimens_30"
-            android:gravity="center"
-            android:textColor="@color/title_color"
-            android:textStyle="bold"
-            android:textSize="@dimen/dimens_15"/>
+
         <TextView
             android:id="@+id/dialog_confirm_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dimens_30"
-            android:layout_marginRight="@dimen/dimens_30"
-            android:layout_marginBottom="@dimen/dimens_30"
+           android:layout_margin="@dimen/dimens_30"
             android:gravity="center"
-            android:textColor="@color/txt_color"
+            android:textColor="@color/title_color"
             android:textSize="@dimen/dimens_15"/>
 
         <View

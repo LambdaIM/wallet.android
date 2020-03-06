@@ -257,7 +257,9 @@ public class BuyStoreActivity extends BaseAcitvity<BuyStoreView, BuyStorePresent
             }
         });
         mPasswordDialog.setCancelable(false);
-        mPasswordDialog.setGas(gasBean.getGas_estimate());
+        String gas = BigDecimalUtil.multiply(new BigDecimal(gasBean.getGas_estimate()), new BigDecimal(1.5)).toString();
+        String amount = BigDecimalUtil.multiply(new BigDecimal(gas), new BigDecimal(Constants.GAS_PRICE)).toString();
+        mPasswordDialog.setGas(Math.round(Double.parseDouble(amount)) + ""); mPasswordDialog.setGas(gasBean.getGas_estimate());
         mPasswordDialog.show();
     }
 

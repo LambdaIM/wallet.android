@@ -1,8 +1,10 @@
 package com.lambda.wallet.modules.transaction.transactiondetail;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.ClipboardManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,6 +16,7 @@ import com.lambda.wallet.bean.TransactionDetailBean;
 import com.lambda.wallet.util.BigDecimalUtil;
 import com.lambda.wallet.util.DateUtils;
 import com.lambda.wallet.util.StringUtils;
+import com.lambda.wallet.util.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,10 +84,10 @@ public class TransactionDetailActivity extends BaseAcitvity<TransactionDetailVie
         hideProgress();
         mHash.setText(transactionDetailBean.getTxhash());
         mBlockNumber.setText(transactionDetailBean.getHeight());
-        if (transactionDetailBean!=null) {
+        if (transactionDetailBean!=null&&transactionDetailBean.getTx().getValue().getFee().getAmount()!=null) {
             mFee.setText(BigDecimalUtil.toLambdaBigDecimal(transactionDetailBean.getTx().getValue().getFee().getAmount().get(0).getAmount())+ StringUtils.lambdaToken(transactionDetailBean.getTx().getValue().getFee().getAmount().get(0).getDenom()));
         }else {
-            mFee.setText("0");
+            mFee.setText("--");
         }
         mGas.setText(transactionDetailBean.getGas_used()+"/"+transactionDetailBean.getGas_wanted());
         mTime.setText( DateUtils.GTMToLocal(transactionDetailBean.getTimestamp()));
@@ -99,7 +102,8 @@ public class TransactionDetailActivity extends BaseAcitvity<TransactionDetailVie
 
     @OnClick(R.id.copy_hash)
     public void onClick() {
-
-
+        ClipboardManager cm = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+        cm.setText(mHash.getText().toString());
+        ToastUtils.showShortToast(R.string.copy_success);
     }
 }

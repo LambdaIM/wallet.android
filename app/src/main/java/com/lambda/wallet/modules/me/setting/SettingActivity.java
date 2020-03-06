@@ -9,6 +9,7 @@ import com.lambda.wallet.R;
 import com.lambda.wallet.app.ActivityUtils;
 import com.lambda.wallet.app.AppManager;
 import com.lambda.wallet.base.BaseAcitvity;
+import com.lambda.wallet.modules.me.setting.changechain.ChangeChainActivity;
 import com.lambda.wallet.modules.wallet.login.LoginActivity;
 import com.lambda.wallet.normalvp.NormalPresenter;
 import com.lambda.wallet.normalvp.NormalView;

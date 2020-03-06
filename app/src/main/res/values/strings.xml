@@ -293,4 +293,6 @@
     <string name="gas">瓦斯(已用/要求):</string>
     <string name="transaction_time">时间:</string>
     <string name="hash">交易哈希:</string>
+    <string name="chain_info">节点信息</string>
+    <string name="chain_info_erro">节点链接错误</string>
 </resources>

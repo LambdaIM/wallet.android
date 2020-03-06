@@ -43,6 +43,7 @@
                 android:background="@drawable/bg_gray_confirm"
                 android:hint="@string/lambda_address"
                 android:inputType="text"
+                android:text="lambda13zade3vrptrm5ud7lr9epu8rjval33haptcerl"
                 android:paddingLeft="@dimen/dimens_20"
                 android:paddingRight="@dimen/dimens_20"
                 android:textColor="@color/title_color"

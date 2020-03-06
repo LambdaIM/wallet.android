@@ -167,7 +167,7 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".modules.me.setting.ChangeChainActivity"
+            android:name=".modules.me.setting.changechain.ChangeChainActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity

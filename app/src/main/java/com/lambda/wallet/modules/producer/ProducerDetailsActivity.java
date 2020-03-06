@@ -175,7 +175,7 @@ public class ProducerDetailsActivity extends BaseAcitvity<ProducerDetailsView, P
                 ActivityUtils.next(this, ZhuanZhiYaActivity.class,bundle);
                 break;
             case R.id.cancel_zhiya:
-                bundle.putString("zhiya",zhiya);
+                bundle.putString("zhiya",TextUtils.isEmpty(zhiya)?"0":zhiya);
                 ActivityUtils.next(this, CancelZhiYaActivity.class,bundle);
                 break;
         }

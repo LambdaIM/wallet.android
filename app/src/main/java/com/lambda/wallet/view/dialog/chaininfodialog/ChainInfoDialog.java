@@ -1,4 +1,4 @@
-package com.lambda.wallet.view.dialog.confimdialog;
+package com.lambda.wallet.view.dialog.chaininfodialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -12,18 +12,17 @@ import com.lambda.wallet.R;
 
 
 /**
- *确认弹窗
+ *节点信息弹窗
  */
 
-public class ConfirmDialog extends Dialog implements View.OnClickListener {
+public class ChainInfoDialog extends Dialog implements View.OnClickListener {
 
     Callback callback;
     private TextView content;
     private TextView sureBtn;
-    private TextView cancleBtn;
     private Context context;
 
-    public ConfirmDialog(Context context, Callback callback) {
+    public ChainInfoDialog(Context context, Callback callback) {
         super(context, R.style.CustomDialog);
         this.callback = callback;
         this.context = context;
@@ -31,12 +30,10 @@ public class ConfirmDialog extends Dialog implements View.OnClickListener {
     }
 
     private void setCustomDialog() {
-        View mView = LayoutInflater.from(getContext()).inflate(R.layout.dialog_confirm, null);
-        sureBtn = (TextView) mView.findViewById(R.id.dialog_confirm_sure);
-        cancleBtn = (TextView) mView.findViewById(R.id.dialog_confirm_cancle);
-        content = (TextView) mView.findViewById(R.id.dialog_confirm_desc);
+        View mView = LayoutInflater.from(getContext()).inflate(R.layout.dialog_chain_info, null);
+        sureBtn = (TextView) mView.findViewById(R.id.sure);
+        content = (TextView) mView.findViewById(R.id.info);
         sureBtn.setOnClickListener(this);
-        cancleBtn.setOnClickListener(this);
         super.setContentView(mView);
         WindowManager windowManager = getWindow().getWindowManager();
         Display display = windowManager.getDefaultDisplay();
@@ -46,7 +43,7 @@ public class ConfirmDialog extends Dialog implements View.OnClickListener {
     }
 
 
-    public ConfirmDialog setContent(String cont) {
+    public ChainInfoDialog setContent(String cont) {
         content.setText(cont);
         return this;
     }
@@ -55,12 +52,8 @@ public class ConfirmDialog extends Dialog implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.dialog_confirm_cancle:
+            case R.id.sure:
                 callback.sure();
-                this.cancel();
-                break;
-
-            case R.id.dialog_confirm_sure:
                 this.cancel();
                 break;
         }

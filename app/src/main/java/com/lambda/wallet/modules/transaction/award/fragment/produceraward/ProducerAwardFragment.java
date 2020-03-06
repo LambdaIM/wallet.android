@@ -15,9 +15,13 @@ import com.lambda.wallet.lambda.WalletManger;
 import com.lambda.wallet.lambda.bean.TransactionSuccessBean;
 import com.lambda.wallet.lambda.bean.gas.PostProducerAwardGasBean;
 import com.lambda.wallet.lambda.bean.msg.ProducerAwardMsgBean;
+import com.lambda.wallet.util.BigDecimalUtil;
 import com.lambda.wallet.util.Utils;
+import com.lambda.wallet.view.dialog.confimdialog.Callback;
+import com.lambda.wallet.view.dialog.confimdialog.ConfirmDialog;
 import com.lambda.wallet.view.dialog.passworddialog.PasswordDialog;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -122,13 +126,22 @@ public class ProducerAwardFragment extends LazyLoadFragment<ProducerAwardView, P
                     @Override
                     public void onFail(String msg) {
                         hideProgress();
-                        toast(msg);
+                        ConfirmDialog confirmDialog = new ConfirmDialog(getActivity(), new Callback() {
+                            @Override
+                            public void sure() {
+
+                            }
+                        });
+                        confirmDialog.setContent(msg);
+                        confirmDialog.show();
                     }
                 }, hashMap).push(gasBean.getGas_estimate(), Utils.getSpUtils().getString(Constants.SpInfo.TOKEN), "", producerAwardMsgBeans);
             }
         });
         mPasswordDialog.setCancelable(false);
-        mPasswordDialog.setGas(gasBean.getGas_estimate());
+        String gas = BigDecimalUtil.multiply(new BigDecimal(gasBean.getGas_estimate()), new BigDecimal(1.5)).toString();
+        String amount = BigDecimalUtil.multiply(new BigDecimal(Math.round(Double.parseDouble(gas))+""), new BigDecimal(Constants.GAS_PRICE)).toString();
+        mPasswordDialog.setGas(Math.round(Double.parseDouble(amount)) + "");
         mPasswordDialog.show();
     }
 }
