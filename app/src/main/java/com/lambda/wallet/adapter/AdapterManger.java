@@ -108,9 +108,9 @@ public class AdapterManger<T> {
                 }
 
                 if (!TextUtils.isEmpty(bonded_tokens)) {
-                    holder.setText(R.id.toupiao, mContext.getString(R.string.voting_weight) + StringUtils.deletzero(BigDecimalUtil.multiply(BigDecimalUtil.divide(new BigDecimal(item.getTokens()), new BigDecimal(bonded_tokens)), new BigDecimal(100),2).toString()) + "%");
+                    holder.setText(R.id.toupiao, mContext.getString(R.string.voting_weight) + StringUtils.deletzero(BigDecimalUtil.multiply(BigDecimalUtil.divide(new BigDecimal(item.getTokens()), new BigDecimal(bonded_tokens)), new BigDecimal(100), 2).toString()) + "%");
                 } else {
-                    holder.setText(R.id.toupiao, mContext.getString(R.string.voting_weight) +"----");
+                    holder.setText(R.id.toupiao, mContext.getString(R.string.voting_weight) + "----");
                 }
                 holder.getConvertView().setOnClickListener(new NoDoubleClickListener() {
                     @Override
@@ -176,9 +176,9 @@ public class AdapterManger<T> {
                         holder.setText(R.id.history_type, mContext.getString(R.string.sendd_to));
                         amount.setTextColor(mContext.getResources().getColor(R.color.red_color));
                         try {
-                            if (item.getTx().getValue().getMsg().get(i).getValue().getAmount().size()>1) {
-                                amount.setText("-" + StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getAmount()).toString()) + StringUtils.lambdaToken(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getDenom())+mContext.getString(R.string.etc));
-                            }else {
+                            if (item.getTx().getValue().getMsg().get(i).getValue().getAmount().size() > 1) {
+                                amount.setText("-" + StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getAmount()).toString()) + StringUtils.lambdaToken(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getDenom()) + mContext.getString(R.string.etc));
+                            } else {
                                 amount.setText("-" + StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getAmount()).toString()) + StringUtils.lambdaToken(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getDenom()));
                             }
                         } catch (Exception e) {
@@ -190,9 +190,9 @@ public class AdapterManger<T> {
                         holder.setText(R.id.history_type, mContext.getString(R.string.get_from));
                         amount.setTextColor(mContext.getResources().getColor(R.color.order_green_color));
                         try {
-                            if (item.getTx().getValue().getMsg().get(i).getValue().getAmount().size()>1) {
-                                amount.setText("+" + StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getAmount()).toString()) + StringUtils.lambdaToken(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getDenom())+mContext.getString(R.string.etc));
-                            }else {
+                            if (item.getTx().getValue().getMsg().get(i).getValue().getAmount().size() > 1) {
+                                amount.setText("+" + StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getAmount()).toString()) + StringUtils.lambdaToken(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getDenom()) + mContext.getString(R.string.etc));
+                            } else {
                                 amount.setText("+" + StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getAmount()).toString()) + StringUtils.lambdaToken(item.getTx().getValue().getMsg().get(i).getValue().getAmount().get(0).getDenom()));
                             }
                         } catch (Exception e) {
@@ -201,7 +201,7 @@ public class AdapterManger<T> {
                     }
                 }
                 try {
-                    status.setText(item.getLogs().get(a).isSuccess() ?  mContext.getString(R.string.success) : mContext.getString(R.string.fail));
+                    status.setText(item.getLogs().get(a).isSuccess() ? mContext.getString(R.string.success) : mContext.getString(R.string.fail));
                 } catch (Exception e) {
                     e.printStackTrace();
                     status.setText(R.string.success);
@@ -221,21 +221,37 @@ public class AdapterManger<T> {
         };
         return mCommonAdapter;
     }
-    public static CommonAdapter getTransferHistoryDetailsAdapter(final Context context, List<TransactionDetailBean.TxBean.ValueBeanX.MsgBean> historyBeanList) {
+
+    public static CommonAdapter getTransferHistoryDetailsAdapter(final Context context, List<TransactionDetailBean.TxBean.ValueBeanX.MsgBean> historyBeanList,String fail,int failPosition) {
         mCommonAdapter = new CommonAdapter<TransactionDetailBean.TxBean.ValueBeanX.MsgBean>(context, R.layout.item_detail_historyl, historyBeanList) {
             @Override
             protected void convert(ViewHolder holder, TransactionDetailBean.TxBean.ValueBeanX.MsgBean item, int position) {
-                TextView amount = holder.getView(R.id.amount);
-                holder.setText(R.id.from, StringUtils.lambdaAddress(item.getValue().getFrom_address()));
-                holder.setText(R.id.to, StringUtils.lambdaAddress(item.getValue().getTo_address()));
+                TextView amount = holder.getView(R.id.token);
+                View line = holder.getView(R.id.fail_line);
+                TextView failMessage = holder.getView(R.id.fail);
+                holder.setText(R.id.sender, item.getValue().getFrom_address());
+                holder.setText(R.id.receiver,item.getValue().getTo_address());
+                String amountStr = "";
                 try {
-                    if (item.getValue().getAmount().size()>1) {
-                        amount.setText( StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getValue().getAmount().get(0).getAmount()).toString()) + StringUtils.lambdaToken(item.getValue().getAmount().get(0).getDenom())+mContext.getString(R.string.etc));
-                    }else {
-                        amount.setText( StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getValue().getAmount().get(0).getAmount()).toString()) + StringUtils.lambdaToken(item.getValue().getAmount().get(0).getDenom()));
+                    for (int i = 0; i < item.getValue().getAmount().size(); i++) {
+                        amountStr += " "+StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getValue().getAmount().get(i).getAmount()).toString()) + StringUtils.lambdaToken(item.getValue().getAmount().get(i).getDenom());
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                }
+                if (!TextUtils.isEmpty(amountStr)) {
+                    amount.setText(amountStr);
+                }else {
+                    amount.setText(" ");
+                }
+
+                if (failPosition!=-1&&failPosition==position){
+                    line.setVisibility(View.VISIBLE);
+                    failMessage.setVisibility(View.VISIBLE);
+                    failMessage.setText(mContext.getString(R.string.reason)+fail);
+                }else {
+                    line.setVisibility(View.GONE);
+                    failMessage.setVisibility(View.GONE);
                 }
             }
         };

@@ -20,6 +20,7 @@ import com.lambda.wallet.util.RegexUtil;
 import com.lambda.wallet.util.Utils;
 import com.lambda.wallet.view.ClearEditText;
 import com.lambda.wallet.view.nodoubleclick.NoDoubleClickListener;
+import com.lzy.okgo.utils.OkLogger;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -128,6 +129,7 @@ public class CreatWalletActivity extends BaseAcitvity<NormalView, NormalPresente
             for (int i = 0; i < mWords.size(); i++) {
                 str += " " + mWords.get(i);
             }
+
             Bundle bundle = new Bundle();
             bundle.putStringArrayList("words", mWords);
             bundle.putParcelable("userBean", mUserBean);

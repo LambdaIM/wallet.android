@@ -291,6 +291,7 @@ If you have the requirement, please click again. </string>
     <string name="swich_language_success">Successful conversion of language</string>
     <string name="etc">etc.</string>
     <string name="transfer_success">Success</string>
+    <string name="transfer_fail">Failed</string>
     <string name="block_number">Height:</string>
     <string name="transaction_fee">Fee:</string>
     <string name="gas">Gas (used/wanted):</string>
@@ -298,4 +299,6 @@ If you have the requirement, please click again. </string>
     <string name="hash">TxHash:</string>
     <string name="chain_info">Node Info</string>
     <string name="chain_info_erro">Node link error</string>
+    <string name="token">Amount </string>
+    <string name="reason">Reason:</string>
 </resources>

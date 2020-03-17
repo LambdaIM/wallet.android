@@ -19,6 +19,8 @@ import com.lambda.wallet.normalvp.NormalView;
 import com.lambda.wallet.util.RegexUtil;
 import com.lambda.wallet.util.Utils;
 import com.lambda.wallet.view.ClearEditText;
+import com.lambda.wallet.view.dialog.confimdialog.Callback;
+import com.lambda.wallet.view.dialog.confimdialog.ConfirmDialog;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -123,11 +125,22 @@ public class MnemonicImportFragment extends LazyLoadFragment<NormalView, NormalP
                 toast(getString(R.string.toast_error_mnemonic));
                 return;
             }
-            if (!WalletManger.isMnemonicWords(mWords)) {
+            String noMnemonic = null;
+            noMnemonic = WalletManger.isMnemonicWordsString(mWords);
+            if (!TextUtils.isEmpty(noMnemonic)) {
                 hideProgress();
-                toast(getString(R.string.toast_error_mnemonic));
+                ConfirmDialog confirmDialog = new ConfirmDialog(getActivity(), new Callback() {
+                    @Override
+                    public void sure() {
+
+                    }
+                });
+                confirmDialog.setContent(noMnemonic+getString(R.string.toast_error_mnemonic));
+                confirmDialog.show();
                 return;
             }
+
+
             HashMap hashMap = new HashMap();
             hashMap = PasswordToKeyUtils.encryptPwdForPrivate(mPassword.getText().toString().trim(),WalletManger.getPrivateKeyFromMnemonicCode(mWords));
             String address0 = WalletManger.getAddressFromPrivateKey(WalletManger.getPrivateKeyFromMnemonicCode(mWords));
@@ -146,5 +159,6 @@ public class MnemonicImportFragment extends LazyLoadFragment<NormalView, NormalP
             toast(getString(R.string.toast_error_mnemonic));
         }
     }
+
 
 }

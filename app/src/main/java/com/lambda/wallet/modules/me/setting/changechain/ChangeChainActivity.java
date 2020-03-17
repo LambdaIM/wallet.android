@@ -102,10 +102,11 @@ public class ChangeChainActivity extends BaseAcitvity<ChangeChainView, ChangeCha
                                 addUrl.equals(Utils.getSpUtils().getString("addUrl"))) {
                             toast(getString(R.string.node_exited));
                         } else {
+                            mRelAddChain.setVisibility(View.VISIBLE);
                             mAddChain.setText(addUrl);
-                            mChooseOne.setChecked(false);
-                            mChooseTwo.setChecked(false);
-                            mChooseThree.setChecked(true);
+//                            mChooseOne.setChecked(false);
+//                            mChooseTwo.setChecked(false);
+//                            mChooseThree.setChecked(true);
                             Utils.getSpUtils().put("addUrl", addUrl);
                             presenter.getChainInfoData(Utils.getSpUtils().getString("addUrl"));
                         }

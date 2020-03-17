@@ -152,6 +152,17 @@ public class WalletManger {
         return result;
     }
 
+    public static String isMnemonicWordsString(ArrayList<String> words) {
+        String result = null;
+        List<String> mnemonics = MnemonicCode.INSTANCE.getWordList();
+        for (String insert : words) {
+            if (!mnemonics.contains(insert)) {
+                result = insert;
+                break;
+            }
+        }
+        return result;
+    }
     /**
      * The constant PRE_PUB_KEY.
      */

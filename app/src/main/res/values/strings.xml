@@ -288,6 +288,7 @@
     <string name="swich_language_success">切换语言成功</string>
     <string name="etc">等</string>
     <string name="transfer_success">交易完成</string>
+    <string name="transfer_fail">交易失败</string>
     <string name="block_number">块高:</string>
     <string name="transaction_fee">费用:</string>
     <string name="gas">瓦斯(已用/要求):</string>
@@ -295,4 +296,7 @@
     <string name="hash">交易哈希:</string>
     <string name="chain_info">节点信息</string>
     <string name="chain_info_erro">节点链接错误</string>
+
+    <string name="token">金额 </string>
+    <string name="reason">原因:</string>
 </resources>
