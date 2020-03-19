@@ -198,7 +198,7 @@ If you have the requirement, please click again. </string>
     <string name="sendd_to">Send to</string>
     <string name="get_from">Receive from</string>
     <string name="success">Success</string>
-    <string name="fail">Fail</string>
+    <string name="fail">Failed</string>
     <string name="complete">predicted complete</string>
     <string name="seller">Sell</string>
     <string name="seller_space_gb">the amount of sell space(GB)</string>

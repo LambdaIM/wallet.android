@@ -168,10 +168,9 @@ public class AdapterManger<T> {
             protected void convert(ViewHolder holder, TransferHistoryBean item, int position) {
                 TextView amount = holder.getView(R.id.amount);
                 TextView status = holder.getView(R.id.status);
-                int a = 0;
+                String address = MyApplication.getInstance().getUserBean().getAddress();
                 for (int i = 0; i < item.getTx().getValue().getMsg().size(); i++) {
-                    if (item.getTx().getValue().getMsg().get(i).getValue().getFrom_address().equals(MyApplication.getInstance().getUserBean().getAddress())) {
-                        a = i;
+                    if (item.getTx().getValue().getMsg().get(i).getValue().getFrom_address().equals(address)) {
                         holder.setText(R.id.address, StringUtils.lambdaAddress(item.getTx().getValue().getMsg().get(i).getValue().getTo_address()));
                         holder.setText(R.id.history_type, mContext.getString(R.string.sendd_to));
                         amount.setTextColor(mContext.getResources().getColor(R.color.red_color));
@@ -184,8 +183,7 @@ public class AdapterManger<T> {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                    } else if (item.getTx().getValue().getMsg().get(i).getValue().getTo_address().equals(MyApplication.getInstance().getUserBean().getAddress())) {
-                        a = i;
+                    } else if (item.getTx().getValue().getMsg().get(i).getValue().getTo_address().equals(address)) {
                         holder.setText(R.id.address, StringUtils.lambdaAddress(item.getTx().getValue().getMsg().get(i).getValue().getFrom_address()));
                         holder.setText(R.id.history_type, mContext.getString(R.string.get_from));
                         amount.setTextColor(mContext.getResources().getColor(R.color.order_green_color));
@@ -201,10 +199,16 @@ public class AdapterManger<T> {
                     }
                 }
                 try {
-                    status.setText(item.getLogs().get(a).isSuccess() ? mContext.getString(R.string.success) : mContext.getString(R.string.fail));
+                    for (int i = 0; i < item.getLogs().size(); i++) {
+                        if (item.getLogs().get(i).isSuccess()){
+                            status.setText(mContext.getString(R.string.success));
+                        }else{
+                            status.setText(mContext.getString(R.string.fail));
+                        }
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    status.setText(R.string.success);
+                    status.setText(R.string.fail);
                 }
 
                 holder.setText(R.id.time, DateUtils.GTMToLocal(item.getTimestamp()));
