@@ -29,5 +29,8 @@ public class Constants {
         public  final static String PUB_TYPE = "tendermint/PubKeySecp256k1";
         public  final static String TX_MODE = "block";
 
+        public  final static String TX_MSG_ASSETINVEST = "lambda/MsgAssetInvest";// 预挖矿
+
+
     }
 }

@@ -8,53 +8,62 @@
     <RelativeLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true">
+        android:layout_height="wrap_content" >
 
-        <ImageView
-            android:id="@+id/token_img"
-            android:layout_width="@dimen/dimens_44"
-            android:layout_height="@dimen/dimens_44"
-            android:src="@mipmap/icon_lamb"
-            android:layout_alignParentLeft="true"
-            android:layout_marginRight="@dimen/dimens_10"/>
+            <TextView
+                android:id="@+id/token"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dimens_5"
+                android:layout_marginTop="@dimen/dimens_10"
+                android:singleLine="true"
+                android:text="@string/app_name"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_16"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/amount"
+                android:layout_below="@+id/token"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimens_10"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:text="@string/app_name"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/dimens_14"/>
+
+
 
         <TextView
-            android:id="@+id/token"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/dimens_5"
-            android:layout_marginTop="@dimen/dimens_10"
-            android:layout_toRightOf="@+id/token_img"
-            android:singleLine="true"
-            android:text="@string/app_name"
-            android:textColor="@color/title_color"
-            android:textSize="@dimen/dimens_16"
-            android:textStyle="bold"/>
-
-
-        <TextView
-            android:id="@+id/amount"
+            android:id="@+id/status"
             android:layout_toRightOf="@+id/token"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg_green_status"
+            android:paddingBottom="@dimen/dimens_2"
+            android:paddingLeft="@dimen/dimens_10"
+            android:paddingRight="@dimen/dimens_10"
+            android:layout_marginTop="@dimen/dimens_10"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_13"/>
+
+        <ImageView
+            android:id="@+id/right_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:gravity="right"
-            android:layout_marginTop="@dimen/dimens_10"
-            android:singleLine="true"
-            android:ellipsize="end"
-            android:text="@string/app_name"
-            android:textColor="@color/title_color"
-            android:textSize="@dimen/dimens_14"/>
+            android:background="@drawable/vector_right_forward" />
+
+
     </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimens_1"
         android:layout_below="@+id/ll"
-        android:layout_marginLeft="@dimen/dimens_55"
         android:layout_marginTop="@dimen/dimens_20"
         android:layout_marginBottom="@dimen/dimens_10"
         android:background="@color/line"/>

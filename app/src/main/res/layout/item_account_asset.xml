@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:skin="http://schemas.android.com/android/skin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_100"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimens_20"
+            android:layout_marginTop="@dimen/dimens_10">
+
+            <TextView
+                android:id="@+id/assets_coin_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/text_16"
+                skin:enable="true"
+                tools:text="BTC" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/dimens_16"
+                android:background="@drawable/vector_right_forward" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/dimens_16"
+                android:layout_marginTop="@dimen/dimens_16"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/dimens_16">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="@string/coin_amount"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_13" />
+
+                <TextView
+                    android:id="@+id/assets_coin_btc_available_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_40"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:textColor="@color/gray_color"
+                    android:textSize="@dimen/dimens_16"
+                    skin:enable="true"
+                    tools:text="0.04683456" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="@string/coin_pledge_amount"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_13" />
+
+                <TextView
+                    android:id="@+id/assets_coin_btc_freeze_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_4"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:textColor="@color/gray_color"
+                    android:textSize="@dimen/dimens_16"
+                    skin:enable="true"
+                    tools:text="100000.04683456" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:orientation="vertical"
+                android:paddingRight="@dimen/dimens_16">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:text="@string/coin_pledge_reward"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_13" />
+
+                <TextView
+                    android:id="@+id/assets_coin_btc_legal_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_7"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:textColor="@color/gray_color"
+                    android:textSize="@dimen/dimens_16"
+                    skin:enable="true"
+                    tools:text="0.04683456" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="@dimen/dimens_10"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"
+        android:background="@color/line"
+        skin:enable="true" />
+</LinearLayout>

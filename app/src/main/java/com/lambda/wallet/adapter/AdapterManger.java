@@ -16,6 +16,7 @@ import com.lambda.wallet.adapter.baseadapter.base.ViewHolder;
 import com.lambda.wallet.app.ActivityUtils;
 import com.lambda.wallet.app.MyApplication;
 import com.lambda.wallet.bean.HomeAddressDetailsBean;
+import com.lambda.wallet.bean.HomeAssetBean;
 import com.lambda.wallet.bean.MarketSellListBean;
 import com.lambda.wallet.bean.MyCancelZhiYaBean;
 import com.lambda.wallet.bean.MyMiningListBean;
@@ -30,6 +31,7 @@ import com.lambda.wallet.bean.proposal.ParameterChangeProposalBean;
 import com.lambda.wallet.bean.proposal.ProposalListBean;
 import com.lambda.wallet.bean.proposal.SoftwareUpgradeProposalBean;
 import com.lambda.wallet.bean.proposal.TextProposalBean;
+import com.lambda.wallet.modules.assets.FoundDetailActivity;
 import com.lambda.wallet.modules.mining.orderdetails.OrderDetailsActivity;
 import com.lambda.wallet.modules.mining.storemarket.buystore.BuyStoreActivity;
 import com.lambda.wallet.modules.producer.ProducerDetailsActivity;
@@ -63,23 +65,90 @@ public class AdapterManger<T> {
         return mCommonAdapter;
     }
 
+
+    /***
+     * 获取增发类型
+     * @return
+     */
+    private static  String getAssetState(Context context,String type) {
+        String res = "";
+        switch (type) {
+            case "0":
+                res = context.getResources().getString(R.string.title_btn_pre_mining);
+                break;
+            case "1":
+                res = context.getResources().getString(R.string.str_pre_mining_completed);
+                break;
+            case "2":
+                res = context.getResources().getString(R.string.str_authorized_additional_issuance);
+                break;
+            case "3":
+                res = context.getResources().getString(R.string.str_additional_issuance_completed);
+                break;
+        }
+        return res;
+    }
+
     public static CommonAdapter getCoinAdapter(final Context context, List<HomeAddressDetailsBean.ValueBean.CoinsBean> mAccountWithCoinBeen) {
         mCommonAdapter = new CommonAdapter<HomeAddressDetailsBean.ValueBean.CoinsBean>(context, R.layout.item_account_with_coin, mAccountWithCoinBeen) {
             @Override
             protected void convert(ViewHolder holder, HomeAddressDetailsBean.ValueBean.CoinsBean item, int position) {
-                ImageView imageView = holder.getView(R.id.token_img);
-                if (item.getDenom().toLowerCase().equals("ulamb")) {
-                    imageView.setImageDrawable(mContext.getResources().getDrawable(R.mipmap.icon_lamb));
+                ImageView imageView = holder.getView(R.id.right_arrow);
+                TextView statusTv = holder.getView(R.id.status);
+
+
+                holder.setText(R.id.token, StringUtils.lambdaToken(item.getDenom()) );
+                holder.setText(R.id.amount, StringUtils.addComma(item.getAmount())+ "  " + StringUtils.lambdaToken(item.getDenom())  );
+
+                if (item.getType() == null){
+                    imageView.setVisibility(View.GONE);
+                    statusTv.setVisibility(View.GONE);
+
+                }else {
+                    imageView.setVisibility(View.VISIBLE);
+                    statusTv.setVisibility(View.VISIBLE);
+                    statusTv.setText(getAssetState(context,item.getType()));
+
+                    if (item.getType().equalsIgnoreCase("0")) {
+                        statusTv.setBackground(mContext.getResources().getDrawable(R.drawable.bg_green_status));
+                        statusTv.setVisibility(View.VISIBLE);
+                    } else {
+                        statusTv.setVisibility(View.GONE);
+                    }
+
+                    holder.getConvertView().setOnClickListener(new NoDoubleClickListener() {
+                        @Override
+                        protected void onNoDoubleClick(View v) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("address", item.getDenom());
+                            ActivityUtils.next((Activity) mContext, FoundDetailActivity.class,bundle);
+                        }
+                    });
+
                 }
-                if (item.getDenom().toLowerCase().equals("utbb")) {
-                    imageView.setImageDrawable(mContext.getResources().getDrawable(R.mipmap.icon_tbb));
-                }
-                holder.setText(R.id.token, StringUtils.lambdaToken(item.getDenom()));
-                holder.setText(R.id.amount, StringUtils.addComma(item.getAmount()));
             }
         };
         return mCommonAdapter;
     }
+
+
+    public static CommonAdapter getAssetsAdapter(final Context context, List<HomeAssetBean> mAccountWithCoinBeen) {
+        mCommonAdapter = new CommonAdapter<HomeAssetBean>(context, R.layout.item_account_asset, mAccountWithCoinBeen) {
+            @Override
+            protected void convert(ViewHolder holder, HomeAssetBean item, int position) {
+
+                holder.setText(R.id.assets_coin_name_tv, StringUtils.lambdaToken(item.getAsset().getDenom()));
+
+                holder.setText(R.id.assets_coin_btc_available_tv, item.getName());
+
+                holder.setText(R.id.assets_coin_btc_legal_tv, item.getName());
+
+
+            }
+        };
+        return mCommonAdapter;
+    }
+
 
     public static CommonAdapter getWalletAdapter(final Context context, List<UserBean> mAccountWithCoinBeen) {
         mCommonAdapter = new CommonAdapter<UserBean>(context, R.layout.item_wallet, mAccountWithCoinBeen) {
@@ -200,9 +269,9 @@ public class AdapterManger<T> {
                 }
                 try {
                     for (int i = 0; i < item.getLogs().size(); i++) {
-                        if (item.getLogs().get(i).isSuccess()){
+                        if (item.getLogs().get(i).isSuccess()) {
                             status.setText(mContext.getString(R.string.success));
-                        }else{
+                        } else {
                             status.setText(mContext.getString(R.string.fail));
                         }
                     }
@@ -226,7 +295,7 @@ public class AdapterManger<T> {
         return mCommonAdapter;
     }
 
-    public static CommonAdapter getTransferHistoryDetailsAdapter(final Context context, List<TransactionDetailBean.TxBean.ValueBeanX.MsgBean> historyBeanList,String fail,int failPosition) {
+    public static CommonAdapter getTransferHistoryDetailsAdapter(final Context context, List<TransactionDetailBean.TxBean.ValueBeanX.MsgBean> historyBeanList, String fail, int failPosition) {
         mCommonAdapter = new CommonAdapter<TransactionDetailBean.TxBean.ValueBeanX.MsgBean>(context, R.layout.item_detail_historyl, historyBeanList) {
             @Override
             protected void convert(ViewHolder holder, TransactionDetailBean.TxBean.ValueBeanX.MsgBean item, int position) {
@@ -234,26 +303,26 @@ public class AdapterManger<T> {
                 View line = holder.getView(R.id.fail_line);
                 TextView failMessage = holder.getView(R.id.fail);
                 holder.setText(R.id.sender, item.getValue().getFrom_address());
-                holder.setText(R.id.receiver,item.getValue().getTo_address());
+                holder.setText(R.id.receiver, item.getValue().getTo_address());
                 String amountStr = "";
                 try {
                     for (int i = 0; i < item.getValue().getAmount().size(); i++) {
-                        amountStr += " "+StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getValue().getAmount().get(i).getAmount()).toString()) + StringUtils.lambdaToken(item.getValue().getAmount().get(i).getDenom());
+                        amountStr += " " + StringUtils.addComma(BigDecimalUtil.toLambdaBigDecimal(item.getValue().getAmount().get(i).getAmount()).toString()) + StringUtils.lambdaToken(item.getValue().getAmount().get(i).getDenom());
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 if (!TextUtils.isEmpty(amountStr)) {
                     amount.setText(amountStr);
-                }else {
+                } else {
                     amount.setText(" ");
                 }
 
-                if (failPosition!=-1&&failPosition==position){
+                if (failPosition != -1 && failPosition == position) {
                     line.setVisibility(View.VISIBLE);
                     failMessage.setVisibility(View.VISIBLE);
-                    failMessage.setText(mContext.getString(R.string.reason)+fail);
-                }else {
+                    failMessage.setText(mContext.getString(R.string.reason) + fail);
+                } else {
                     line.setVisibility(View.GONE);
                     failMessage.setVisibility(View.GONE);
                 }

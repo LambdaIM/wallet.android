@@ -5,11 +5,13 @@ import android.content.Context;
 import com.lambda.wallet.base.BasePresent;
 import com.lambda.wallet.base.BaseUrl;
 import com.lambda.wallet.bean.HomeAddressDetailsBean;
+import com.lambda.wallet.bean.HomeAssetBean;
 import com.lambda.wallet.net.HttpUtils;
 import com.lambda.wallet.net.callbck.JsonCallback;
 import com.lzy.okgo.model.Response;
 
 import java.util.HashMap;
+import java.util.List;
 
 
 public class HomePresenter extends BasePresent<HomeView> {
@@ -35,6 +37,25 @@ public class HomePresenter extends BasePresent<HomeView> {
         });
 
     }
+
+    /***
+     * 获取资产列表
+     */
+    public void getServerAssetsFundList(){
+        HttpUtils.getRequets(BaseUrl.HTTP_Get_Asset_Fund_List , mContext, new HashMap<>(), new JsonCallback<List <HomeAssetBean>>() {
+            @Override
+            public void onSuccess(Response <List <HomeAssetBean>> response) {
+                try {
+                    if (response.body() != null) {
+                        view.getServerAssetsFundList(response.body());
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+
+                }
+            }
+        });
+    };
 
 
 }

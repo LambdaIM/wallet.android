@@ -169,4 +169,9 @@
     <color name="money_color">#F5A623</color>
     <color name="order_green_color">#56BD8B</color>
     <color name="red_color">#ED204E</color>
+
+    <color name="text_common_color">#333333</color>
+
+
+
 </resources>

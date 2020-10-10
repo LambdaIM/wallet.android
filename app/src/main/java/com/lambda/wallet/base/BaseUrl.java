@@ -19,6 +19,25 @@ public class BaseUrl {
     // 获取市场相关指标接口
     public final static String HTTP_Get_markets_param = "/market/params";
 
+    // 资产列表
+    public final static String HTTP_Get_Asset_Fund_List = "/asset/all";
+    // 资产详情
+    public final static String HTTP_Get_Asset_Detail = "/asset/symbol";
+    // 挖矿详情
+    public final static String HTTP_Get_Mining_Detail = "/asset/fund";
+
+    // 我的预挖矿
+    public final static String HTTP_Get_Fund_Info_Mine = "/asset/fund_info";
+
+
+    //获取预挖矿的gas
+    public final static String HTTP_Get_Asset_INVEST = "/asset/invest";
+
+
+
+
+
+
 
     // 获取转账gas
     public final static String HTTP_Get_transfer_gas = "/bank/accounts/";

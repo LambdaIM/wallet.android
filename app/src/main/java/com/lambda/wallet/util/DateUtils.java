@@ -419,4 +419,23 @@ public class DateUtils {
         }
         return GTMDate;
     }
+
+
+    public static String currentDate(String time ){
+        time = time.replace("Z"," UTC");//UTC是世界标准时间
+        SimpleDateFormat format =new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS Z");
+       Date resdate = null;
+        try {
+            resdate = format.parse(time);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String wantTime = sf.format(resdate);
+      return wantTime ;
+    }
+
+
+
+
 }

@@ -12,7 +12,13 @@ import android.view.ViewGroup;
 
 import com.lambda.wallet.R;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import me.ljp.permission.HiPermission;
 import me.ljp.permission.PermissionCallback;
@@ -192,5 +198,39 @@ public final class Utils {
         }
         return data;
     }
+
+
+    public static String limitPercent(int max, double value, RoundingMode mode) {
+        String num = limitFmt(max, value, mode);
+        BigDecimal b = new BigDecimal(num);
+        num = b.setScale(3, BigDecimal.ROUND_HALF_UP).toString();
+        if (Double.parseDouble(num) > 0) {
+            return   num  + "%" ;
+        } else {
+
+            return num + "%";
+        }
+    }
+
+    public static String limitFmt(int max, double value, RoundingMode mode) {
+        if (max > 0) {
+            if (value != 0.0) {
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.append("0.");
+                for (int i = 0; i < max; i++) {
+                    stringBuilder.append("0");
+                }
+                DecimalFormat format = new DecimalFormat(stringBuilder.toString(), new DecimalFormatSymbols(Locale.US));
+                format.setRoundingMode(mode);
+                return format.format(value);
+            } else {
+                return "0";
+            }
+        } else {
+            return Double.toString(value);
+        }
+    }
+
+
 
 }

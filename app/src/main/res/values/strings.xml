@@ -299,4 +299,49 @@
 
     <string name="token">金额 </string>
     <string name="reason">原因:</string>
+
+
+    <string name="coin_amount">数量 </string>
+    <string name="coin_pledge_reward">质押奖励</string>
+    <string name="coin_pledge_amount">质押数量</string>
+    <string name="title_asset_title">资产详情</string>
+
+    <string name="title_full_name_assets">资产全称</string>
+    <string name="title_state">状态</string>
+    <string name="title_additional_issue_type">增发类型</string>
+    <string name="title_end_time">结束时间</string>
+    <string name="title_initial_circulation">初始发行量</string>
+    <string name="title_total_circulation">总发行量</string>
+    <string name="title_number_pre_mining">预挖矿数量</string>
+    <string name="title_total_participation_amount">总参与额度</string>
+    <string name="title_degree_completion">完成度</string>
+    <string name="title_btn_pre_mining">预挖矿</string>
+
+
+    <string name="str_no_additional_issuance">不可增发</string>
+    <string name="str_one_time_additional_issuance">一次性增发</string>
+    <string name="strmining_additional_issuance">挖矿增发</string>
+
+    <string name="str_pre_mining_completed">预挖矿完成</string>
+    <string name="str_authorized_additional_issuance">授权增发</string>
+    <string name="str_additional_issuance_completed">增发完成</string>
+
+
+    <string name="title_my_participation_quota">我的参与额度:</string>
+    <string name="title_expect_mining">预计挖矿:</string>
+
+
+    <string name="pre_rule_pledge_attention">规则说明：\n 1.预挖矿获取的资产额度，和用于预挖矿的资产占总预挖矿资产占比，成正比\n 2.预挖矿结束后，发放资产\n 3.预挖矿期间，资产不可交易\n </string>
+
+
+
+    <string name="finish_rule_pledge_attention">规则说明:\n 1.资产没有关联市场，矿工将无法挖矿，如果需要矿工挖矿，需要创建市场</string>
+
+
+
+
+
+
+
+
 </resources>

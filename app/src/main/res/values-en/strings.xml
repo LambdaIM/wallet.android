@@ -301,4 +301,43 @@ If you have the requirement, please click again. </string>
     <string name="chain_info_erro">Node link error</string>
     <string name="token">Amount </string>
     <string name="reason">Reason:</string>
+
+
+    <string name="coin_amount">Quantity </string>
+    <string name="coin_pledge_reward">Pledge Reward</string>
+    <string name="coin_pledge_amount">Pledge Amount</string>
+    <string name="title_asset_title">Asset details</string>
+
+    <string name="title_full_name_assets">Full Name</string>
+    <string name="title_state">State</string>
+    <string name="title_additional_issue_type">Additional Issue Type </string>
+    <string name="title_end_time">EndTime </string>
+    <string name="title_initial_circulation">Initial Issuance</string>
+    <string name="title_total_circulation">Total Issuance</string>
+    <string name="title_number_pre_mining">Amount of Pre-mining</string>
+    <string name="title_total_participation_amount">Total Participation Amount</string>
+    <string name="title_degree_completion">State of Completion</string>
+    <string name="title_btn_pre_mining">Pre-mining</string>
+
+
+    <string name="str_no_additional_issuance">No Additional Issuance</string>
+    <string name="str_one_time_additional_issuance">One-off Additional Issuance</string>
+    <string name="strmining_additional_issuance">Mining Additional Issuance</string>
+
+    <string name="str_pre_mining_completed">Pre-mining Completed </string>
+    <string name="str_authorized_additional_issuance">Authorized Additional Issuance</string>
+    <string name="str_additional_issuance_completed">Additional Issuance Completed</string>
+
+
+    <string name="title_my_participation_quota">My participation quota:</string>
+    <string name="title_expect_mining">Expected mining:</string>
+
+    <string name="pre_rule_pledge_attention">Rule description:\n
+1. The amount of assets acquired by pre-mining is directly proportion to the proportion of assets used for pre-mining to the total pre-mining assets
+\n 2. After the pre-mining completed, assets will be issued
+        \n 3. During the pre-mining period, assets cannot be traded</string>
+
+    <string name="finish_rule_pledge_attention">Rule description:\n 1. If there is no associated market for assets, miners will not be able to mine. If miners are required to mine, a market needs to be created </string>
+
+
 </resources>

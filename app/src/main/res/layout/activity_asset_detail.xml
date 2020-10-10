@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical"
+    tools:context="com.lambda.wallet.modules.assets.FoundDetailActivity">
+
+    <include layout="@layout/title_project" />
+
+    <com.lambda.wallet.view.MyScrollview
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:paddingLeft="@dimen/dimens_15"
+        android:paddingRight="@dimen/dimens_15"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/top_linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimens_15"
+                android:background="@drawable/bg_dialog_confirm"
+                android:orientation="vertical"
+                android:padding="@dimen/dimens_15">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/title_expect_mining"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:text="@string/title_expect_mining"
+                        android:textColor="@color/title_color"
+                        android:textSize="@dimen/dimens_16" />
+
+                    <TextView
+                        android:id="@+id/id_expect_mining"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dimens_15"
+                        android:layout_toRightOf="@+id/title_expect_mining"
+                        android:textColor="@color/text_common_color"
+                        android:textSize="@dimen/dimens_16" />
+
+                </RelativeLayout>
+
+
+                <!--我的参与额度:-->
+                <RelativeLayout
+                    android:id="@+id/relay_pre_miming"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_15">
+
+                    <TextView
+                        android:id="@+id/title_my_participation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:text="@string/title_my_participation_quota"
+                        android:textColor="@color/title_color"
+                        android:textSize="@dimen/dimens_16" />
+
+                    <TextView
+                        android:id="@+id/id_my_participation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dimens_15"
+                        android:layout_toRightOf="@+id/title_my_participation"
+                        android:gravity="right|center_vertical"
+                        android:text="adfa"
+                        android:textColor="@color/text_common_color"
+                        android:textSize="@dimen/dimens_16" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/title_name_kind_input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/dimens_10"
+                        android:paddingTop="@dimen/dimens_15"
+                        android:paddingBottom="@dimen/dimens_15"
+                        android:textColor="@color/title_color"
+                        android:textSize="@dimen/dimens_16"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+
+                <com.lambda.wallet.view.ClearEditText
+                    android:id="@+id/amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_48"
+                    android:background="@drawable/bg_gray_confirm"
+                    android:hint="@string/hint_input_amount"
+                    android:inputType="numberDecimal"
+                    android:paddingLeft="@dimen/dimens_20"
+                    android:paddingRight="@dimen/dimens_20"
+                    android:textColor="@color/title_color"
+                    android:textCursorDrawable="@drawable/edittext_cursor"
+                    android:textSize="@dimen/dimens_15" />
+
+
+                <Button
+                    android:id="@+id/go"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_48"
+                    android:layout_marginLeft="@dimen/dimens_30"
+                    android:layout_marginTop="@dimen/dimens_50"
+                    android:layout_marginRight="@dimen/dimens_30"
+                    android:layout_marginBottom="@dimen/dimens_10"
+                    android:background="@drawable/bg_sure_btn"
+                    android:text="@string/title_btn_pre_mining"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimens_16" />
+
+
+            </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimens_15"
+            android:background="@drawable/bg_dialog_confirm"
+            android:orientation="vertical"
+            android:padding="@dimen/dimens_15">
+            <!--资产全称-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_65">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:text="@string/title_full_name_assets"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_16" />
+
+                <TextView
+                    android:id="@+id/asset_fullname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="right|center_vertical"
+                    android:paddingRight="@dimen/dimens_10"
+                    android:textColor="@color/text_common_color"
+                    android:textSize="@dimen/dimens_14" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_1"
+                android:background="@color/line" />
+
+            <!--增发类型-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_65">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:text="@string/title_additional_issue_type"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_16" />
+
+                <TextView
+                    android:id="@+id/additional_issue_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="right|center_vertical"
+                    android:paddingRight="@dimen/dimens_10"
+                    android:textColor="@color/text_common_color"
+                    android:textSize="@dimen/dimens_14" />
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_1"
+                android:background="@color/line" />
+
+
+            <!--状态-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_65">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:text="@string/title_state"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_16" />
+
+                <TextView
+                    android:id="@+id/asset_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="right|center_vertical"
+                    android:paddingRight="@dimen/dimens_10"
+                    android:textColor="@color/text_common_color"
+                    android:textSize="@dimen/dimens_14" />
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_1"
+                android:background="@color/line" />
+            <!--结束时间-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_65">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:text="@string/title_end_time"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_16" />
+
+                <TextView
+                    android:id="@+id/asset_endtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="right|center_vertical"
+                    android:paddingRight="@dimen/dimens_10"
+                    android:textColor="@color/text_common_color"
+                    android:textSize="@dimen/dimens_14" />
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_1"
+                android:background="@color/line" />
+            <!--初始发行量-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_65">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:text="@string/title_initial_circulation"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_16" />
+
+                <TextView
+                    android:id="@+id/asset_initial_circulationc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="right|center_vertical"
+                    android:paddingRight="@dimen/dimens_10"
+                    android:textColor="@color/text_common_color"
+                    android:textSize="@dimen/dimens_14" />
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_1"
+                android:background="@color/line" />
+            <!--总发行-->
+            <RelativeLayout
+                android:id="@+id/all_send"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_65">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:text="@string/title_total_circulation"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_16" />
+
+                <TextView
+                    android:id="@+id/asset_total_circulationc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="right|center_vertical"
+                    android:paddingRight="@dimen/dimens_10"
+                    android:textColor="@color/text_common_color"
+                    android:textSize="@dimen/dimens_14" />
+
+            </RelativeLayout>
+
+
+            <View
+                android:id="@+id/all_send_line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_1"
+                android:background="@color/line" />
+            <!--预挖矿数量-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_65">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:text="@string/title_number_pre_mining"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_16" />
+
+                <TextView
+                    android:id="@+id/asset_num_pre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="right|center_vertical"
+                    android:paddingRight="@dimen/dimens_10"
+                    android:textColor="@color/text_common_color"
+                    android:textSize="@dimen/dimens_14" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_1"
+                android:background="@color/line" />
+            <!--总参与程度-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_65">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:text="@string/title_total_participation_amount"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_16" />
+
+                <TextView
+                    android:id="@+id/asset_total_participation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="right|center_vertical"
+                    android:paddingRight="@dimen/dimens_10"
+                    android:textColor="@color/text_common_color"
+                    android:textSize="@dimen/dimens_14" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_1"
+                android:background="@color/line" />
+            <!--总完成度-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_65">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:text="@string/title_degree_completion"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_16" />
+
+                <TextView
+                    android:id="@+id/asset_total_completetion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="right|center_vertical"
+                    android:paddingRight="@dimen/dimens_10"
+                    android:textColor="@color/text_common_color"
+                    android:textSize="@dimen/dimens_14" />
+
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_1"
+                android:background="@color/line" />
+
+            <!--预计挖矿:-->
+            <TextView
+                android:id="@+id/id_show_concern"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimens_10"
+                android:lineSpacingExtra="@dimen/dimens_8"
+                android:lineSpacingMultiplier="1.2"
+                android:paddingTop="@dimen/dimens_20"
+                android:paddingBottom="@dimen/dimens_15"
+                android:text="@string/pre_rule_pledge_attention"
+                android:textColor="@color/red_color"
+                android:textSize="@dimen/dimens_12" />
+
+        </LinearLayout>
+        </LinearLayout>
+    </com.lambda.wallet.view.MyScrollview>
+
+</LinearLayout>

@@ -21,6 +21,7 @@ import com.lambda.wallet.app.MyApplication;
 import com.lambda.wallet.base.BaseFragment;
 import com.lambda.wallet.base.Constants;
 import com.lambda.wallet.bean.HomeAddressDetailsBean;
+import com.lambda.wallet.bean.HomeAssetBean;
 import com.lambda.wallet.modules.scancode.ScanCodeActivity;
 import com.lambda.wallet.modules.transaction.exchange.activity.ExchangeActivity;
 import com.lambda.wallet.modules.transaction.makecollection.MakeCollectionActivity;
@@ -67,18 +68,35 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
     TextView mTxt;
     @BindView(R.id.recycle_token)
     RecyclerView mRecycleToken;
+
+    @BindView(R.id.id_txt_assets)
+    TextView mAssetsTxt;
+    @BindView(R.id.recycle_assets)
+    RecyclerView mRecycleAssets;
+
     @BindView(R.id.scrollView)
     MyScrollview mScrollView;
+
+
     @BindView(R.id.spring)
     SpringView mSpring;
     @BindView(R.id.iv_scan)
     ImageView mIvScan;
 
     BigDecimal allMoney = new BigDecimal(0);
-
+    // 之前的钱包信息
     CommonAdapter mCommonAdapter;
+
+    //资产列表
+    CommonAdapter massetAdapter;
+
     ArrayList<HomeAddressDetailsBean.ValueBean.CoinsBean> mCoinsBeans = new ArrayList<>();
     List<String> tokenList = new ArrayList<>();//用户资产下所拥有的token
+    // 链上资产
+    List<HomeAssetBean> mHomeAsset = new ArrayList<>();
+
+
+
 
     @Override
     protected int getContentViewLayoutID() {
@@ -131,6 +149,8 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
     @Override
     public void onResume() {
         super.onResume();
+        //链上资产
+        presenter.getServerAssetsFundList();
         presenter.getAddressDetailsData(MyApplication.getInstance().getUserBean().getAddress());
 
     }
@@ -208,6 +228,7 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
         mCommonAdapter = AdapterManger.getCoinAdapter(getActivity(), mCoinsBeans);
         mRecycleToken.setAdapter(mCommonAdapter);
 
+
         if (homeAddressDetailsBean.getValue().getCoins() == null) {
             List<HomeAddressDetailsBean.ValueBean.CoinsBean> coinsBeanList = new ArrayList<>();
             HomeAddressDetailsBean.ValueBean.CoinsBean coinsBean = new HomeAddressDetailsBean.ValueBean.CoinsBean();
@@ -248,6 +269,19 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
             mCoinsBeans.add(1, coinsBean);
         }
 
+
+        if (this.mHomeAsset.size() > 0){
+            for (int i = 0; i <this.mHomeAsset.size(); i++) {
+                HomeAssetBean.AssetBean assetBean =  this.mHomeAsset.get(i).getAsset();
+                HomeAddressDetailsBean.ValueBean.CoinsBean coinsBean = new HomeAddressDetailsBean.ValueBean.CoinsBean();
+                coinsBean.setAmount("0");
+                coinsBean.setDenom(assetBean.getDenom());
+                coinsBean.setType(this.mHomeAsset.get(i).getStatus());
+                mCoinsBeans.add(coinsBean);
+            }
+        }
+
+
         for (int i = 0; i < mCoinsBeans.size(); i++) {
             if (mCoinsBeans.get(i).getDenom().toLowerCase().equals("ulamb")) {
                 Utils.getSpUtils().put(Constants.SpInfo.LAMB, mCoinsBeans.get(i).getAmount());
@@ -262,6 +296,31 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
         mCommonAdapter.notifyDataSetChanged();
 
     }
+
+    @Override
+    public void getServerAssetsFundList(List<HomeAssetBean> homeAssetBean) {
+        mSpring.onFinishFreshAndLoad();
+        mCoinsBeans = new ArrayList<>();
+        tokenList = new ArrayList<>();
+        allMoney = new BigDecimal(0);
+
+
+        // 余额
+        presenter.getAddressDetailsData(MyApplication.getInstance().getUserBean().getAddress());
+
+        this.mHomeAsset = homeAssetBean;
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        layoutManager.setSmoothScrollbarEnabled(true);
+        mRecycleAssets.setLayoutManager(layoutManager);
+        massetAdapter = AdapterManger.getAssetsAdapter(getActivity(), homeAssetBean);
+        mRecycleAssets.setAdapter(massetAdapter);
+
+        massetAdapter.notifyDataSetChanged();
+
+    }
+
+
 
 
 }

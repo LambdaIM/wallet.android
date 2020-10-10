@@ -94,6 +94,12 @@
             android:name=".modules.me.setting.SettingActivity"
             android:screenOrientation="portrait">
         </activity>
+
+        <activity
+            android:name=".modules.assets.FoundDetailActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity
             android:name=".modules.transaction.transfer.TransferActivity"
             android:screenOrientation="portrait">

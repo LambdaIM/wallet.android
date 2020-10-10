@@ -224,7 +224,7 @@
                             android:id="@+id/txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Token"
+                            android:text="@string/tab_home"
                             android:textColor="@color/title_color"
                             android:textSize="@dimen/dimens_18"
                             android:textStyle="bold"/>
@@ -235,7 +235,31 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/txt"
                             android:layout_marginTop="@dimen/dimens_15"
+
                             android:scrollbars="none"/>
+
+
+                        <TextView
+                            android:id="@+id/id_txt_assets"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tab_home"
+                            android:textColor="@color/title_color"
+                            android:textSize="@dimen/dimens_18"
+                            android:visibility="gone"
+                            android:textStyle="bold"/>
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/recycle_assets"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txt"
+                            android:layout_marginTop="@dimen/dimens_15"
+                            android:visibility="gone"
+                            android:scrollbars="none"/>
+
+
+
 
                         <TextView
                             android:layout_width="match_parent"
