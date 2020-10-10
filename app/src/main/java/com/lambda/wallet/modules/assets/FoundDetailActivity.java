@@ -368,7 +368,7 @@ public class FoundDetailActivity extends BaseAcitvity<FoundDetailView, FoundDeta
         expectMining.setVisibility(View.GONE);
         relayPre.setVisibility(View.GONE);
         titlePreName.setVisibility(View.GONE);
-        topLinear.setVisibility(View.GONE);
+//        topLinear.setVisibility(View.GONE);
     }
 
 
