@@ -247,9 +247,9 @@ public class FoundDetailActivity extends BaseAcitvity<FoundDetailView, FoundDeta
 
         if (assetBean != null) {
             //总发行
-            expectMining.setText(StringUtils.addComma(StringUtils.deletzero(BigDecimalUtil.divide(new BigDecimal(assetBean.getAsset().getAmount()), new BigDecimal(1000000), 1).toString())).toString() + StringUtils.lambdaToken(assetBean.getAsset().getDenom()));
+//            expectMining.setText(StringUtils.addComma(StringUtils.deletzero(BigDecimalUtil.divide(new BigDecimal(assetBean.getAsset().getAmount()), new BigDecimal(1000000), 1).toString())).toString() + StringUtils.lambdaToken(assetBean.getAsset().getDenom()));
 
-
+            topLinear.setVisibility(View.VISIBLE);
             titlePre.setText(getResources().getString(R.string.token) + "(" + StringUtils.lambdaToken(assetBean.getFund_asset().getDenom() + ")"));
             shortStr = assetBean.getFund_asset().getDenom();
             //初始发行
@@ -260,7 +260,7 @@ public class FoundDetailActivity extends BaseAcitvity<FoundDetailView, FoundDeta
             mtotalParticipation.setText(StringUtils.addComma(StringUtils.deletzero(BigDecimalUtil.divide(new BigDecimal(assetBean.getFund_asset().getAmount()), new BigDecimal(1000000), 1).toString())).toString() + StringUtils.lambdaToken(assetBean.getFund_asset().getDenom()));
 
 
-            double mutiData = 100 *  Double.parseDouble(assetBean.getAmount()) / Double.parseDouble( assetBean.getFund_asset().getAmount())  ;
+            double mutiData = 100 * Double.parseDouble(assetBean.getAmount()) / Double.parseDouble(assetBean.getFund_asset().getAmount());
 
 
             mtotalCompletion.setText(Utils.limitPercent(3, mutiData, RoundingMode.DOWN));
@@ -282,9 +282,11 @@ public class FoundDetailActivity extends BaseAcitvity<FoundDetailView, FoundDeta
             expectMining.setVisibility(View.VISIBLE);
             myPartticipation.setVisibility(View.VISIBLE);
             titlePreName.setVisibility(View.VISIBLE);
+            topLinear.setVisibility(View.VISIBLE);
+
             // 预计挖矿
 
-            expectMining.setText( StringUtils.addComma(StringUtils.deletzero( BigDecimalUtil.divide(new BigDecimal(assetBean.getStake().getAmount()), new BigDecimal(1000000), 6).toString())).toString() + StringUtils.lambdaToken(assetBean.getStake().getDenom()));
+            expectMining.setText(StringUtils.addComma(StringUtils.deletzero(BigDecimalUtil.divide(new BigDecimal(assetBean.getStake().getAmount()), new BigDecimal(1000000), 6).toString())).toString() + StringUtils.lambdaToken(assetBean.getStake().getDenom()));
 
 
             myPartticipation.setText(StringUtils.addComma(StringUtils.deletzero(BigDecimalUtil.divide(new BigDecimal(assetBean.getInvest().getAmount()), new BigDecimal(1000000), 1).toString())).toString() + StringUtils.lambdaToken(assetBean.getInvest().getDenom()));
@@ -368,7 +370,7 @@ public class FoundDetailActivity extends BaseAcitvity<FoundDetailView, FoundDeta
         expectMining.setVisibility(View.GONE);
         relayPre.setVisibility(View.GONE);
         titlePreName.setVisibility(View.GONE);
-//        topLinear.setVisibility(View.GONE);
+        topLinear.setVisibility(View.GONE);
     }
 
 
@@ -386,7 +388,7 @@ public class FoundDetailActivity extends BaseAcitvity<FoundDetailView, FoundDeta
                 break;
             case "2":
                 res = getResources().getString(R.string.str_one_time_additional_issuance);
-                mAssetAdditional.setTextColor(getResources().getColor(R.color.gray_color));
+                mAssetAdditional.setTextColor(getResources().getColor(R.color.title_color));
 
                 break;
             case "3":

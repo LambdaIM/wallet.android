@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.ClipboardManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -96,8 +97,6 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
     List<HomeAssetBean> mHomeAsset = new ArrayList<>();
 
 
-
-
     @Override
     protected int getContentViewLayoutID() {
         return R.layout.fragment_home;
@@ -135,6 +134,7 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
             @Override
             public void onRefresh() {
                 presenter.getAddressDetailsData(MyApplication.getInstance().getUserBean().getAddress());
+                presenter.getServerAssetsFundList();
             }
 
             @Override
@@ -151,8 +151,6 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
         super.onResume();
         //链上资产
         presenter.getServerAssetsFundList();
-        presenter.getAddressDetailsData(MyApplication.getInstance().getUserBean().getAddress());
-
     }
 
     @Override
@@ -262,7 +260,7 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
             coinsBean.setAmount("0");
             coinsBean.setDenom("utbb");
             mCoinsBeans.add(1, coinsBean);
-        }else if (tokenList.contains("ulamb") && !tokenList.contains("utbb")) {
+        } else if (tokenList.contains("ulamb") && !tokenList.contains("utbb")) {
             HomeAddressDetailsBean.ValueBean.CoinsBean coinsBean = new HomeAddressDetailsBean.ValueBean.CoinsBean();
             coinsBean.setAmount("0");
             coinsBean.setDenom("utbb");
@@ -270,14 +268,16 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
         }
 
 
-        if (this.mHomeAsset.size() > 0){
-            for (int i = 0; i <this.mHomeAsset.size(); i++) {
-                HomeAssetBean.AssetBean assetBean =  this.mHomeAsset.get(i).getAsset();
+        if (this.mHomeAsset.size() > 0) {
+            for (int i = 0; i < this.mHomeAsset.size(); i++) {
+                HomeAssetBean.AssetBean assetBean = this.mHomeAsset.get(i).getAsset();
                 HomeAddressDetailsBean.ValueBean.CoinsBean coinsBean = new HomeAddressDetailsBean.ValueBean.CoinsBean();
                 coinsBean.setAmount("0");
                 coinsBean.setDenom(assetBean.getDenom());
                 coinsBean.setType(this.mHomeAsset.get(i).getStatus());
-                mCoinsBeans.add(coinsBean);
+                if (!isHasCoin(coinsBean)){
+                    mCoinsBeans.add(coinsBean);
+                }
             }
         }
 
@@ -292,9 +292,28 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
                 Utils.getSpUtils().put(Constants.SpInfo.TBB, mCoinsBeans.get(i).getAmount());
             }
         }
+
+
         mUserAllProperty.setText(StringUtils.addComma(allMoney.toString()));
         mCommonAdapter.notifyDataSetChanged();
 
+    }
+
+    /****
+     * 检测是不是存在该币
+     * @param coinsBean
+     */
+    private boolean isHasCoin(HomeAddressDetailsBean.ValueBean.CoinsBean coinsBean) {
+
+        boolean flag = false;
+        for (int a = 0; a < mCoinsBeans.size(); a++) {
+            HomeAddressDetailsBean.ValueBean.CoinsBean tempCoin = mCoinsBeans.get(a);
+            if (coinsBean.getDenom().equalsIgnoreCase(tempCoin.getDenom())) {
+                flag = true;
+                mCoinsBeans.get(a).setType(coinsBean.getType());
+            }
+        }
+        return flag;
     }
 
     @Override
@@ -319,8 +338,6 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
         massetAdapter.notifyDataSetChanged();
 
     }
-
-
 
 
 }
