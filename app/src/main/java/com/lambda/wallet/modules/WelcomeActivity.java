@@ -81,10 +81,10 @@ public class WelcomeActivity extends BaseAcitvity<NormalView, NormalPresenter> i
     private void check() {
         try {
             if (TextUtils.isEmpty(Utils.getSpUtils().getString("url"))) {
-//                Utils.getSpUtils().put("url", "http://39.107.247.86:13659");//默认设置主网
+                Utils.getSpUtils().put("url", "http://39.107.247.86:13659");//默认设置主网
 
 
-                Utils.getSpUtils().put("url", "http://47.94.197.75:13659");
+//                Utils.getSpUtils().put("url", "http://47.94.197.75:13659");
             }
 
             if (!TextUtils.isEmpty(Utils.getSpUtils().getString(Constants.SpInfo.FIRSTUSER))) {
