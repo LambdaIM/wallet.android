@@ -11,5 +11,7 @@ public interface CancelMiningView extends BaseView {
 
 
     void getCancelZhiyaDataHttp(List<CancelZhiyaBean> cancelZhiyaBeanList);
+    // 没有数据时
+    void getCancelZhiyaDataHttp();
 
 }

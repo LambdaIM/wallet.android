@@ -32,10 +32,18 @@ public class MyMiningPresenter extends BasePresent<MyMiningView> {
                 try {
                     if (response.body() != null) {
                         view.getZhiyaDataHttp(response.body());
+                    }else {
+                        view.getZhiyaDataHttpError();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            }
+
+            @Override
+            public void onError(Response<List<ZhiyaProducerBean>> response) {
+                super.onError(response);
+                view.getZhiyaDataHttpError();
             }
         });
 
@@ -64,10 +72,18 @@ public class MyMiningPresenter extends BasePresent<MyMiningView> {
                 try {
                     if (response.body() != null) {
                         view.getForProducerAwardDataHttp(response.body(),address);
+                    }else {
+                        view.getZhiyaDataHttpError();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            }
+
+            @Override
+            public void onError(Response<List<AwardBean>> response) {
+                super.onError(response);
+                view.getZhiyaDataHttpError();
             }
         });
 

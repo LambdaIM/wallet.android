@@ -95,7 +95,9 @@ public class MiningFragment extends BaseFragment<MiningView, MiningPresenter> im
             mImmersionBar.hideBar(BarHide.FLAG_SHOW_BAR).statusBarDarkFont(true, 0.2f).titleBarMarginTop(mTitle).init();
             mProducersListBeanDetails.clear();
             mMyMiningListBeans.clear();
-            mCommonAdapter.notifyDataSetChanged();
+            if (mCommonAdapter != null){
+                mCommonAdapter.notifyDataSetChanged();
+            }
             allAward = new BigDecimal(0);
             award1 = new BigDecimal(0);
             award2 = new BigDecimal(0);

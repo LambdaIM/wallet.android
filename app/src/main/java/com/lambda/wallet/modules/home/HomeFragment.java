@@ -133,7 +133,7 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
         mSpring.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {
-                presenter.getAddressDetailsData(MyApplication.getInstance().getUserBean().getAddress());
+//                presenter.getAddressDetailsData(MyApplication.getInstance().getUserBean().getAddress());
                 presenter.getServerAssetsFundList();
             }
 
@@ -143,15 +143,24 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
             }
         });
 
-
+//        presenter.getServerAssetsFundList();
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        mCoinsBeans = new ArrayList<>();
+        mHomeAsset = new ArrayList<>();
         //链上资产
         presenter.getServerAssetsFundList();
+        if (mCommonAdapter != null){
+
+            mCommonAdapter.notifyDataSetChanged();
+        }
     }
+
+
+
 
     @Override
     protected void initData() {
@@ -336,6 +345,17 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
         mRecycleAssets.setAdapter(massetAdapter);
 
         massetAdapter.notifyDataSetChanged();
+
+    }
+
+    @Override
+    public void getServerAssetsError() {
+        mSpring.onFinishFreshAndLoad();
+        mCoinsBeans = new ArrayList<>();
+        tokenList = new ArrayList<>();
+        allMoney = new BigDecimal(0);
+        // 余额
+        presenter.getAddressDetailsData(MyApplication.getInstance().getUserBean().getAddress());
 
     }
 

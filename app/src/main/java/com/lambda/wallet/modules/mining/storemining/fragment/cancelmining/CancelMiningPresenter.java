@@ -28,10 +28,18 @@ public class CancelMiningPresenter extends BasePresent<CancelMiningView> {
                 try {
                     if (response.body() != null) {
                         view.getCancelZhiyaDataHttp(response.body());
+                    }else {
+                        view.getCancelZhiyaDataHttp();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            }
+
+            @Override
+            public void onError(Response<List<CancelZhiyaBean>> response) {
+                super.onError(response);
+                view.getCancelZhiyaDataHttp();
             }
         });
 

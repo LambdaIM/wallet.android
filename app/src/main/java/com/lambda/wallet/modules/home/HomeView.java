@@ -16,4 +16,6 @@ public interface HomeView extends BaseView {
 
     void getServerAssetsFundList(List<HomeAssetBean> homeAssetBean);
 
+    void getServerAssetsError();
+
 }

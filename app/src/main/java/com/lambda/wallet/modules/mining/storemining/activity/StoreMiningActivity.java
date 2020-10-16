@@ -50,8 +50,7 @@ public class StoreMiningActivity extends BaseAcitvity<NormalView, NormalPresente
         mTitles.add(getString(R.string.my_zhiya));
         mTitles.add(getString(R.string.cancel_zhiya));
 
-
-        MyMiningFragment myMiningFragment = new MyMiningFragment();
+         MyMiningFragment myMiningFragment = new MyMiningFragment();
         CancelMiningFragment cancelMiningFragment = new CancelMiningFragment();
         mFragments.add(myMiningFragment);
         mFragments.add(cancelMiningFragment);

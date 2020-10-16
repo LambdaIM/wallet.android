@@ -73,6 +73,7 @@ public class CancelMiningFragment extends LazyLoadFragment<CancelMiningView, Can
 
     }
 
+
     @Override
     public void getCancelZhiyaDataHttp(List<CancelZhiyaBean> cancelZhiyaBeanList) {
         mList.refreshComplete();
@@ -87,6 +88,12 @@ public class CancelMiningFragment extends LazyLoadFragment<CancelMiningView, Can
         }
         Collections.reverse(mMyCancelZhiYaBeans);//倒叙排列一下,按照时间顺序排列
         mCommonAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void getCancelZhiyaDataHttp() {
+        mList.refreshComplete();
+        mMyCancelZhiYaBeans.clear();
     }
 
     @Override

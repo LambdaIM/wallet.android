@@ -13,6 +13,9 @@ public interface MyMiningView extends BaseView {
 
 
     void getZhiyaDataHttp(List<ZhiyaProducerBean> zhiyaProducerBeans);
+    //
+    void getZhiyaDataHttpError();
+
 
     void getProducerDetailsDataHttp(ProducersDetailsBean producersDetailsBean);
 

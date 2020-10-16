@@ -1,5 +1,6 @@
 package com.lambda.wallet.bean.proposal;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -104,7 +105,7 @@ public class ProposalListBean  {
         this.total_deposit = total_deposit;
     }
 
-    public static class ContentBean {
+    public static class ContentBean implements Serializable {
         /**
          * type : cosmos-sdk/TextProposal
          * value : {"title":"文本提案中文换行测试","description":"诺贝尔化学奖揭晓。"}
@@ -113,6 +114,7 @@ public class ProposalListBean  {
         private String type;
         private Object value;
 
+        private List<BurnAmountBean> burn_amount;
         public String getType() {
             return type;
         }
@@ -129,6 +131,13 @@ public class ProposalListBean  {
             this.value = value;
         }
 
+        public List<BurnAmountBean> getBurn_amount() {
+            return burn_amount;
+        }
+
+        public void setBurn_amount(List<BurnAmountBean> burn_amount) {
+            this.burn_amount = burn_amount;
+        }
     }
 
     public static class FinalTallyResultBean {
@@ -174,6 +183,30 @@ public class ProposalListBean  {
 
         public void setNo_with_veto(String no_with_veto) {
             this.no_with_veto = no_with_veto;
+        }
+    }
+
+    public static class BurnAmountBean {
+
+
+        private String denom;
+        private String amount;
+
+
+        public String getDenom() {
+            return denom;
+        }
+
+        public void setDenom(String denom) {
+            this.denom = denom;
+        }
+
+        public String getAmount() {
+            return amount;
+        }
+
+        public void setAmount(String amount) {
+            this.amount = amount;
         }
     }
 

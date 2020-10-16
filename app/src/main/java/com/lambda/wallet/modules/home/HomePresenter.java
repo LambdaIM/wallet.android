@@ -34,6 +34,11 @@ public class HomePresenter extends BasePresent<HomeView> {
                     e.printStackTrace();
                 }
             }
+
+            @Override
+            public void onError(Response<HomeAddressDetailsBean> response) {
+                super.onError(response);
+            }
         });
 
     }
@@ -48,11 +53,19 @@ public class HomePresenter extends BasePresent<HomeView> {
                 try {
                     if (response.body() != null) {
                         view.getServerAssetsFundList(response.body());
+                    }else {
+                        view.getServerAssetsError();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
 
                 }
+            }
+
+            @Override
+            public void onError(Response<List<HomeAssetBean>> response) {
+                super.onError(response);
+                view.getServerAssetsError();
             }
         });
     };

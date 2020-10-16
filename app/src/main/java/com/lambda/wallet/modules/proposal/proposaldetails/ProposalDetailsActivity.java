@@ -203,7 +203,16 @@ public class ProposalDetailsActivity extends BaseAcitvity<ProposalDetailsView, P
             mDesc.setText(value.getDescription());
             mType.setText(R.string.burn_coins);
             mLLBurn.setVisibility(View.VISIBLE);
-            mBurn_amount.setText(StringUtils.deletzero(BigDecimalUtil.toLambdaBigDecimal(value.getBurn_amount().get(0).getAmount()).toString()) + "LAMB");
+            if (value.getBurn_amount() != null){
+                String temStr = "";
+                for (BurnCoinsProposalBean.BurnAmountBean tmp : value.getBurn_amount()) {
+                     temStr +=  StringUtils.deletzero(BigDecimalUtil.toLambdaBigDecimal(tmp.getAmount()).toString()) + StringUtils.lambdaToken(tmp.getDenom()) + ",";
+                }
+
+                mBurn_amount.setText(temStr);
+            }
+
+
         } else if (mProposalListBean.getContent().getType().contains("CommunityPoolSpendProposal")) {//社区基金
             CommunityPoolSpendProposalBean value = (CommunityPoolSpendProposalBean) JsonUtil.parseStringToBean(temp, CommunityPoolSpendProposalBean.class);
             mProposalTitle.setText(value.getTitle());

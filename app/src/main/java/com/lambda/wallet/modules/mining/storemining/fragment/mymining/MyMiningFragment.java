@@ -89,6 +89,11 @@ public class MyMiningFragment extends LazyLoadFragment<MyMiningView, MyMiningPre
     }
 
     @Override
+    public void getZhiyaDataHttpError() {
+        mList.refreshComplete();
+    }
+
+    @Override
     public void getProducerDetailsDataHttp(ProducersDetailsBean producersDetailsBean) {
         for (int i = 0; i < mMyMiningListBeans.size(); i++) {
             if (mMyMiningListBeans.get(i).getValidator_address().equals(producersDetailsBean.getOperator_address())) {
